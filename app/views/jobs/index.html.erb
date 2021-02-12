@@ -1,2 +1,12 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<h1>Jobs</h1>
+
+
+<table border="1">
+  <% @job.each do |job| %>
+    <tr>
+        <td> <%= job.company %> </td>
+        <td> <%= job.logo %> </td>
+        <td> <%= job.description %> </td>
+        <td><%= button_to "Apply" , job_applications_index_path(@job_application), method: 'get' %></td>
+  <% end %>
+</table>
