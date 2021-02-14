@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= link_to("<< Back to List", users_path, :class => 'back-link') %>
+
+<div class="users show">
+  <h2>Show User</h2>
+
+  <table summary="User detail view">
+    <tr>
+      <th>Email</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>Password</th>
+      <td><%= @user.password %></td>
+    </tr>
+    <tr>
+      <th>Role ID</th>
+      <td><%= @user.roleid %></td>
+    </tr>
+  </table>
+
+</div>

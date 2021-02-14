@@ -1,14 +1,14 @@
 <%= link_to("<< Back to List", users_path, :class => 'back-link') %>
 
-<div class="users edit">
-  <h2>Edit User</h2>
+<div class="users new">
+  <h2>Create User</h2>
 
-  <%= form_for(@user) do |f| %>
+  <%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
 
     <%= render(:partial => 'form', :locals => {:f => f}) %>
 
     <div class="form-buttons">
-      <%= f.submit("Update User") %>
+      <%= f.submit("Create User") %>
     </div>
 
   <% end %>
