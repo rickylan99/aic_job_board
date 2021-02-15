@@ -66,6 +66,7 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
+/.vscode
 
 # Docker project generated files to ignore
 #  if you want to ignore files created by your editor/tools,

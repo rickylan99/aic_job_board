@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :authorize, only: [:index, :create, :show, :edit, :delete]
+
   def index
   end
 
@@ -13,4 +15,5 @@ class JobsController < ApplicationController
 
   def delete
   end
+
 end

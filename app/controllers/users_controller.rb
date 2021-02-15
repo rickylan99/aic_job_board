@@ -1,52 +1,32 @@
 class UsersController < ApplicationController
-  
-  def index
-    @users = User.order('title ASC')
-    @to_print = @@message
-  end
-
-  def show
-    @user = User.find(params[:id])
-  end
-
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+    # Setting roleid to 1 (Regular User) for now
+    @user.roleid = 1
+
+    # Store all emails in lowercase
+    @user.email.downcase!
+    
     if @user.save
-      redirect_to(users_path)
+      # If user saves in the db successfully:
+      flash[:notice] = "Account created successfully!"
+      redirect_to root_path
     else
-      render('new')
+      # If user fails model validation - probably a bad password or duplicate email:
+      flash.now.alert = "Ensure valid email and password and try again."
+      render :new
     end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to(user_path(@user))
-    else
-      render('edit')
-    end
-  end
-
-  def delete
-    @user = User.find(params[:id])
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to(users_path)
   end
 
   private
-    def user_params
-      params.require(:user).permit(:email,:password,:roleid)
-    end
+
+  def user_params
+    # that can be submitted by a form to the user model #=> require(:user)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
 end

@@ -34,5 +34,24 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'users/edit'
   get 'users/delete'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  # Authentication Routes
+  	
+  # Sign up page with form:
+	get 'users/new' => 'users#new', as: :new_user
+	
+	# Create action for when sign up form is submitted:
+	post 'users' => 'users#create'
+
+  # Log in page with form:
+	get '/login'     => 'sessions#new',  as: :login
+	
+	# Create action for when log in form is submitted:
+	post '/login'    => 'sessions#create'
+	
+	# Delete action to log out:
+	get '/logout' => 'sessions#destroy', as: :logout
+
+  root to: 'sessions#new'
+
 end
