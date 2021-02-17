@@ -19,4 +19,4 @@ https://medium.com/@guillaumeocculy/setting-up-rails-6-with-postgresql-webpack-o
 
 ```
 docker-compose run --rm -e RAILS_ENV=test web rails spec:system
-``
+```
