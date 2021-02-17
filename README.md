@@ -18,7 +18,7 @@ https://medium.com/@guillaumeocculy/setting-up-rails-6-with-postgresql-webpack-o
 # Running Tests
 
 ```
-docker-compose run --rm -e RAILS_ENV=test web rails spec:[Test Suite Name (Example: system)]
+docker-compose run --rm -e RAILS_ENV=test web rails spec:system
 ```
 
 # Opening SimpleCov
