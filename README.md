@@ -1,29 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Getting Started
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone respository
+    * `git clone`
+2. Start and build Docker container
+    * `docker-compose up --build`
+3. Run database migrations 
+    * `docker-compose run --rm web rails db:migrate`
+4. Start Docker and begin development
+    * `docker-compose up`
 
 # Docker Instructions
+
+https://medium.com/@guillaumeocculy/setting-up-rails-6-with-postgresql-webpack-on-docker-a51c1044f0e4
+
+# Running Tests
+
+```
+docker-compose run --rm -e RAILS_ENV=test web rails spec:system
+```
+
+# Opening SimpleCov
+
+1. After running test suite(s) navigate to the `coverage` folder
+2. Open index.html via a browser
+
+# Running Brakeman
 
 https://medium.com/@guillaumeocculy/setting-up-rails-6-with-postgresql-webpack-on-docker-a51c1044f0e4
 
@@ -35,3 +38,6 @@ Other helpful functions:
 docker-compose run --rm web bundle exec rake db:create
 docker-compose run --rm web bundle exec rake db:migrate
 docker-compose run --rm web bundle exec rake db:seed
+```
+docker-compose run --rm web brakeman
+```

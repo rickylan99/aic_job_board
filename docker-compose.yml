@@ -7,6 +7,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
   web:
     build: .
     volumes:
@@ -15,5 +16,14 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    links:
+      - db:db
+    depends_on:
+      - chrome
     environment:
       PG_PASSWORD: password
+      HUB_URL: http://chrome:4444/wd/hub # <-- Add the HUB_URL environment variable
+  chrome:
+    image: selenium/standalone-chrome:3.141.59-zirconium # this version should match that of the selenium-webdriver gem (see Gemfile)
+    volumes:
+      - /dev/shm:/dev/shm

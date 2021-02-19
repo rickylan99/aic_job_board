@@ -1,6 +1,6 @@
 # Dockerfile
 # Use ruby image to build our own image
-FROM ruby:3.0.0
+FROM ruby:2.7.2
 # We specify everything will happen within the /app folder inside the container
 WORKDIR /app
 # We copy these files from our current application to the /app container

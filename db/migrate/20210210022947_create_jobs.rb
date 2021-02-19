@@ -3,9 +3,9 @@ class CreateJobs < ActiveRecord::Migration[6.1]
     create_table :jobs do |t|
       t.string :company
       t.string :logo
-      t.json :description
-      t.json :questions
-      t.integer :adminid
+      t.string :description
+      t.string :questions
+      t.integer :userid
 
       t.timestamps
     end
