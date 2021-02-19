@@ -5,12 +5,14 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
   end
+  
   def create
     #this will need some sort of authentication to make it admin only, right now I am just creating the page
-    @job = Job.create(params.require(:))
+    #@job = Job.create(params.require(:))
   end
 
   def show
+    @job = Job.find(params[:id])
   end
 
   def edit

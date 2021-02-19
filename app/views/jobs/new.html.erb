@@ -1,0 +1,11 @@
+<center>
+    <h1>Create a New Job Posting</h1>
+    <%= form_with model: @job do |form| %>
+    <%= form.text_field :company, placeholder: "company name" %>
+    <br/>
+    <%= form.text_field :description, placeholder: "description" %>
+    <br/>
+    
+    <%= form.submit %>
+    <% end %>
+</center>

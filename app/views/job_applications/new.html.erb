@@ -1,0 +1,14 @@
+<center>
+    <h1>Create a New Job Application</h1>
+    <%= form_with model: @job_application do |form| %>
+    <%= form.number_field :jobid, placeholder: "job id" %>
+    <br/>
+    <%= form.number_field :studentid, placeholder: "student id" %>
+    <br/>
+    <%= form.number_field :resumeid, placeholder: "resume id" %>
+    <br/>
+
+    <%= form.submit %>
+    <% end %>
+</center>
+

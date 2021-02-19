@@ -1,12 +1,19 @@
-<h1>Jobs</h1>
+<div>
+  <center>
+    <h1>Jobs</h1>
 
 
-<table border="1">
-  <% @job.each do |job| %>
-    <tr>
-        <td> <%= job.company %> </td>
-        <td> <%= job.logo %> </td>
-        <td> <%= job.description %> </td>
-        <td><%= button_to "Apply" , job_applications_index_path(@job_application), method: 'get' %></td>
-  <% end %>
-</table>
+    <table border="1">
+      <% @job.each do |job| %>
+        <tr>
+            <td> <%= job.company %> </td>
+            <td> <%= job.logo %> </td>
+            <td> <%= job.description %> </td>
+            <td> <%= link_to 'Info', job_details_path(job) %> </td>
+            <td> <%= link_to 'Apply' , create_job_application_path(job)%> </td>
+      <% end %>
+    </table>
+    <br/>
+    <%= link_to "New Job Posting", create_job_path() %>
+  </center>
+</div>
