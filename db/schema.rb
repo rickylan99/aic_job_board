@@ -15,20 +15,26 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
+  create_table "documents", force: :cascade do |t|
     t.integer "userid"
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "jobid"
+    t.string "type"
+    t.string "image"
+    t.datetime "dateupdate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "job_application_documents", force: :cascade do |t|
+    t.integer "documentid"
+    t.integer "applicationid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "job_applications", force: :cascade do |t|
     t.integer "jobid"
-    t.json "answers"
-    t.integer "studentid"
-    t.integer "resumeid"
+    t.string "answers"
+    t.integer "userid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,16 +42,9 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
   create_table "jobs", force: :cascade do |t|
     t.string "company"
     t.string "logo"
-    t.json "description"
-    t.json "questions"
-    t.integer "adminid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "resumes", force: :cascade do |t|
-    t.integer "studentid"
-    t.datetime "dateupdate"
+    t.string "description"
+    t.string "questions"
+    t.integer "userid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,18 +56,11 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.integer "userid"
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "classyear"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
     t.integer "roleid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
