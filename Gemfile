@@ -52,9 +52,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
 end
-
-# Bootstrap related gems
-gem 'bootstrap'
-gem 'jquery-rails'
-gem 'execjs'
-gem 'mini_racer'
