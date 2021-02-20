@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AicJobBoard</title>
+    <title>AICJobBoard</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
-    <%# javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
   </head>
 
   <body>
@@ -49,15 +49,17 @@
 
 
     <hr>
-
     <% if notice %>
-      <div id = "myAlert" class="alert alert-primary">
+      <div id = "myAlert" class="alert alert-primary alert-dismissible" role="alert">
         <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     <% end %>
     
     <% if alert %>
-      <div id = "myAlert" class="alert alert-danger">
+      <div id = "myAlert" class="alert alert-danger alert-dismissible" role="alert">
         <%= alert %>
       </div>
     <% end %>
