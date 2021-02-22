@@ -15,6 +15,10 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 # We install all the dependencies
 RUN bundle install
+# Setup yarn packages
+COPY package.json .
+COPY yarn.lock .
+RUN yarn install
 # We copy all the files from our current application to the /app container
 COPY . .
 # We expose the port

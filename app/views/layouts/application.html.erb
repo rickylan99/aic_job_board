@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <% javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
 
   </head>
 
@@ -51,7 +51,7 @@
 
     <hr>
     <% if notice %>
-      <div id = "myAlert" class="alert alert-primary alert-dismissible">
+      <div id = "myAlert" class="alert alert-primary alert-dismissible fade show">
         <%= notice %>
       </div>
     <% end %>

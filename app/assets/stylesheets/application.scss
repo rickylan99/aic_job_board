@@ -12,10 +12,3 @@
 *= require_tree .
 *= require_self
  */
-
- // Importing Bootstrap stylesheet
- @import '../../../node_modules/bootstrap/scss/bootstrap';
-
-body {
- background-color: #f7f9fb;
-}
