@@ -18,7 +18,7 @@ RUN bundle install
 # Setup yarn packages
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install
+RUN yarn
 # We copy all the files from our current application to the /app container
 COPY . .
 # We expose the port

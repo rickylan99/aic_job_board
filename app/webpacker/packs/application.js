@@ -3,16 +3,29 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+
+
 require("@rails/ujs").start()
+require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import "popper.js"
+import "bootstrap"
+
 // CSS
-import 'scss/site.scss'
+import '../stylesheets/site.scss';
 
 // JS
-import('js/site')
+import('../js/site')
 
 // Images
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
+
+
+document.addEventListener("turbolinks:load", () => {
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="popover"]').popover()
+})
+
