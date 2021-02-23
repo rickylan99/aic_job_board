@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+  def index
+    #@users = User.all
+    
   end
 
   def create
@@ -20,6 +23,8 @@ class UsersController < ApplicationController
       flash.now.alert = "Ensure valid email and password and try again."
       render :new
     end
+  def show
+   # @user = User.find(params[:id])
   end
 
   private
