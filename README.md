@@ -24,10 +24,17 @@ docker-compose run --rm -e RAILS_ENV=test web rails spec:system
 # Opening SimpleCov
 
 1. After running test suite(s) navigate to the `coverage` folder
-2. Open index.html via a browser
+2. Open `index.html` via a browser
 
 # Running Brakeman
 
 ```
 docker-compose run --rm web brakeman
 ```
+
+# Open Bash Shell 
+
+```
+docker-compose run --rm web /bin/sh
+```
+
