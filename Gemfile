@@ -12,7 +12,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -53,5 +53,8 @@ group :test do
   gem 'simplecov', :require => false
 end
 
-# Rubocop Code Formatter
-gem 'rubocop', require: false
+# Bootstrap related gems
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'execjs'
+gem 'mini_racer'

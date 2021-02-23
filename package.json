@@ -5,26 +5,11 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.1.1",
-    "bootstrap": "^4.6.0",
-    "css-loader": "^5.0.2",
-    "expose-loader": "^2.0.0",
-    "jquery": "^3.5.1",
-    "jquery-ujs": "^1.2.2",
-    "mini-css-extract-plugin": "^1.3.8",
-    "popper.js": "^1.16.1",
-    "sass": "^1.32.8",
-    "to-string-loader": "^1.1.6",
-    "turbolinks": "^5.2.0",
-    "webpack-merge": "^5.7.3"
+    "@rails/webpacker": "5.2.1",
+    "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@webpack-cli/serve": "^1.3.0",
-    "css-loader": "^5.0.2",
-    "popper.js": "^1.16.1",
-    "sass-loader": "10.1.1",
-    "to-string-loader": "^1.1.6",
     "webpack-dev-server": "^3.11.2"
   }
 }
