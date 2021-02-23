@@ -1,2 +1,15 @@
-<h1>JobApplications#index</h1>
-<p>Find me in app/views/job_applications/index.html.erb</p>
+<div>
+  <center>
+    <h1>Job Applications</h1>
+
+
+    <table border="1">
+      <% @job_applications.each do |job_application| %>
+        <tr>
+            <td> <%= job_application.jobid %> </td>
+            <td> <%= job_application.studentid %> </td>
+            <td> <%= job_application.resumeid %> </td>
+      <% end %>
+    </table>
+  </center>
+</div>
