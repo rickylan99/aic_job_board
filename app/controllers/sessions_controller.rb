@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     def new
         # If user logged in already redirect to jobs/show
         if !current_user.nil?
-            redirect_to jobs_show_url
+            redirect_to jobs_path
         end
 
     end
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:login][:password]) 
         # Save the user.id in that user's session cookie:
         session[:user_id] = user.id.to_s
-        redirect_to jobs_show_url, notice: 'Successfully logged in!'
+        redirect_to jobs_path, notice: 'Successfully logged in!'
     else
         # if email or password incorrect, re-render login page:
         flash.now.alert = "Incorrect email or password, try again."

@@ -1,0 +1,13 @@
+<center>
+	<div class="col-8">
+		<h1>Create a New Job Application</h1>
+		<h2><%= "Company: #{@job.company}" %>
+		<h2><%= "Description: #{@job.description}" %></h2>
+		<%= form_with url: "/jobs/#{@job.id}/job_applications", method: :post, model: @job_application do |form| %>
+		<%= form.hidden_field :user_id, value: current_user.id %>
+		<%= form.text_field :answers, placeholder: "answers" %>
+		<br/>
+		<%= form.submit %>
+		<% end %>
+	</div>
+</center>

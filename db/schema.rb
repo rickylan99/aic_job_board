@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
   enable_extension "plpgsql"
 
   create_table "documents", force: :cascade do |t|
-    t.integer "userid"
+    t.integer "user_id"
     t.string "type"
     t.string "image"
     t.datetime "dateupdate"
@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
   end
 
   create_table "job_application_documents", force: :cascade do |t|
-    t.integer "documentid"
+    t.integer "document_id"
     t.integer "applicationid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "job_applications", force: :cascade do |t|
-    t.integer "jobid"
+    t.integer "job_id"
     t.string "answers"
-    t.integer "userid"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -44,13 +44,13 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
     t.string "logo"
     t.string "description"
     t.string "questions"
-    t.integer "userid"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|
-    t.integer "roleid"
+    t.integer "role_id"
     t.string "roletype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_023110) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
-    t.integer "roleid"
+    t.integer "role_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

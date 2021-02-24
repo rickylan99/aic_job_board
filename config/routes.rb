@@ -1,34 +1,24 @@
 Rails.application.routes.draw do
-  get 'job_applications/index'
-  get 'job_applications/create'
-  get 'job_applications/show'
-  get 'job_applications/edit'
-  get 'job_applications/delete'
-  get 'jobs/index'
-  get 'jobs/create'
-  get 'jobs/show'
-  get 'jobs/edit'
-  get 'jobs/delete'
+
+  resources :jobs do 
+    resources :job_applications
+  end
+
+  #TODO: Figure out the routings for the resume endpoints
   get 'resumes/index'
   get 'resumes/create'
   get 'resumes/show'
   get 'resumes/edit'
   get 'resumes/delete'
-  get 'admins/index'
-  get 'admins/create'
-  get 'admins/show'
-  get 'admins/edit'
-  get 'admins/delete'
-  get 'students/index'
-  get 'students/create'
-  get 'students/show'
-  get 'students/edit'
-  get 'students/delete'
+
+  #TODO: Figure out what to do with these role routes, I do not think are necessary just seed DB
   get 'roles/index'
   get 'roles/create'
   get 'roles/show'
   get 'roles/edit'
   get 'roles/delete'
+
+  #TODO: Figure out what to do with these user routes, could be combined with the previous admin routes and student routes into just "User" routes
   get 'users/index'
   get 'users/create'
   get 'users/show'

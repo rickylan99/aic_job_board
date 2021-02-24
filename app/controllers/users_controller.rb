@@ -3,10 +3,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    #@users = User.all
+    
+  end
+
   def create
     @user = User.new(user_params)
     # Setting roleid to 1 (Regular User) for now
-    @user.roleid = 1
+    @user.role_id = 1
 
     # Store all emails in lowercase
     @user.email.downcase!
@@ -20,6 +25,10 @@ class UsersController < ApplicationController
       flash.now.alert = "Ensure valid email and password and try again."
       render :new
     end
+  end
+  
+  def show
+   # @user = User.find(params[:id])
   end
 
   private

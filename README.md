@@ -38,3 +38,13 @@ docker-compose run --rm web brakeman
 docker-compose run --rm web /bin/sh
 ```
 
+https://medium.com/@guillaumeocculy/setting-up-rails-6-with-postgresql-webpack-on-docker-a51c1044f0e4
+
+https://docs.docker.com/compose/rails/
+
+To apply changes to the gemfile and build the code once pulled from github. It is in the section "Rebuild the application"
+
+Other helpful functions:
+docker-compose run --rm web bundle exec rake db:create
+docker-compose run --rm web bundle exec rake db:migrate
+docker-compose run --rm web bundle exec rake db:seed

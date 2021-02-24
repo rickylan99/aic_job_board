@@ -1,2 +1,25 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<div>
+  <center>
+    <h1>Jobs</h1>
+    <%= link_to "New Job Posting", new_job_path() %>
+    <br/>
+    <br/>
+    <table class="table col-8">
+      <thead>
+        <tr>
+          <th scope="col">Company</th>
+          <th scope="col">Description</th>
+          <th scope="col">Actions
+        </tr>
+      </thead>
+      <tbody>
+        <% @job.each do |job| %>
+        <tr>
+          <td> <%= job.company %> </td>
+          <td> <%= job.description %> </td>
+          <td> <%= link_to 'Info', job_path(job) %> <%= link_to 'Apply' , new_job_job_application_path(job)%> </td>
+      <% end %>
+      </tbody>
+    </table>
+  </center>
+</div> 
