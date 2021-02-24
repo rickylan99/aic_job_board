@@ -1,7 +1,7 @@
 <h3>Update Job Details</h3>
 	<%= form_with model: @job do |form| %>
-		<%= form.text_field :company, placeholder: "{@job.company}" %>
-		<%= form.text_field :description, placeholder: "{@job.description}" %>
+		<%= form.text_field :company, placeholder: "company" %>
+		<%= form.text_field :description, placeholder: "description" %>
 
 		<%= form.submit %>
 	<% end %>
