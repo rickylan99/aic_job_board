@@ -1,2 +1,16 @@
-<h1>Job Application Test</h1>
-<p>Find me in app/views/job_applications/index.html.erb</p>
+
+<div>
+  <center>
+    <h1>Job Applications</h1>
+
+
+    <table border="1">
+      <% @job_applications.each do |job_application| %>
+        <tr>
+            <td> <%= job_application.job_id %> </td>
+            <td> <%= job_application.user_id %> </td>
+            <td> <%= job_application.answers %> </td>
+      <% end %>
+    </table>
+  </center>
+</div>

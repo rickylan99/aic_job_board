@@ -1,2 +1,19 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<p>
+<strong> User Id: </strong>
+<%= @job.user_id %>
+<br/>
+<strong> Company Name: </strong>
+<%= @job.company %>
+<br/>
+<strong> Description: </strong>
+<%= @job.description %>
+<br/>
+<strong> Created Date: </strong>
+<%= @job.created_at %>
+<br/>
+<%= link_to 'Edit', edit_job_path(@job) %>
+<br/>
+<%= link_to 'Applications', job_job_applications_path(@job)%>
+<br/>
+<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
