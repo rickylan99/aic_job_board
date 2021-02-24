@@ -19,9 +19,9 @@ RSpec.describe 'Log In Page'  do
         fill_in 'Password', with: 'test'
         click_on 'Log In'
       end
-      expect(page).to have_text('Jobs')
+      expect(page).to have_text('New Job Posting')
       visit root_path
-      expect(page).to have_text('Jobs')   
+      expect(page).to have_text('New Job Posting')   
     end
   end
   #rainy day scenario
@@ -43,7 +43,7 @@ RSpec.describe 'Log In Page'  do
         fill_in 'Password', with: 'test'
         click_on 'Log In'
       end
-      expect(page).to have_text('Jobs')
+      expect(page).to have_text('New Job Posting')
       click_on 'Log Out'
       expect(page).to have_text('Logged out!')
     end

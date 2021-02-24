@@ -15,15 +15,21 @@ RSpec.describe 'Job Page'  do
     it 'Job creation from job page' do     
         click_on 'New Job Posting'
         expect(page).to have_text('Create a New Job Posting') #test creating a new job
-        fill_in 'company name', with: 'Apple'
-        fill_in 'description' , with: 'Apples'
+        fill_in 'Job Title', with: 'Apple Engineer'
+        fill_in 'Job Position' , with: 'be smart'
+        fill_in 'Job Location' , with: 'Seattle'
+        fill_in 'Company Name' , with: 'Apple'
+        fill_in 'Description' , with: 'Apples are great'
         click_on 'Create Job'
         expect(page).to have_text('New Job Posting') 
         click_on 'Info'
         click_on 'Edit'
         expect(page).to have_text('Update Job Details') #test updating job info
-        fill_in 'company', with: 'Dell'
-        fill_in 'description' , with: 'PC'
+        fill_in 'Job Title', with: 'Apple Engineer'
+        fill_in 'Job Position' , with: 'be smart'
+        fill_in 'Job Location' , with: 'Seattle'
+        fill_in 'Company' , with: 'Apple'
+        fill_in 'Description' , with: 'Apples are great'
         click_on 'Update Job'
         click_on 'Delete'
         page.driver.browser.switch_to.alert.accept #test deleting job application (through the flash)
