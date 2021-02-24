@@ -4,9 +4,15 @@
 			<h3><%= "Logged in as #{current_user.id}" %></h3>
 			<%= form_with model: @job do |form| %>
 			<%= form.hidden_field :userid, value: current_user.id %>
-			<%= form.text_field :company, placeholder: "company name" %>
+			<%= form.text_field :title, placeholder: "Job Title" %>
 			<br/>
-			<%= form.text_field :description, placeholder: "description" %>
+			<%= form.text_field :position, placeholder: "Job Position" %>
+			<br/>
+			<%= form.text_field :location, placeholder: "Job Location" %>
+			<br/>
+			<%= form.text_field :company, placeholder: "Company Name" %>
+			<br/>
+			<%= form.text_field :description, placeholder: "Description" %>
 			<br/>
 			<%= form.submit %>
 			<% end %>
