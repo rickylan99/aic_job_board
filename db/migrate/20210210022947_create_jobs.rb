@@ -5,7 +5,7 @@ class CreateJobs < ActiveRecord::Migration[6.1]
       t.string :logo
       t.string :description
       t.string :questions
-      t.integer :userid
+      t.integer :user_id
 
       t.timestamps
     end
