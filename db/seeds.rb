@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Create Users
-user = User.create(email: "test@gmail.com", password: "test", role_id: 1)
+user = User.create(email: "test@gmail.com", first_name: "test first name", last_name: "test_last_name", password: "test", role_id: 1)
 
 #Create Roles
 Role.create(roletype: "Admin")
