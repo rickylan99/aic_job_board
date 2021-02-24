@@ -1,25 +1,37 @@
-<div>
-  <center>
-    <h1>Jobs</h1>
-    <%= link_to "New Job Posting", new_job_path() %>
-    <br/>
-    <br/>
-    <table class="table col-8">
-      <thead>
-        <tr>
-          <th scope="col">Company</th>
-          <th scope="col">Description</th>
-          <th scope="col">Actions
-        </tr>
-      </thead>
-      <tbody>
+<%= stylesheet_link_tag 'job_list', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+<section class="job-listing h-75">
+  <div class="container h-100">
+    <div class="row h-100 justify-content-md-center align-items-center">
+        <div class="col-md-3 bottom-buffer">
+          <a href=<%= new_job_path %> class="btn btn-primary btn-block">New Job Posting</a>
+        </div>
+
         <% @job.each do |job| %>
-        <tr>
-          <td> <%= job.company %> </td>
-          <td> <%= job.description %> </td>
-          <td> <%= link_to 'Info', job_path(job) %> <%= link_to 'Apply' , new_job_job_application_path(job)%> </td>
-      <% end %>
-      </tbody>
-    </table>
-  </center>
-</div> 
+        <div class="col-md-10">
+            <div class="filter-result">
+              <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex"></div>
+                      <div class="job-content">
+
+                          <h5 class="text-center text-md-left"> Job Title</h5>
+                          <h6 class="text-center text-md-left"> <%= job.company %> </h6>
+                          <h7 class="text-center text-md-left"> Location </h7>    
+                      </div>
+                </div>
+
+                <div class="job-right my-4 flex-shrink-0">
+                    <a href="<%= job_path(job) %>"  class="btn d-block w-100 d-sm-inline-block btn-light">Info</a>
+                    <a href="<%= new_job_job_application_path(job)%>"  class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>
+                </div>
+              </div>
+            </div>   
+        </div>
+        <% end %>
+        
+
+    </div>
+  </div>
+</section>
