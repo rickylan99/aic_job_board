@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y \
     libpq-dev &&\
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install -y nodejs yarn
+    apt-get update && apt-get install -y nodejs yarn nano
+# Append nano to path
+ENV PATH="/bin/nano:$PATH" 
 # We specify everything will happen within the /app folder inside the container
 WORKDIR /app
 # We copy these files from our current application to the /app container

@@ -25,7 +25,7 @@ const imagePath = (name) => images(name, true)
 
 
 // Automatically Close Alerts
-$(document).ready(function() {
+$( document ).on('turbolinks:load', function() {
     // show the alert
     setTimeout(function() {
         $(".alert").alert('close');
