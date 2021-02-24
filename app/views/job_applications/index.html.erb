@@ -6,9 +6,9 @@
     <table border="1">
       <% @job_applications.each do |job_application| %>
         <tr>
-            <td> <%= job_application.jobid %> </td>
-            <td> <%= job_application.studentid %> </td>
-            <td> <%= job_application.resumeid %> </td>
+            <td> <%= job_application.job_id %> </td>
+            <td> <%= job_application.user_id %> </td>
+            <td> <%= job_application.answers %> </td>
       <% end %>
     </table>
   </center>

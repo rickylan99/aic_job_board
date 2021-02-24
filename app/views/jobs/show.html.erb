@@ -1,6 +1,6 @@
 <p>
 <strong> User Id: </strong>
-<%= @job.userid %>
+<%= @job.user_id %>
 <br/>
 <strong> Company Name: </strong>
 <%= @job.company %>
@@ -12,6 +12,8 @@
 <%= @job.created_at %>
 <br/>
 <%= link_to 'Edit', edit_job_path(@job) %>
+<br/>
+<%= link_to 'Applications', job_job_applications_path(@job)%>
 <br/>
 <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
