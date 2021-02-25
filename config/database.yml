@@ -18,6 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: db # From docker-compose service's name
+  hostname: db
   username: postgres
   password: <%= ENV['PG_PASSWORD'] %> # From web's service 
   pool: 5
