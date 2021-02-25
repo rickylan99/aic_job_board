@@ -1,7 +1,7 @@
 # .github/workflows/main.yaml
 name: RSpec Tests
 
-on: [push]
+on: [push, pull]
 
 jobs:
   run-tests:
