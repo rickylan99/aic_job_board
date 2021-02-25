@@ -12,8 +12,8 @@ jobs:
         image: postgres:10.8
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: postgres
+          PG_PASSWORD: password
+          POSTGRES_DB: db
         ports:
         # will assign a random free host port
         - 5432/tcp
