@@ -24,11 +24,4 @@ const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
 
 
-// Automatically Close Alerts
-$( document ).on('turbolinks:load', function() {
-    // show the alert
-    setTimeout(function() {
-        $(".alert").alert('close');
-    }, 3000);
-});
 
