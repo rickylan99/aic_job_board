@@ -14,11 +14,19 @@ jobs:
           POSTGRES_USER: postgres
           PG_PASSWORD: password
           POSTGRES_DB: postgres
+          DATABASE_URL: postgresql://postgress:password@localhost/aic_job_board_test
         ports:
         # will assign a random free host port
         - 5432/tcp
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      chrome:
+        image: selenium/standalone-chrome:3.141.59-zirconium # this version should match that of the selenium-webdriver gem (see Gemfile)
+        env:
+          HUB_URL: http://chrome:4444/wd/hub
+        volumes:
+          - /dev/shm:/dev/shm
+
 
     steps:
     - uses: actions/checkout@v1
@@ -82,4 +90,4 @@ jobs:
         PGUSER: postgres
         PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
         RAILS_ENV: test
-      run: rails spec
+      run: bundle exec rspec
