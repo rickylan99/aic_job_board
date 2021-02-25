@@ -23,6 +23,7 @@ services:
     environment:
       PG_PASSWORD: password
       HUB_URL: http://chrome:4444/wd/hub # <-- Add the HUB_URL environment variable
+      CI_HOST: db
   chrome:
     image: selenium/standalone-chrome:3.141.59-zirconium # this version should match that of the selenium-webdriver gem (see Gemfile)
     volumes:
