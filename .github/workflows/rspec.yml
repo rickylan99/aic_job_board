@@ -14,7 +14,6 @@ jobs:
           POSTGRES_USER: postgres
           PG_PASSWORD: password
           POSTGRES_DB: postgres
-          DATABASE_URL: postgresql://postgress:password@localhost/aic_job_board_test
         ports:
         # will assign a random free host port
         - 5432/tcp
@@ -78,6 +77,7 @@ jobs:
         PGUSER: postgres
         PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
         RAILS_ENV: test
+        CI_HOST: localhost
       run: |
         gem install bundler
         bundle config path vendor/bundle
