@@ -1,9 +1,19 @@
+<div class="col-md-3 bottom-buffer">
+    <a href=<%= jobs_path %> class="btn btn-primary btn-block">Back to Job Listings</a>
+</div>
+
 <p>
 <strong> User Id: </strong>
 <%= @job.user_id %>
 <br/>
-<strong> Company Name: </strong>
-<%= @job.company %>
+<strong> Job Title: </strong>
+<%= @job.title %>
+<br/>
+<strong> Job Position: </strong>
+<%= @job.position %>
+<br/>
+<strong> Job Location: </strong>
+<%= @job.location %>
 <br/>
 <strong> Description: </strong>
 <%= @job.description %>
