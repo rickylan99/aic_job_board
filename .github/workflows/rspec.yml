@@ -12,7 +12,7 @@ jobs:
         image: postgres:10.8
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: password
           POSTGRES_DB: postgres
         ports:
         # will assign a random free host port
@@ -62,7 +62,7 @@ jobs:
     - name: Yarn install
       run: yarn install
 
-    - name: Build and create DB
+    - name: Build DB and install gems
       env:
         # use localhost for the host here because we have specified a container for the job.
         # If we were running the job on the VM this would be postgres
