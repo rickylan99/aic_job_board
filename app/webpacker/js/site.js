@@ -8,9 +8,6 @@ $( document ).on('turbolinks:load', function() {
     }, 3000);
 });
 
-document.addEventListener("turbolinks:load", function() {
-    console.log('Test Log');
-});
 
 // ----------------------------
 // Validate Password Functions
