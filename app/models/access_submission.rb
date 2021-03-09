@@ -1,0 +1,2 @@
+class AccessSubmission < ApplicationRecord
+end
