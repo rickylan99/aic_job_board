@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources :job_applications
   end
 
+  resources :firms do
+
+  end
+
   #TODO: Figure out the routings for the resume endpoints
   get 'resumes/index'
   get 'resumes/create'
