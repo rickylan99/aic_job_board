@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'static_page/about'
+  get 'static_page/resources'
   resources :jobs do 
     resources :job_applications
   end
