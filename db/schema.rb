@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
 
   create_table "documents", force: :cascade do |t|
     t.integer "user_id"
-    t.string "file"
-    t.string "documenttype"
+    t.string "type"
+    t.string "image"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "description"
     t.string "questions"
     t.integer "user_id"
-    t.integer "firm_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -92,8 +91,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "first_name"
     t.string "last_name"
     t.integer "role_id"
-    t.boolean "isAuthorized"
-    t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
