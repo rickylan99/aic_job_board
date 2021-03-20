@@ -1,14 +1,77 @@
-<%= link_to("<< Back to List", users_path, :class => 'back-link') %>
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <h1>My Profile</h1>
+  </div>
+</div>
 
-<div class="users edit">
-  <h2>Edit User</h2>
-
-  <%= form_for(@user) do |f| %>
-    <%= render(:partial => 'form', :locals => {:f => f}) %>
-
-    <div class="form-buttons">
-      <%= f.submit("Update User") %>
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <div class="card" style= "width: 40%">
+      <div class="card-body">
+        <img src="images/img_avatar.png" alt="Avatar" style="width:100%">
+        <h3 class="card-title text-center">
+          <%= @user.first_name %> <%= @user.last_name %>
+        </h3>
+        <div class="row">
+          <div class="col text-right">
+            <b><%= @user.classification %></b>
+          </div>
+          <div class="col text-left">
+            Major: <%= @user.major %>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-  <% end %>
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <div class="card" style= "width: 60%">
+      <div class="card-body">
+        <div class="row">
+          <div class="col" style= "width: 30%">
+            <div class="form-group">
+              <%= form_for @user, url: edit_user_path do |f| %>
+              <%= f.label :email %>
+              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
+              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email" %>
+              <% end %>      
+            </div>
+
+            <div class="form-group">
+              <%= form_for @user, url: edit_user_path do |f| %>
+              <%= f.label :password %> 
+              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
+              <%= f.password_field :password, class: "form-control", id: "password", type: "password", autocomplete: "new-password"  %>
+              <% end %>   
+            </div>
+
+            <div class="form-group">
+              <%= form_for @user, url: edit_user_path do |f| %>
+              resume_spot <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
+              <% end %>   
+            </div>
+
+            <div class="form-group">
+              *Always update your resume every time you revise it*
+            </div>
+            
+          </div>
+          <div class="col" style= "width: 30%">
+            <div class="form-group">
+              <%= form_for @user, url: edit_user_path do |f| %>
+              <%= f.label :classification %>
+              <%= f.select(:classification, ["Freshman","Sophomore","Junior","Senior"], class: "form-control", autocomplete: "classification") %>   
+              <% end %>  
+            </div>
+
+            <div class="form-group">
+              Select your industry preference
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

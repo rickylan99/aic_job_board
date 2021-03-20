@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
 
   create_table "documents", force: :cascade do |t|
     t.integer "user_id"
-    t.string "type"
-    t.string "image"
+    t.string "file"
+    t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -66,11 +66,15 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
   end
 
   create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "position"
+    t.string "location"
     t.string "company"
     t.string "logo"
     t.string "description"
     t.string "questions"
     t.integer "user_id"
+    t.integer "firm_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,7 +91,11 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.string "classification"
+    t.string "major"
     t.integer "role_id"
+    t.boolean "isAuthorized"
+    t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

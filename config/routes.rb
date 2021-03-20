@@ -35,6 +35,10 @@ Rails.application.routes.draw do
 	# Create action for when sign up form is submitted:
 	post 'users' => 'users#create'
 
+  get 'users/edit' => 'users#edit', as: :edit_user
+
+  post 'users/edit' => 'users#update'
+
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
 	
