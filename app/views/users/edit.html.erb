@@ -1,0 +1,21 @@
+<div class="users edit">
+  <h2>Edit User</h2>
+
+  <%= form_for(@user, :html => { multipart: true }) do |f| %>
+    
+    <%= f.label(:email) %>
+    <%= f.text_field(:email) %>
+
+    <%= f.fields_for :document do |ff| %>
+        <div class="field">
+            <%= ff.label :document %><br>
+            <%= ff.file_field :document, multiple: true, name: "documents[]" %>
+        </div>
+    <% end %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update User") %>
+    </div>
+
+  <% end %>
+</div>
