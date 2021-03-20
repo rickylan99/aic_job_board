@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/delete'
   
+  get 'students/create'
+  get 'students/index'
   # Authentication Routes
   	
   # Sign up page with form:
