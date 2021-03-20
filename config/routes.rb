@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     resources :job_applications
   end
 
-  #TODO: Figure out the routings for the resume endpoints
-  get 'resumes/index'
-  get 'resumes/create'
-  get 'resumes/show'
-  get 'resumes/edit'
-  get 'resumes/delete'
+  #TODO: Figure out the routings for the document endpoints
+  get 'documents/index'
+  get 'documents/create'
+  get 'documents/show'
+  get 'documents/edit'
+  get 'documents/delete'
 
   #TODO: Figure out what to do with these role routes, I do not think are necessary just seed DB
   get 'roles/index'

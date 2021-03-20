@@ -22,8 +22,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# Load CLOUDINARY_URL
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+# Cloudinary for document and image storage
+gem 'carrierwave'
+gem 'cloudinary'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
