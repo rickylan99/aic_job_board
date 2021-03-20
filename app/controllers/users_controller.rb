@@ -33,24 +33,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
     @document = @user.documents.build
   end
 
   def update
-    documents_seen = false
-    updated = false
     @user = User.find(params[:id])
     if @user.update(user_params)
-      updated = true
       if params[:documents]
-        documents_seen = true
         params[:documents].each do |doc|
-          @user.documents.create(file: doc)
+          public_id = Cloudinary::Uploader.upload(doc, :type => :private)["public_id"]
+          doc = @user.documents.new(file: public_id, documenttype: 'resume')
+          doc.save
+          # Cloudinary::Utils.private_download_url(user.documents[0].file, :pdf)
         end
       end
       
-      redirect_to root_path, alert: "Documents Seen - #{documents_seen}, Updated - #{updated}, Params - #{params}" 
+      redirect_to root_path
     else
       render :edit
     end
@@ -59,7 +58,7 @@ class UsersController < ApplicationController
   private
   def user_params
     # that can be submitted by a form to the user model #=> require(:user)
-    params.require(:user).permit(:name, :email, :first_name, :last_name, :password, :password_confirmation, documents_attributes: [:file, :documenttype])
+    params.require(:user).permit(:name, :email, :first_name, :last_name, :password, :password_confirmation, :document)
   end
 
 end
