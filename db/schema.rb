@@ -66,9 +66,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string "title"
-    t.string "position"
-    t.string "location"
     t.string "company"
     t.string "logo"
     t.string "description"
