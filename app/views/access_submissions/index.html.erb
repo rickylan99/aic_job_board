@@ -1,0 +1,8 @@
+
+<p>Find me in app/views/access_submissions/index.html.erb</p>
+<h1> Pending Applications </h1>
+<ul>
+<% @access_submission.each do |access_submission| %>
+    <li> <%= access_submission.first_name %> </li>
+    <% end %>
+</ul>

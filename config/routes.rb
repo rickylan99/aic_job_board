@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #post 'access_submissions' => 'access_submissions#create'
+  resources :access_submissions
+  #get 'access_submissions/index'  
 
   get 'static_page/about'
   get 'static_page/resources'
