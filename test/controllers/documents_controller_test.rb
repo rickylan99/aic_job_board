@@ -1,28 +1,28 @@
 require "test_helper"
 
-class ResumesControllerTest < ActionDispatch::IntegrationTest
+class DocumentsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get resumes_index_url
+    get documents_index_url
     assert_response :success
   end
 
   test "should get create" do
-    get resumes_create_url
+    get documents_create_url
     assert_response :success
   end
 
   test "should get show" do
-    get resumes_show_url
+    get documents_show_url
     assert_response :success
   end
 
   test "should get edit" do
-    get resumes_edit_url
+    get documents_edit_url
     assert_response :success
   end
 
   test "should get delete" do
-    get resumes_delete_url
+    get documents_delete_url
     assert_response :success
   end
 end

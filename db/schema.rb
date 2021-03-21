@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2021_03_15_011427) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "file"
     t.string "type"
-    t.date "date_uploaded"
+    t.string "image"
+    t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
