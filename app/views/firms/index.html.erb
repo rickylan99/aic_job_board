@@ -2,6 +2,9 @@
   <center>
     <h1>List of firms</h1>
 
+		<div class="col-md-3 bottom-buffer">
+			<a href=<%= new_firm_path %> class="btn btn-primary btn-block">New Firm</a>
+		</div>
 
 		<% @firms.each do |firm| %>
 			<div class="card" style="width: 18rem;">
