@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2021_03_15_011427) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "type"
-    t.string "image"
+    t.string "file"
+    t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -88,6 +88,9 @@ ActiveRecord::Schema.define(version: 2021_03_15_011427) do
 
   create_table "jobs", force: :cascade do |t|
     t.string "title"
+    t.string "position"
+    t.string "location"
+    t.string "description"
     t.string "classifications"
     t.date "deadline"
     t.datetime "created_at", precision: 6, null: false
