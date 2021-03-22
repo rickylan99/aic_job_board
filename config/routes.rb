@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   end
 
   resources :firms do
-
+    member do
+      get 'jobs'
+      get 'new_job'
+    end
+    collection do
+      post 'create_job'
+    end
   end
   
   #TODO: Figure out the routings for the document endpoints

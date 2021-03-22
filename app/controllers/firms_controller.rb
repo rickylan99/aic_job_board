@@ -41,10 +41,37 @@ class FirmsController < ApplicationController
     redirect_to firms_path
   end
 
+  def jobs
+    @firm = Firm.find(params[:id])
+
+    @jobs = @firm.jobs
+  end
+
+  def new_job
+    @firm = Firm.find(params[:id])
+
+    @job = Job.new
+
+    @job.job_questions.build
+  end
+
+  def create_job
+    #this will need some sort of authentication to make it admin only, right now I am just creating the page
+    #@job = Job.create(params.require(:))
+
+    job = Job.create(job_params)
+
+    redirect_to jobs_firm_path(job.firm_id)
+  end
+
   private
 
   def firm_params
     params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin)
+  end
+
+  def job_params
+    params.require(:job).permit(:user_id, :firm_id, :title, :position, :location, :description, job_questions_attributes: [:id, :_destroy, :job_id, :question])
   end
   
 end
