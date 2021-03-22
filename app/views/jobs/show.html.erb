@@ -21,6 +21,11 @@
 <strong> Created Date: </strong>
 <%= @job.created_at %>
 <br/>
+<% @questions.each do |question| %>
+<strong> Question: </strong>
+<%= question.question %>
+<br/>
+<% end %>
 <%= link_to 'Edit', edit_job_path(@job) %>
 <br/>
 <%= link_to 'Applications', job_job_applications_path(@job)%>

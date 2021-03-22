@@ -3,6 +3,7 @@
 		<h1>Create a New Job Posting</h1>
 		<%= form_with model: @job do |form| %>
       <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :firm_id, value: 1 %>
 
       <div class="form-group">
         <label for="job_title">Job Title</label>
@@ -19,6 +20,21 @@
         <label for="job_description">Description</label>
         <%= form.text_area :description, placeholder: "Description", class: "form-control" %>
       </div>
+
+      <table class='table'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Question</th>
+          </tr>
+        </thead>
+        <tbody class='fields'>
+          <%= form.fields_for :job_questions do |builder| %>
+            <%= render 'job_question', f: builder %>
+          <% end %>
+        </tbody>
+      </table>
       <%= form.submit %>
+      <%= link_to_add_row('Add Question', form, :job_questions, class: 'btn btn-primary')%>
 		<% end %>
 		</div>

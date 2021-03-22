@@ -9,6 +9,8 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+
+    @job.job_questions.build
   end
   
   def create
@@ -22,10 +24,13 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @questions = @job.job_questions
   end
 
   def edit
     @job = Job.find(params[:id])
+
+    @job.job_questions.build
   end
 
   def update
@@ -47,7 +52,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:user_id, :title, :position, :location, :company, :description)
+    params.require(:job).permit(:user_id, :firm_id, :title, :position, :location, :description, job_questions_attributes: [:id, :_destroy, :job_id, :question])
   end
   
 end
