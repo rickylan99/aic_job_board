@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  #post 'access_submissions' => 'access_submissions#create'
+  
   resources :access_submissions
-  #get 'access_submissions/index'  
+ 
 
   get 'static_page/about'
   get 'static_page/resources'
@@ -48,6 +48,9 @@ Rails.application.routes.draw do
 	
 	# Delete action to log out:
 	get '/logout' => 'sessions#destroy', as: :logout
+
+
+  get "users/:id", to: 'users#create', as: :accepted_user
 
   root to: 'sessions#new'
 
