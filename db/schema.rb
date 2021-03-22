@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
 
   create_table "documents", force: :cascade do |t|
     t.integer "user_id"
-    t.string "file"
+    t.string "public_id"
+    t.string "file_name"
     t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false

@@ -52,7 +52,8 @@
         </div>
         <div class="form-row justify-content-md-center">
             <div class="form-group">
-               <p> Resume upload here </p>          
+                <%= f.label @tempfile, "Resume:" %><br>
+                <%= f.file_field @tempfile, multiple: false %>       
             </div>
         </div>         
         <div class="form-row justify-content-md-center">

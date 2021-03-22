@@ -5,11 +5,17 @@ class AccessSubmissionsController < ApplicationController
 
   def new
     @access_submission = AccessSubmission.new
+    @tempfile = Tempfile.new {}
   end
 
   def create
-    @access_submission = AccessSubmission.create(access_submission_params)
-    if @access_submission 
+    @access_submission = AccessSubmission.new(access_submission_params)
+
+    cloud_output = Cloudinary::Uploader.upload(@tempfile, :type => :private)
+    @access_submission.public_id = cloud_output["public_id"]
+    @access_submission.file_name = cloud_output["original_filename"]
+    
+    if @access_submission.save 
       flash[:notice] = "Application Submitted Sucessfully!"
     else
       flash[:alert] = "Failed to Submit Application"

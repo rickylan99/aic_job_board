@@ -17,9 +17,13 @@ class UsersController < ApplicationController
     last_name = access_submission.last_name
     classification = access_submission.classification
     phone_number = access_submission.phone_number
+    public_id = access_submission.public_id
+    file_name = access_submission.file_name
     
-    #User.documents.create(file: file, public_id: public_id)
-    @user = User.new(password: "password",password_confirmation: "password",email: email, first_name: first_name,last_name: last_name,classification: classification,phone_number: phone_number,role_id: 1)
+    
+    @user = User.new(password: "password",password_confirmation: "password",email: email, first_name: first_name, \
+      last_name: last_name, classification: classification,phone_number: phone_number, role_id: 1)
+    @User.documents.create(public_id: public_id, file_name: file_name, documenttype: 'resume')
     if @user.save
       # If user saves in the db successfully:
       flash[:notice] = "Account created successfully!"
@@ -28,6 +32,7 @@ class UsersController < ApplicationController
       # If user fails model validation - probably a bad password or duplicate email:
       flash.now.alert = "Failed to create User"
     end
+
     redirect_to root_path
     # # Setting roleid to 1 (Regular User) for now
     # @user.role_id = 1
@@ -53,6 +58,14 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
+      if params[:documents]
+        params[:documents].each do |doc|
+        cloud_output = Cloudinary::Uploader.upload(doc, :type => :private)
+        public_id = cloud_output["public_id"]
+        file_name = cloud_output["original_filename"]
+        doc = @user.documents.new(public_id: public_id, file_name: file_name ,documenttype: 'resume')
+        doc.save
+        # Cloudinary::Utils.private_download_url(user.documents[0].file, :pdf)
       redirect_to(edit_user_path)
     else
       render('edit')
@@ -62,24 +75,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @document = @user.documents.build
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      if params[:documents]
-        params[:documents].each do |doc|
-          public_id = Cloudinary::Uploader.upload(doc, :type => :private)["public_id"]
-          doc = @user.documents.new(file: public_id, documenttype: 'resume')
-          doc.save
-          # Cloudinary::Utils.private_download_url(user.documents[0].file, :pdf)
-        end
-      end
-      
-      redirect_to root_path
-    else
-      render :edit
-    end
   end
 
   private
