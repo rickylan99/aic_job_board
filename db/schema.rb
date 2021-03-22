@@ -22,11 +22,18 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
   end
 
   create_table "access_submissions", force: :cascade do |t|
-    t.string "answers"
-    t.integer "user_id"
-    t.integer "accessapplication_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.string "first_name"
+    t.string "phone_number"
+    t.string "classification"
+    t.string "major"
+    t.string "last_name"
+    t.string "file_id"
+    t.string "file_name"
+    t.text "q1"
+    t.text "q2"
+    t.text "q3"
+    t.text "q4"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -91,8 +98,14 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.string "phone_number"
+    t.string "classification"
+    t.string "major"
     t.integer "role_id"
+<<<<<<< HEAD
     t.integer "document_id"
+=======
+>>>>>>> development
     t.boolean "isAuthorized"
     t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false

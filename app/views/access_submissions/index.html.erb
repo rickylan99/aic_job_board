@@ -1,0 +1,18 @@
+<style>
+th{
+    padding: 5px;
+    text-align: center;
+}
+</style>
+
+<h1> Pending Applications </h1>
+<table style="border:1">
+<% @access_submission.each do |access_submission| %>
+    <tr>
+        <th><%=access_submission.first_name %></th>
+        <th><%=access_submission.last_name %> </th>
+        <th><%=access_submission.email %> </th>
+        <th> <%= link_to "View Application", access_submission_path(access_submission) %></th>
+    </tr>
+<% end %>
+</table>

@@ -1,2 +1,64 @@
-<h1>Students#create</h1>
-<p>Find me in app/views/students/create.html.erb</p>
+<%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<section class="my-login-page h-75">
+    <div class="container h-100">
+       <div class="row h-100 justify-content-md-center align-items-center text-center">
+          <h1 style = "font-size:5vw"> Application Form </h1>
+          <p style = "font-size:20px">Once you complete all required information below, you will be contacted soon about
+          your candidacy for AIC Acces followed by the next steps to set up your log-in if you are selected. By filling out this
+          form, you are signaling to our officer team that you have a keen dedication and are prepared to begin networking for an
+          internship in the investment banking, private equity, and asset managment field. If you are unsure or half-hearthed in applying,
+          don't apply just yet and please email tamuaic@gmail.com to learn how to prepare yourself for the level of rigidity that comes with
+          pursuing these internships.</p>
+          <p><b> As a reminder, only freshmen, sophomores, and juniors are encourage to apply. </b></p>          
+          <div class="row h-100 justify-content-md-center align-items-center text-center">
+
+                <%= form_for :student do |f| %> 
+                  <div class="form-group">
+                    <%= f.label :first_name %>
+                    <%= f.text_field :first_name, autofocus: true, class: "form-control"%>           
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :last_name %>
+                    <%= f.text_field :last_name, autofocus: true, class: "form-control" %>           
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email" %>           
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :phone_number %>
+                    <%= f.text_field :phone_number, autofocus: true, class: "form-control",  %>           
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :classification %>
+                    <%= f.select, :classification,["Freshman","Sophomore","Junior"], class: "form-control"%>
+                  </div>
+
+                  <div class="form-group m-0" id="login-form">
+                    <%= f.submit "Apply", class: "btn btn-primary btn-block" %>
+                  </div>
+                <% end %>
+             
+       
+        </div>
+    </div>
+    <div class = "container h-100">
+      <div class = "card fat"> 
+        <div class = "row h-100 justify-content-md-center align-items-center">
+          
+          <div class = "col-3">
+            <p style="color:gray"> REVIEWS </p>
+            <h1> What Access members say </h1>
+          </div>
+          <div class = "col-9">
+            <p style="font-size:20px"> "...AIC Access is an extremely valuable tool in finding internships for freshmen and sophomores.
+            I was given a couple of awesome opportunities through the platform and I highly recommend joining AIC 
+            and utilizing AIC Access..."            
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

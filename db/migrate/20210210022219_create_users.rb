@@ -5,10 +5,14 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :password_digest
       t.string :first_name
       t.string :last_name
+      t.string :phone_number
+      t.string :classification
+      t.string :major
       t.integer :role_id
       t.integer :document_id
       t.boolean :isAuthorized
       t.boolean :firstLogin
+     
 
       t.timestamps
     end
