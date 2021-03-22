@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :access_submissions
+ 
 
   get 'static_page/about'
   get 'static_page/resources'
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/delete'
   
+  get 'students/create'
+  get 'students/index'
   # Authentication Routes
   	
   # Sign up page with form:
@@ -43,6 +48,9 @@ Rails.application.routes.draw do
 	
 	# Delete action to log out:
 	get '/logout' => 'sessions#destroy', as: :logout
+
+
+  get "users/:id", to: 'users#create', as: :accepted_user
 
   root to: 'sessions#new'
 
