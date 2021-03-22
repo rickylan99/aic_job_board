@@ -16,6 +16,11 @@
       <div class="form-group">
         <label for="job_location">Location</label>
         <%= form.text_field :location, placeholder: "Job Location", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="job_classifications">Classifications</label>
+        <%= form.text_field :classifications, placeholder: "Classifications that can apply", class: "form-control" %>
+      </div>
 			<div class="form-group">
         <label for="job_description">Description</label>
         <%= form.text_area :description, placeholder: "Description", class: "form-control" %>
@@ -23,6 +28,10 @@
       <div class="form-group">
         <label for="job_company">Company</label>
         <%= form.select :firm_id, Firm.all.map { |firm| [firm.name, firm.id] }, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="job_date">Date</label>
+        <%= form.date_select :deadline %>
       </div>
 
       <table class='table'>
