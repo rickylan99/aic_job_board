@@ -55,7 +55,6 @@ class UsersController < ApplicationController
         # Cloudinary::Utils.private_download_url(user.documents[0].file, :pdf)
       end
     end
-    byebug
     if !user_params.nil?
       if @user.update(user_params)
         redirect_to(edit_user_path)
