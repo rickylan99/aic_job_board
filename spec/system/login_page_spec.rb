@@ -14,7 +14,7 @@ RSpec.describe 'Log In Page'  do
   describe 'Log In' do
     it 'visits root page to log in' do
       visit root_path
-      within '.card' do
+      within 'div#loginBox' do
         fill_in 'Email', with: 'test@gmail.com'
         fill_in 'Password', with: 'test'
         click_on 'Log In'
@@ -38,7 +38,7 @@ RSpec.describe 'Log In Page'  do
   describe 'Logging out' do
     it 'logs out of the logged in account when done' do
       visit root_path
-      within '.card' do
+      within 'div#loginBox' do
         fill_in 'Email', with: 'test@gmail.com'
         fill_in 'Password', with: 'test'
         click_on 'Log In'
