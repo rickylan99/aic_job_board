@@ -102,10 +102,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "classification"
     t.string "major"
     t.integer "role_id"
-<<<<<<< HEAD
     t.integer "document_id"
-=======
->>>>>>> development
     t.boolean "isAuthorized"
     t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false
