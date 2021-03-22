@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+
+  resources :password_forgets
+
+  delete 'access_submissions/:id', to: 'access_submissions#destroy', as: :access_submissions_destroy
   resources :access_submissions
  
 

@@ -14,7 +14,7 @@
          
         </div>
     </div>
-    <%= form_for @access_submission,url:access_submissions_path do |f| %>
+    <%= form_for @access_submission,url:access_submissions_path, :html => { multipart: true } do |f| %>
     <div class="container w-75"> 
        <div class="form-row justify-content-md-center">            
                 <div class ="col-6">
@@ -52,7 +52,12 @@
         </div>
         <div class="form-row justify-content-md-center">
             <div class="form-group">
-               <p> Resume upload here </p>          
+                    <%= f.fields_for :document do |ff| %>
+                        <div class="field">
+                            <%= ff.label :document %><br>
+                            <%= ff.file_field :document, multiple: false, name: "documents[]" %>
+                        </div>
+                    <% end %>
             </div>
         </div>         
         <div class="form-row justify-content-md-center">
@@ -63,7 +68,7 @@
         </div>
         <div class="form-row justify-content-md-center">
             <div class="form-group">
-                <%= f.label :q2,"List and explain your past and current work experience that would be applicable to AIC Acess." %>
+                <%= f.label :q2,"List and explain your past and current work experience that would be applicable to AIC Access." %>
                 <%= f.text_area :q2, size: "100x5",autofocus: true %>           
             </div>
         </div>
