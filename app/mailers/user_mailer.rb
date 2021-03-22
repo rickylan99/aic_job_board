@@ -7,4 +7,10 @@ class UserMailer < ApplicationMailer
         mail to: user.email, :subject => 'Reset Password Instructions'
     end
 
+    def reset_password(user)
+        @user = user
+        @greeting = "Hello"
+        mail to: user.email, :subject => 'AIC Access Application Approved. Please Reset Your Password'
+    end
+
 end

@@ -4,12 +4,20 @@ class User < ApplicationRecord
     has_secure_password
     validates :email, presence: true, uniqueness: true
 
-    def send_password_reset
+    def send_password_forget
         generate_token(:password_reset_token)
         self.password_reset_sent_at = Time.zone.now
         save!
         # This sends an e-mail with a link for the user to reset the password
         UserMailer.forgot_password(self).deliver_now
+    end
+    
+    def send_password_reset
+        generate_token(:password_reset_token)
+        self.password_reset_sent_at = Time.zone.now
+        save!
+        # This sends an e-mail with a link for the user to reset the password
+        UserMailer.reset_password(self).deliver_now
     end
 
     # This generates a random password reset token for the user

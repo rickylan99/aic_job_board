@@ -34,30 +34,13 @@ class UsersController < ApplicationController
       # If user saves in the db successfully:
       flash[:notice] = "Account created successfully!"
       access_submission.destroy
-      redirect_to root_path
+      @user.send_password_reset
+      redirect_to access_submissions_path
     else
       # If user fails model validation - probably a bad password or duplicate email:
       flash[:alert] = "Failed to create User"
-      redirect_to root_path
+      redirect_to access_submissions_path
     end
-
-
-    
-    # # Setting roleid to 1 (Regular User) for now
-    # @user.role_id = 1
-
-    # # Store all emails in lowercase
-    # @user.email.downcase!
-    
-    # if @user.save
-    #   # If user saves in the db successfully:
-    #   flash[:notice] = "Account created successfully!"
-    #   redirect_to root_path
-    # else
-    #   # If user fails model validation - probably a bad password or duplicate email:
-    #   flash.now.alert = "Ensure valid email and password and try again."
-    #   render :new
-    #end
   end
 
   def update
@@ -83,7 +66,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
     @document = @user.documents.build
   end
 

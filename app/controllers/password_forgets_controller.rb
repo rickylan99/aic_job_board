@@ -1,11 +1,11 @@
-class PasswordResetsController < ApplicationController
+class PasswordForgetsController < ApplicationController
   def new
   end
 
   def create
     user = User.find_by_email(params[:email])
-    user.send_password_reset if user
-    flash[:notice] = 'E-mail sent with password reset instructions.'
+    user.send_password_forget if user
+    flash[:notice] = 'E-mail sent with password reset instructions. Please check your Spam folder as well'
     redirect_to root_path
   end
 
