@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@users = User.all
+    @user = User.all
     
   end
 
@@ -53,7 +53,9 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       redirect_to(edit_user_path)
+      flash[:notice] = "Account updated successfully!"
     else
+      flash[:alert] = "Failed to update User"
       render('edit')
     end
   end

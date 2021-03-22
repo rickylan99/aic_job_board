@@ -43,8 +43,10 @@
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :password %> 
+              <%= f.password_field :password, class: "form-control", id: "password", type: "password", autocomplete: "new-password", placeholder: "••••••••"  %>
+              <%= f.label :password_confirmation %> 
               <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
-              <%= f.password_field :password, class: "form-control", id: "password", type: "password", autocomplete: "new-password"  %>
+              <%= f.password_field :password_confirmation, class: "form-control", id: "password-confirmation", type: "password", autocomplete: "new-password", placeholder: "••••••••" %>
               <% end %>   
             </div>
 

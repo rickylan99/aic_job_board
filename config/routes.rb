@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get 'roles/edit'
   get 'roles/delete'
 
+  get 'admins/index'
+
   #TODO: Figure out what to do with these user routes, could be combined with the previous admin routes and student routes into just "User" routes
   get 'users/index'
   get 'users/create'
