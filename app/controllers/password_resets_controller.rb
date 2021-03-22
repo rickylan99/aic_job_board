@@ -20,7 +20,7 @@ class PasswordResetsController < ApplicationController
       redirect_to new_password_reset_path
     elsif @user.update(user_params)
       flash[:notice] = 'Password has been reset!'
-      redirect_to new_session_path
+      redirect_to root_path
     else
       render :edit
     end
