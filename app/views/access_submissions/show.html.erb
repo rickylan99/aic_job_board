@@ -12,4 +12,4 @@
 <li> Question 4: <%= @access_submission.q4%>  </li>
 </ul>
 <%= button_to "Back",access_submissions_path, method: :get %>
-<%= button_to "Accepted",accepted_user_path(id: @access_submission.id),method: :get %>
+<%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>
