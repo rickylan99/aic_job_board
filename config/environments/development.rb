@@ -78,4 +78,16 @@ Rails.application.configure do
   # Allow docker ip through web-console
   config.web_console.whitelisted_ips = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']
 
+  config.action_mailer.default_url_options = {:host =>'localhost:3000'}
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "zaalb599@gmail.com",
+    :password             => "bnpvdmjzyfuinwan",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
 end
