@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db # From docker-compose service's name
+  host: <%= ENV['CI_HOST'] %> # From docker-compose service's name
   username: postgres
   password: <%= ENV['PG_PASSWORD'] %> # From web's service 
   pool: 5
@@ -85,3 +85,4 @@ test:
 production:
   <<: *default
   database: aic_job_board_production
+  url: <%= ENV['DATABASE_URL'] %>

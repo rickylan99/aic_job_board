@@ -4,10 +4,10 @@ one:
   jobid: 1
   answers: 
   studentid: 1
-  resumeid: 1
+  documentid: 1
 
 two:
   jobid: 1
   answers: 
   studentid: 1
-  resumeid: 1
+  documentid: 1

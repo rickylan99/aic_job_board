@@ -22,17 +22,26 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
   end
 
   create_table "access_submissions", force: :cascade do |t|
-    t.string "answers"
     t.integer "user_id"
-    t.integer "accessapplication_id"
+    t.string "email"
+    t.string "first_name"
+    t.string "phone_number"
+    t.string "classification"
+    t.string "last_name"
+    t.string "file_id"
+    t.string "file_name"
+    t.text "q1"
+    t.text "q2"
+    t.text "q3"
+    t.text "q4"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "documents", force: :cascade do |t|
     t.integer "user_id"
-    t.string "type"
-    t.string "image"
+    t.string "file"
+    t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "description"
     t.string "questions"
     t.integer "user_id"
+    t.integer "firm_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -88,6 +98,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "first_name"
     t.string "last_name"
     t.integer "role_id"
+    t.boolean "isAuthorized"
+    t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
