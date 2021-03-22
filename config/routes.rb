@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  delete 'access_submissions/:id', to: 'access_submissions#destroy', as: :access_submissions_destroy
   resources :access_submissions
  
 
@@ -10,7 +11,11 @@ Rails.application.routes.draw do
   end
 
   #TODO: Figure out the routings for the document endpoints
-  resources :documents, only: [:destroy]
+  get 'documents/index'
+  get 'documents/create'
+  get 'documents/show'
+  get 'documents/edit'
+  get 'documents/delete'
 
   #TODO: Figure out what to do with these role routes, I do not think are necessary just seed DB
   get 'roles/index'
@@ -32,6 +37,7 @@ Rails.application.routes.draw do
   	
   # Sign up page with form:
 	get 'users/new' => 'users#new', as: :new_user
+	
 	# Create action for when sign up form is submitted:
 	post 'users' => 'users#create'
 
@@ -41,12 +47,12 @@ Rails.application.routes.draw do
 
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
+	
 	# Create action for when log in form is submitted:
 	post '/login'    => 'sessions#create'
+	
 	# Delete action to log out:
 	get '/logout' => 'sessions#destroy', as: :logout
-  patch '/users/:id/edit', to: 'users#edit'
-  resources :users 
 
 
   get "users/:id", to: 'users#create', as: :accepted_user

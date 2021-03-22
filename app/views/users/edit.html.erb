@@ -49,7 +49,8 @@
             </div>
 
             <div class="form-group">
-              <%= form_for(@user, :html => { multipart: true }) do |f| %>
+              <%= form_for(@user, url: edit_user_path, :html => { multipart: true }) do |f| %>
+                <%= f.hidden_field :email, value: @user.email %>
                 <%= f.fields_for :document do |ff| %>
                 <div class="field">
                   <%= ff.label :document %><br>
@@ -60,7 +61,7 @@
                 <div class="form-buttons">
                 <%= f.submit("Upload Resume") %>
                 </div>
-                <% end %>   
+              <% end %>   
             </div>
 
             <div class="form-group">
