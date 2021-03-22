@@ -9,12 +9,16 @@
     <ul class="navbar-nav ml-auto">
       <% if current_user %>
 
+        <li class = "nav-item active">
+          <a class = "nav-link" href="<%= edit_user_path(current_user) %>"> Edit User <span class="sr-only"> (current)</span></a>
+        </li>
+
         <li class="nav-item active">
           <a class="nav-link" href="<%= logout_path %>"> Log Out <span class="sr-only">(current)</span></a>
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" href="<%= edit_user_path %>"> My Profile <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<%= edit_user_path(current_user.id) %>"> My Profile <span class="sr-only">(current)</span></a>
         </li>
 
       <% else %>
@@ -34,7 +38,7 @@
       </li> <!-- Please Add the correct link for partner firms which all users can view-->
       <li class = "nav-item active">
         <a class = "nav-link" href="<%= static_page_resources_path %>"> Member Resources <span class="sr-only"> (current)</span></a>
-        </li>
+      </li>
     </ul>
 
     <% if current_user %>

@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :classification
       t.string :major
       t.integer :role_id
+      t.integer :document_id
       t.boolean :isAuthorized
       t.boolean :firstLogin
      

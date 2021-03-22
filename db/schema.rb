@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_022125) do
+ActiveRecord::Schema.define(version: 2021_03_22_183806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "classification"
     t.string "major"
     t.string "last_name"
-    t.string "file_id"
+    t.string "public_id"
     t.string "file_name"
+    t.string "documenttype"
     t.text "q1"
     t.text "q2"
     t.text "q3"
@@ -38,7 +39,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
 
   create_table "documents", force: :cascade do |t|
     t.integer "user_id"
-    t.string "file"
+    t.string "public_id"
+    t.string "file_name"
     t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
@@ -102,10 +104,13 @@ ActiveRecord::Schema.define(version: 2021_03_08_022125) do
     t.string "classification"
     t.string "major"
     t.integer "role_id"
+    t.integer "document_id"
     t.boolean "isAuthorized"
     t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

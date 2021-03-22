@@ -78,4 +78,6 @@ Rails.application.configure do
   # Allow docker ip through web-console
   config.web_console.whitelisted_ips = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']
 
+  config.action_mailer.default_url_options = {:host =>'localhost:3000'}
+  config.action_mailer.delivery_method = :test
 end
