@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       # If user saves in the db successfully:
       flash[:notice] = "Account created successfully!"
       access_submission.destroy
-      @user.send_password_forget
+      @user.send_password_reset
       redirect_to access_submissions_path
     else
       # If user fails model validation - probably a bad password or duplicate email:
