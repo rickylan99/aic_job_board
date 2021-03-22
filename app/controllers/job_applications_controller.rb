@@ -7,6 +7,9 @@ class JobApplicationsController < ApplicationController
 
   def new
     @job_application = @job.job_applications.build
+
+    @job_application.job_application_answers.build 
+
   end
 
   def create
@@ -34,7 +37,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
-    @job_application = JobApplication.find(params[:id])
+    @job_application = JobApplication.find(params[:job_application_id])
   end
 
   def edit
@@ -46,7 +49,7 @@ class JobApplicationsController < ApplicationController
   private 
 
   def application_params
-    params.require(:job_application).permit(:user_id, :answers)
+    params.require(:job_application).permit(:user_id, :answers, job_application_answers_attributes: [:id, :job_application_id, :job_question_id, :answer])
   end
 
   def get_job
