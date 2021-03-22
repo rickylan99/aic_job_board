@@ -12,8 +12,9 @@
 					<h5 class="card-title"><%= firm.name %></h5>
 					<h6 class="card-subtitle mb-2 text-muted"><%= firm.location %></h6>
 					<p class="card-text"> <%= firm.description %> </p>
-					<a href=<%= firm_path(firm) %> class="card_link">Details</a>
-					<a href=<%= jobs_path() %> class="card_link">Job Postings</a>
+					<a href=<%= firm_path(firm) %> class="card_link">Company Overview</a>
+					<br/>
+					<a href=<%= jobs_firm_path(firm) %> class="card_link">Job Postings</a>
 				</div>
 			</div>
 		<% end %>
