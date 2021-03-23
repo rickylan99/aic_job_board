@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.integer :document_id
       t.boolean :isAuthorized
       t.boolean :firstLogin
+      t.integer :role_id
      
 
       t.timestamps

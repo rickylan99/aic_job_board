@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin
-    return current_user.role_id == Role.find_by_roletype("Admin").id
+    if !current_user.nil?
+      return current_user.role_id == Role.find_by_roletype("Admin").id
+    else
+      return false
+    end
   end
 
   # Add before_action :authorize to beginning of controller to prevent unathorized acess

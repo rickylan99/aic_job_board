@@ -32,14 +32,13 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
   end
 
   create_table "documents", force: :cascade do |t|
+    t.integer "user_id"
     t.string "public_id"
     t.string "file_name"
     t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "documents_job_applications", id: false, force: :cascade do |t|
@@ -119,15 +118,13 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
     t.integer "document_id"
     t.boolean "isAuthorized"
     t.boolean "firstLogin"
+    t.integer "role_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "role_id", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "documents", "users"
   add_foreign_key "job_application_answers", "job_applications"
   add_foreign_key "job_application_answers", "job_questions"
   add_foreign_key "job_applications", "jobs"
@@ -135,5 +132,4 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
   add_foreign_key "job_questions", "jobs"
   add_foreign_key "jobs", "firms"
   add_foreign_key "jobs", "users"
-  add_foreign_key "users", "roles"
 end
