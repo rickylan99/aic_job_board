@@ -42,6 +42,10 @@ class UsersController < ApplicationController
     redirect_to access_submissions_path
   end
 
+  def show
+    @user = current_user
+  end
+
   def update
     @user = current_user
     params[:documents]&.each do |doc|
@@ -64,6 +68,11 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @document = @user.documents.build
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
   end
 
   private
