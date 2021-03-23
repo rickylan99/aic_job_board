@@ -10,7 +10,7 @@ class AccessSubmissionsController < ApplicationController
   end
 
   def create
-    if User.exists?(email: params[:email].downcase!)
+    if User.exists?(email: access_submission_params[:email].downcase!)
       redirect_to access_submissions_new, alert: "Email already in use."
     end
     
