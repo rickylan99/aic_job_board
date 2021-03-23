@@ -21,11 +21,12 @@ class UsersController < ApplicationController
     public_id = access_submission.public_id
     file_name = access_submission.file_name
     documenttype = access_submission.documenttype
+    role_id = Role.find_by_roletype("Student").id
 
     
     
     @user = User.create(password: "password",password_confirmation: "password",email: email, first_name: first_name, \
-      last_name: last_name, classification: classification,phone_number: phone_number, role_id: 1)
+      last_name: last_name, classification: classification,phone_number: phone_number, role_id: role_id)
 
     doc = @user.documents.new(public_id: public_id, file_name: file_name, documenttype: 'resume')
     doc.save

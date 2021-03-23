@@ -1,4 +1,5 @@
 class JobApplicationsController < ApplicationController
+  before_action :authorize
   before_action :get_job
 
   def index
