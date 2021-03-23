@@ -38,23 +38,23 @@
                     </div>
                 </div>   
         </div> 
-        <div class="form-row justify-content-md-center">
+        <div class="form-row content-md-center">
             <div class="form-group">
                 <%= f.label :classification %>
                 <%= f.select :classification,["Freshman","Sophmore","Junior"], autofocus: true, class: "form-control", required: true %>           
             </div>
         </div>
-        <div class="form-row justify-content-md-center">
+        <div class="form-row content-md-center">
             <div class="form-group">
                     <%= f.fields_for :document do |ff| %>
                         <div class="field">
-                            <%= ff.label :document %><br>
+                            <%= ff.label :document,'Resume' %><br>
                             <%= ff.file_field :document, multiple: false, name: "documents[]",id: "file_upload_button", required: true %>
                         </div>
                     <% end %>
             </div>
         </div>         
-        <div class="form-row justify-content-md-center">
+        <div class="form-row content-md-center">
             <div class="form-group">
                 <%= f.label :q1,"List and Explain your extracirriculars that are applicable to AIC Access." %>
                 <%= f.text_area :q1,cols:100,rows:5 ,autofocus: false %>           
@@ -72,19 +72,23 @@
                 <%= f.text_area :q3, size: "100x5",autofocus: true %>           
             </div>
         </div>
-        <div class="form-row justify-content-md-center">
+        <div class="form-row content-md-center">
             <div class="form-group">
                 <%= f.label :q4,"How did you hear about AIC Access?" %>
                 <%= f.text_area :q4, size: "100x5",autofocus: true %>           
             </div>
         </div>        
+    </div>  
+    <div class="container">
+        <div class="row justify-content-md-center">
 
-        <div class="form-group m-0" id="login-form">
+        <div class="form-group m-0 col-5 text-center" id="login-form">
             <%= f.submit "Apply", class: "btn btn-primary btn-block" %>
         </div>
-        
     </div>
+    </div>    
+    
     <% end %>
-          
+        
     
 </section>
