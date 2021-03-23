@@ -1,11 +1,10 @@
 class DocumentsController < ApplicationController
+  before_action :authorize
+  
   def destroy
     @document = Document.find(params[:id])
+    Cloudinary::Uploader.destroy(@document.public_id, :type => "private", :invalidate => true)
     @document.destroy
-    respond_to do |format|
-      format.html { redirect_to :back, notice: 'Document has been deleted' } 
-      format.json { head :no_content }
-      format.js   { render layout: false}
-    end
+    redirect_to edit_user_path
   end
 end

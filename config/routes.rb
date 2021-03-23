@@ -13,11 +13,8 @@ Rails.application.routes.draw do
   end
 
   #TODO: Figure out the routings for the document endpoints
-  get 'documents/index'
-  get 'documents/create'
-  get 'documents/show'
-  get 'documents/edit'
-  get 'documents/delete'
+  delete 'documents/:id', to: 'documents#destroy', as: :documents_delete
+  resources :documents
 
   #TODO: Figure out what to do with these role routes, I do not think are necessary just seed DB
   get 'roles/index'

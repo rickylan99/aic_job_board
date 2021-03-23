@@ -1,4 +1,6 @@
 class AccessSubmissionsController < ApplicationController
+  before_action :authorize, :admin_only, except: [:new, :create]
+
   def index
     @access_submission = AccessSubmission.all
   end

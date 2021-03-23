@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, alert: 'You must be logged in to access this page.' if current_user.nil?
   end
 
+  def admin_only
+    redirect_to root_path, alert: 'You must be an admin to access this page.' if not current_user.role_id == Role.find_by_roletype("Admin").id
+  end
+
 end

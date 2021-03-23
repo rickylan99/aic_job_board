@@ -9,10 +9,6 @@
     <ul class="navbar-nav ml-auto">
       <% if current_user %>
 
-        <li class = "nav-item active">
-          <a class = "nav-link" href="<%= edit_user_path(current_user) %>"> Edit User <span class="sr-only"> (current)</span></a>
-        </li>
-
         <li class="nav-item active">
           <a class="nav-link" href="<%= logout_path %>"> Log Out <span class="sr-only">(current)</span></a>
         </li>
@@ -25,10 +21,6 @@
         <li class="nav-item active" id="login-nav">
           <a class="nav-link" href="<%= login_path %>"> Log In <span class="sr-only">(current)</span></a>
         </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="<%= new_user_path %>"> Sign Up <span class="sr-only">(current)</span></a>
-        </li> <!-- client mock up pages do not have these login/sign up sems like that is on the application page-->
       <% end %>
       <li class="nav-item active">
         <a class ="nav-link" href ="<%= static_page_about_path %>"> About Access <span class ="sr-only"> (current)</span></a>

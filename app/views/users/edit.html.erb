@@ -28,7 +28,7 @@
 
 <div class ="container pb-5 ">
   <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
+    <div class="card" style= "width: 75%">
       <div class="card-body">
         <div class="row">
           <div class="col" style= "width: 30%">
@@ -49,18 +49,28 @@
             </div>
 
             <div class="form-group">
+              <% @user.documents.reload %>
+              <% if not @user.documents.empty? %>
+                <p>Resume:</p>
+                <strong>
+                <%= link_to("#{@user.documents[0].file_name}.pdf", cl_private_download_url(@user.documents[0].public_id, :pdf), target: :_blank) %>
+                <%=link_to( image_tag("trash.svg"), documents_delete_path(@user.documents[0].id), :method => :delete) %>
+                </strong>
+              
+              <%else %>
               <%= form_for(@user, url: edit_user_path, :html => { multipart: true }) do |f| %>
                 <%= f.hidden_field :email, value: @user.email %>
                 <%= f.fields_for :document do |ff| %>
                 <div class="field">
                   <%= ff.label :document %><br>
-                  <%= ff.file_field :document, multiple: true, name: "documents[]" %>
+                  <%= ff.file_field :document, multiple: false, name: "documents[]"%>
                 </div>
                 <% end %>
 
                 <div class="form-buttons">
                 <%= f.submit("Upload Resume") %>
                 </div>
+              <% end %>
               <% end %>   
             </div>
 

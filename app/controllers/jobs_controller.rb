@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authorize, only: [:index, :create, :show, :edit, :delete]
+  before_action :authorize
   
   #TODO: Refactor controller so that we do not look up job so many times, https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
 
