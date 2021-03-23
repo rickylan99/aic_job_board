@@ -19,10 +19,10 @@ class JobsController < ApplicationController
   def create
     job = Job.create(job_params)
 
-    if job.save 
-      flash[:notice] = "Job Created Sucessfully!"
+    if job.save
+      flash[:notice] = 'Job Created Sucessfully!'
     else
-      flash[:alert] = "Failed to Create Job"
+      flash[:alert] = 'Failed to Create Job'
     end
 
     redirect_to jobs_path

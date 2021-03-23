@@ -1,0 +1,8 @@
+/usr/local/bin/ruby -I/usr/local/bundle/gems/rspec-core-3.10.1/lib:/usr/local/bundle/gems/rspec-support-3.10.2/lib /usr/local/bundle/gems/rspec-core-3.10.1/exe/rspec --pattern ./spec/system/\*\*/\*_spec.rb
+                                                    ........
+
+                                                            Finished in 23.94 seconds (files took 3.94 seconds to load)
+                                                                                                                       8 examples, 0 failures
+
+                                                                                                                                             Coverage report generated for RSpec to /app/coverage. 423 / 498 LOC (84.94%) covered.
+                                                                         %   

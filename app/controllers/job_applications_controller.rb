@@ -17,10 +17,10 @@ class JobApplicationsController < ApplicationController
   def create
     @job_application = @job.job_applications.build(application_params)
 
-    if @job_application.save 
-      flash[:notice] = "Application Submitted Sucessfully!"
+    if @job_application.save
+      flash[:notice] = 'Application Submitted Sucessfully!'
     else
-      flash[:alert] = "Failed to Submit Application"
+      flash[:alert] = 'Failed to Submit Application'
     end
 
     redirect_to jobs_path
