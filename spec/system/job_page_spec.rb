@@ -6,8 +6,8 @@ RSpec.describe 'Job Page'  do
     #creates a user and auto logins in
     Role.create(roletype: "Admin")
     Role.create(roletype: "Student")
-    user = User.create(email: "test@gmail.com", password: "test",role_id: Role.find_by_roletype("Student").id)
-    user1 = User.create(email: "admin@gmail.com", password: "test",role_id: Role.find_by_roletype("Admin").id)
+    User.create(email: "test@gmail.com", password: "test",role_id: Role.find_by_roletype("Student").id)
+    User.create(email: "admin@gmail.com", password: "test",role_id: Role.find_by_roletype("Admin").id)
     visit root_path
       within 'div#loginBox' do
         fill_in 'Email', with: 'admin@gmail.com'
@@ -45,31 +45,9 @@ RSpec.describe 'Job Page'  do
         click_on 'Info'
         click_on 'Delete'
         page.driver.browser.switch_to.alert.accept #test deleting job application (through the flash)
-
-  describe 'Creating Job' do
-    it 'Job creation from job page' do
-      click_on 'New Job Posting'
-      expect(page).to have_text('Create a New Job Posting') # test creating a new job
-      fill_in 'Job Title', with: 'Apple Engineer'
-      fill_in 'Job Position', with: 'be smart'
-      fill_in 'Job Location', with: 'Seattle'
-      fill_in 'Company Name', with: 'Apple'
-      fill_in 'Description', with: 'Apples are great'
-      click_on 'Create Job'
-      expect(page).to have_text('Apple Engineer')
-      click_on 'Info'
-      click_on 'Edit'
-      expect(page).to have_text('Update Job Details') # test updating job info
-      fill_in 'Job Title', with: 'Apple Engineer'
-      fill_in 'Job Position', with: 'be smart'
-      fill_in 'Job Location', with: 'Seattle'
-      fill_in 'Company', with: 'Apple'
-      fill_in 'Description', with: 'Apples are great'
-      click_on 'Update Job'
-      click_on 'Delete'
-      page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)
     end
   end
+  
   describe 'Creating Firm' do
     it 'Job creation from job page' do
         visit firms_path       
@@ -84,4 +62,6 @@ RSpec.describe 'Job Page'  do
         fill_in 'LinkedIn' , with: 'How are you?'
         click_on 'Add Firm'
         expect(page).to have_text('List of firms') #test creating a new job
+    end
+  end
 end

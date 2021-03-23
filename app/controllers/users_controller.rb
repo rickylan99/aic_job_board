@@ -24,7 +24,8 @@ class UsersController < ApplicationController
     role_id = Role.find_by(roletype: 'Student').id
 
     @user = User.create(password: 'password', password_confirmation: 'password', email: email,
-                        first_name: first_name, last_name: last_name, classification: classification,
+                        first_name: first_name, last_name: last_name,
+                        classification: classification,
                         phone_number: phone_number, role_id: role_id)
 
     doc = @user.documents.new(public_id: public_id, file_name: file_name, documenttype: 'resume')

@@ -2,7 +2,7 @@
 
 class JobApplicationsController < ApplicationController
   before_action :authorize
-  before_action :get_job
+  before_action :receive_job
 
   def index
     @job_applications = @job.job_applications
@@ -49,7 +49,7 @@ class JobApplicationsController < ApplicationController
                                             job_application_answers_attributes: %i[id job_application_id job_question_id answer])
   end
 
-  def get_job
+  def receive_job
     @job = Job.find(params[:job_id])
   end
 end

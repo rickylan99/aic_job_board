@@ -49,3 +49,5 @@ Naming/MethodName:
   Enabled: true
   EnforcedStyle: snake_case
 
+Style/GuardClause:
+  Enabled: false

@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Log In Page'  do
-  before(:each) do
-    Role.create(roletype: "Admin")
-    Role.create(roletype: "Student")
-    user = User.create(email: "test@gmail.com", password: "test",role_id: Role.find_by_roletype("Student").id)
-    user1 = User.create(email: "admin@gmail.com", password: "test",role_id: Role.find_by_roletype("Admin").id)
+RSpec.describe 'Log In Page' do
+  before do
+    Role.create(roletype: 'Admin')
+    Role.create(roletype: 'Student')
+    User.create(email: 'test@gmail.com', password: 'test',
+                role_id: Role.find_by(roletype: 'Student').id)
+    User.create(email: 'admin@gmail.com', password: 'test',
+                role_id: Role.find_by(roletype: 'Admin').id)
   end
 
   describe 'User visits site' do
@@ -25,7 +27,7 @@ RSpec.describe 'Log In Page'  do
         fill_in 'Password', with: 'test'
         click_on 'Log In'
       end
-      expect(page).to have_text('Log Out')   
+      expect(page).to have_text('Log Out')
     end
   end
   # rainy day scenario
