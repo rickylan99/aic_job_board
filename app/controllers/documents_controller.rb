@@ -1,16 +1,10 @@
 class DocumentsController < ApplicationController
-  def index
-  end
-
-  def create
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def delete
+  before_action :authorize
+  
+  def destroy
+    @document = Document.find(params[:id])
+    Cloudinary::Uploader.destroy(@document.public_id, :type => "private", :invalidate => true)
+    @document.destroy
+    redirect_to edit_user_path
   end
 end

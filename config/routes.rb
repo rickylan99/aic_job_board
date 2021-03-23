@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :password_forgets
+
+  delete 'access_submissions/:id', to: 'access_submissions#destroy', as: :access_submissions_destroy
+  resources :access_submissions
+ 
+
   get 'static_page/about'
   get 'static_page/resources'
   resources :jobs do 
@@ -17,11 +23,8 @@ Rails.application.routes.draw do
   end
   
   #TODO: Figure out the routings for the document endpoints
-  get 'documents/index'
-  get 'documents/create'
-  get 'documents/show'
-  get 'documents/edit'
-  get 'documents/delete'
+  delete 'documents/:id', to: 'documents#destroy', as: :documents_delete
+  resources :documents
 
   #TODO: Figure out what to do with these role routes, I do not think are necessary just seed DB
   get 'roles/index'
@@ -30,6 +33,8 @@ Rails.application.routes.draw do
   get 'roles/edit'
   get 'roles/delete'
 
+  get 'admins/index'
+
   #TODO: Figure out what to do with these user routes, could be combined with the previous admin routes and student routes into just "User" routes
   get 'users/index'
   get 'users/create'
@@ -37,6 +42,8 @@ Rails.application.routes.draw do
   get 'users/edit'
   get 'users/delete'
   
+  get 'students/create'
+  get 'students/index'
   # Authentication Routes
   	
   # Sign up page with form:
@@ -44,6 +51,10 @@ Rails.application.routes.draw do
 	
 	# Create action for when sign up form is submitted:
 	post 'users' => 'users#create'
+
+  get 'users/edit' => 'users#edit', as: :edit_user
+
+  patch 'users/edit' => 'users#update'
 
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
@@ -53,6 +64,9 @@ Rails.application.routes.draw do
 	
 	# Delete action to log out:
 	get '/logout' => 'sessions#destroy', as: :logout
+
+
+  get "users/:id", to: 'users#create', as: :accepted_user
 
   root to: 'sessions#new'
 

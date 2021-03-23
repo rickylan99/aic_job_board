@@ -4,7 +4,7 @@ RSpec.describe 'Job Page'  do
     #creates a user and auto logins in
     user = User.create(email: "test@gmail.com", password: "test")
     visit root_path
-      within '.card' do
+      within 'div#loginBox' do
         fill_in 'Email', with: 'test@gmail.com'
         fill_in 'Password', with: 'test'
         click_on 'Log In'
@@ -21,7 +21,7 @@ RSpec.describe 'Job Page'  do
         fill_in 'Company Name' , with: 'Apple'
         fill_in 'Description' , with: 'Apples are great'
         click_on 'Create Job'
-        expect(page).to have_text('New Job Posting') 
+        expect(page).to have_text('Apple Engineer') 
         click_on 'Info'
         click_on 'Edit'
         expect(page).to have_text('Update Job Details') #test updating job info
@@ -37,4 +37,3 @@ RSpec.describe 'Job Page'  do
     end
   end
 end
-#sprint 2 need to add some test for fail

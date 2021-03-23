@@ -1,0 +1,15 @@
+
+
+<h3><%= @access_submission.first_name%> <%= @access_submission.last_name%>'s Application </h3>
+<ul>
+<li> Name: <%= @access_submission.first_name%> <%= @access_submission.last_name%> </li>
+<li> Email: <%= @access_submission.email%> </li>
+<li> Phone Number: <%= @access_submission.phone_number%>  </li>
+<li> Classification: <%= @access_submission.classification%> </li>
+<li> Question 1: <%= @access_submission.q1%>  </li>
+<li> Question 2: <%= @access_submission.q2%>  </li>
+<li> Question 3: <%= @access_submission.q3%>  </li>
+<li> Question 4: <%= @access_submission.q4%>  </li>
+</ul>
+<%= button_to "Back",access_submissions_path, method: :get %>
+<%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>

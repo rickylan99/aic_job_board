@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Hello, world!</title>
     <style>
@@ -22,18 +21,13 @@
   <body>
 <div class="container text-center">
     <h1 style="font-size:5vw">What is <span style ="color:#500000"> AIC </span> ACCESS?</h1>
-        <p>AIC Access is an exclusive program for high-caliber, highly dedicated student who desire to complete a high
-        -finance internship after their freshman, sophomore, or junior year. We partner with investment banks, private
-        equity firms, and asset managers to provide opportunities for professional growth through a summer internship that may be
-        an enigma to obtain.</p>
+        <p>AIC Access is an exclusive program for high-caliber, highly dedicated student who desire to complete a high-finance internship after their freshman, sophomore, or junior year. We partner with investment banks, privateequity firms, and asset managers to provide opportunities for professional growth through a summer internship that may be an enigma to obtain.</p>
     </div>
 <div class ="container p-3 my-3">
     <h3 style="font-size:40px"> Requirements </h3>
-        <p> - Currently enroller as a full-time freshman,sophomore, or junior undergraduate student OR at least 1 summer 
-        away from graduation </p> 
+        <p> - Currently enroller as a full-time freshman,sophomore, or junior undergraduate student OR at least 1 summer away from graduation </p> 
         <p> - Have a good academic background </p> 
-        <p> - Preparation and devotion to career in finance-related feilds (Does not include corporate finance, wealth management, 
-        or consulting) </p> 
+        <p> - Preparation and devotion to career in finance-related feilds (Does not include corporate finance, wealth management, or consulting) </p> 
 </div>
 
 <div class = "container p-3 my-3">
@@ -46,7 +40,7 @@
     </ol>
 </div>
 <div class = "container text-center">
-<button type="button" class="btn btn-primary"> Apply Today </button>
+ <%= link_to '<button type="button" class ="btn btn-primary btn-block" id=About_Button> Apply Today </button>'.html_safe,new_access_submission_path %>
 </div>
 
     <!-- Optional JavaScript -->
