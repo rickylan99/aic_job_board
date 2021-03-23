@@ -43,6 +43,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+  end
+
   def update
     @user = current_user
     if params[:documents]
@@ -68,6 +72,11 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @document = @user.documents.build
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
   end
 
   private

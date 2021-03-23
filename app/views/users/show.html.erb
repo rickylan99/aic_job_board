@@ -1,0 +1,39 @@
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <h1>My Profile</h1>
+  </div>
+</div>
+
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <div class="card" style= "width: 40%">
+      <div class="card-body">
+        <h3 class="card-title">
+          <%= @user.first_name %> <%= @user.last_name %>
+        </h3>
+        <div class="row">
+          <b><%= @user.classification %></b>
+        </div>
+        <div class="row">
+          Major: <%= @user.major %>
+        </div>
+        <div class="row">
+          Email: <%= @user.email %>
+        </div>
+        <div class="row">
+          <%= form_for(@user, url: edit_user_path, :html => { multipart: true }) do |f| %>
+            <%= f.hidden_field :email, value: @user.email %>
+            <%= f.fields_for :document do |ff| %>
+            <div class="field">
+              <%= ff.label :document %><br>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to 'Back', admins_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
