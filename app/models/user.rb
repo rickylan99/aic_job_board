@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
     has_secure_password
     validates :email, presence: true
-    validates :password_digest, :length => {:within => 8..40}, confirmation: true
 
     def send_password_forget
         generate_token(:password_reset_token)
@@ -27,4 +26,5 @@ class User < ApplicationRecord
             self[column] = SecureRandom.urlsafe_base64
         end while User.exists?(column => self[column])
     end
+    
 end
