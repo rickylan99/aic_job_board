@@ -8,7 +8,14 @@
 <strong> Description: </strong>
 <%= @job.description %>
 <br/>
+<strong> Application Questions: </strong>
+<% @job.questions.each do |question| %>
+  <td> <%= question.question %> </td>
+<% end %>
+<br/>
 <strong> Application Answers: </strong>
-<%= @job_application.answers%>
+<% job_application.answers.each do |answer| %>
+  <td> <%= answer.answer %> </td>
+<% end %>
 <br/>
 </p>

@@ -1,0 +1,94 @@
+<%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<section class="my-login-page h-75">
+    <div class="container">
+       <div class="row justify-content-md-center align-items-center text-center">
+          <h1 style = "font-size:5vw"> Application Form </h1>
+          <p style = "font-size:20px">Once you complete all required information below, you will be contacted soon about your candidacy for AIC Accees followed by the next steps to set up your log-in if you are selected. By filling out this form, you are signaling to our officer team that you have a keen dedication and are prepared to begin networking for an internship in the investment banking, private equity, and asset managment field. If you are unsure or half-hearthed in applying, don't apply just yet and please email tamuaic@gmail.com to learn how to prepare yourself for the level of rigidity that comes with pursuing these internships.</p>
+          <p><b> As a reminder, only freshmen, sophomores, and juniors are encourage to apply. </b></p>
+        </div>
+    </div>
+    <%= form_for @access_submission,url:access_submissions_path, :html => { multipart: true } do |f| %>
+    <div class="container w-75"> 
+       <div class="form-row justify-content-md-center">            
+                <div class ="col-6">
+                    <div class="form-group">
+                        <%= f.label :first_name %>
+                        <%= f.text_field :first_name, autofocus: true, class: "form-control", required: 'required' %>           
+                    </div>
+                </div>    
+                <div class ="col-6">
+                    <div class="form-group">
+                        <%= f.label :email %>
+                        <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", required: 'required' %>           
+                    </div>
+                </div>
+        </div>
+        <div class="form-row justify-content-md-center">  
+                <div class = "col-6">
+                    <div class="form-group">
+                        <%= f.label :last_name %>
+                        <%= f.text_field :last_name, autofocus: true, class: "form-control", required: 'required' %>           
+                    </div>
+                </div>
+                 <div class = "col-6">
+                    <div class="form-group">
+                        <%= f.label :phone_number %>
+                        <%= f.text_field :phone_number, autofocus: true, class: "form-control", required: 'required' %>           
+                    </div>
+                </div>   
+        </div> 
+        <div class="form-row content-md-center">
+            <div class="form-group">
+                <%= f.label :classification %>
+                <%= f.select :classification,["Freshman","Sophmore","Junior"], autofocus: true, class: "form-control", required: 'required' %>           
+            </div>
+        </div>
+        <div class="form-row content-md-center">
+            <div class="form-group">
+                    <%= f.fields_for :document do |ff| %>
+                        <div class="field">
+                            <%= ff.label :document,'Resume' %><br>
+                            <%= ff.file_field :document, multiple: false, name: "documents[]",id: "file_upload_button", required: true %>
+                        </div>
+                    <% end %>
+            </div>
+        </div>         
+        <div class="form-row content-md-center">
+            <div class="form-group">
+                <%= f.label :q1,"List and Explain your extracirriculars that are applicable to AIC Access." %>
+                <%= f.text_area :q1,cols:100,rows:5 ,autofocus: false, required: 'required' %>           
+            </div>
+        </div>
+        <div class="form-row justify-content-md-center">
+            <div class="form-group">
+                <%= f.label :q2,"List and explain your past and current work experience that would be applicable to AIC Access." %>
+                <%= f.text_area :q2, size: "100x5",autofocus: true, required: 'required' %>           
+            </div>
+        </div>
+        <div class="form-row justify-content-md-center">
+            <div class="form-group">
+                <%= f.label :q3,"Why did you choose your industry prefrence[s] and what makes you stand out among other applicants?" %>
+                <%= f.text_area :q3, size: "100x5",autofocus: true, required: 'required' %>           
+            </div>
+        </div>
+        <div class="form-row content-md-center">
+            <div class="form-group">
+                <%= f.label :q4,"How did you hear about AIC Access?" %>
+                <%= f.text_area :q4, size: "100x5",autofocus: true, required: 'required' %>           
+            </div>
+        </div>        
+    </div>  
+    <div class="container pb-5">
+        <div class="row justify-content-md-center">
+
+        <div class="form-group m-0 col-5 text-center" id="login-form">
+            <%= f.submit "Apply", class: "btn btn-aggie btn-block" %>
+        </div>
+    </div>
+    </div>    
+    
+    <% end %>
+        
+    
+</section>

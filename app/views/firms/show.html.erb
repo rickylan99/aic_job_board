@@ -1,0 +1,90 @@
+<div class="container h-100">	
+
+	<%= stylesheet_link_tag 'job_list', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+	<div class="col-md-1">
+		<a href=<%= firms_path %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
+
+	<br/>
+
+	<div class="row justify-content-center">
+		<div class="col-sm-7">
+			<div class="card">
+				<div class="card-body">
+					<h1 class="card-title" style="text-align: center"><%= @firm.name %> </h1>
+					<h5 class="card-title" style="text-align: center">Industry: <%= @firm.industry %></h5>
+					<h5 class="card-title" style="text-align: center">Location: <%= @firm.location %></h5>
+					<p class="card-text"> <%= @firm.description %> </p>
+					<div class="row">
+						<div class="col-sm-2">
+							<a href=<%= @firm.website %> class="btn btn-outline-dark">Website</a>
+						</div>
+						<div class="col-sm-2">
+							<a href=<%= @firm.linkedin %> class="btn btn-outline-dark">LinkedIn</a>
+						</div>
+					</div>
+
+					<% if admin? %>
+						<br/>
+						<div class="card text-right">
+							<%= link_to 'Delete', @firm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+						</div>
+						<br/>
+
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br/>
+
+	<section class="job-listing h-75">
+  <div class="container">
+
+		<% if admin? %>
+
+			<center>
+			<div class="col-md-3 bottom-buffer">
+				<a href=<%= new_job_firm_path %> class="btn btn-aggie btn-block">Add Internship</a>
+			</div>
+			</center>
+
+		<% end %>
+
+		<% if current_user %>
+
+			<% @jobs.each do |job| %>
+				<div class="row justify-content-center">
+					<div class="col-md-8">
+						<div class="filter-result">
+							<div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+								<div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+									<div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex"></div>
+									<div class="job-content">
+										<h5 class="text-center text-md-left"> <%= job.title %></h5>
+										<h6 class="text-center text-md-left"> <%= job.position %>  </h6>
+										<h6 class="text-center text-md-left"> <%= job.location %> - <%= job.classifications %>  </h6>  
+										<h6 class="text-center text-md-left"> Deadline: <%= job.deadline %> </h6>   
+									</div>
+								</div>
+								<div class="job-right my-4 flex-shrink-0">
+									<a href="<%= job_path(job) %>"  class="btn d-block w-100 d-sm-inline-block btn-light">Info</a>
+									<a href="<%= new_job_job_application_path(job)%>"  class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>
+								</div>
+							</div>
+						</div>   
+					</div>
+				</div>
+			<% end %>
+
+		<% else %>
+			<div class="row justify-content-center">
+				<h3> See this company's opportunities by joining today! </h3>
+			</div>
+		<% end %>
+	</div>
+</section>
+
+</div>

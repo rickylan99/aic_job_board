@@ -3,13 +3,21 @@
 
 <section class="job-listing h-75">
   <div class="container h-100">
-    <div class="row h-100 justify-content-md-center align-items-center">
-        <div class="col-md-3 bottom-buffer">
-          <a href=<%= new_job_path %> class="btn btn-primary btn-block">New Job Posting</a>
-        </div>
 
-        <% @job.each do |job| %>
-        <div class="col-md-10">
+    <h1 style="text-align:center">Internships</h1>
+    <br/>
+
+    <% if admin? %>
+      <center>
+        <div class="col-md-3 bottom-buffer">
+          <a href=<%= new_job_path %> class="btn btn-aggie btn-block">New Job Posting</a>
+        </div>
+      </center>
+    <% end %>
+
+    <% @job.each do |job| %>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="filter-result">
               <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
                 <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
@@ -17,9 +25,10 @@
                       <div class="job-content">
 
                           <h5 class="text-center text-md-left"> <%= job.title %></h5>
-                          <h6 class="text-center text-md-left"> <%= job.position %> </h6>
-                          <h6 class="text-center text-md-left"> <%= job.company %> </h6> 
-                          <h6 class="text-center text-md-left"> <%= job.location %> </h6>    
+                          <h6 class="text-center text-md-left"> <%= job.position %>  </h6>
+                          <h6 class="text-center text-md-left"> <%= job.firm.name %>  </h6>
+                          <h6 class="text-center text-md-left"> <%= job.location %> - <%= job.classifications %> </h6>  
+                          <h6 class="text-center text-md-left"> Deadline: <%= job.deadline %> </h6>
                       </div>
                 </div>
 
@@ -30,9 +39,7 @@
               </div>
             </div>   
         </div>
-        <% end %>
-        
-
-    </div>
+      </div>
+    <% end %>
   </div>
 </section>

@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<section class="my-login-page h-75">
+      <div class="container h-75">
+        <div class="row h-100 justify-content-md-center align-items-center">
+          <div class="col-md-5">
+            <div class="card fat">
+              <div class="card-body">
+                <h4 class="card-title">Forgot Your Password?</h4>
+
+                <%= form_tag password_forgets_path, :method => :post do %>
+                  <div class='form-group'>
+                    <p class="text-left">Email: </p>
+                    <%= text_field_tag :email, params[:email], class: "form-control"%>
+                  </div>
+
+                  <div class="form-group m-0" id="login-form">
+                    <%= submit_tag "Submit",class: "btn btn-aggie btn-block"  %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+

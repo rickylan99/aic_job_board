@@ -1,11 +1,11 @@
 <section class="my-signup-page h-75">
       <div class="container h-100">
         <div class="row h-100 justify-content-md-center align-items-center">
-          <div class="col-md-5">
+          <div class="col-md-4">
             <div class="card fat">
               <div class="card-body">
                 <h4 class="card-title">Sign Up</h4>
-                <%= form_for @user do |f| %>
+                <%= form_for @user, :html => { multipart: true } do |f| %>
 
                   <div class="form-group">
                     <%= f.label :first_name %>
@@ -32,16 +32,27 @@
                     <%= f.password_field :password_confirmation, class: "form-control", id: "password-confirmation", type: "password", autocomplete: "new-password"%>
                   </div>
 
+                  <div class="form-group">
+                    <%= f.label :major %>
+                    <%= f.text_field :major, autofocus: true, class: "form-control", autocomplete: "major"%>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :classification %>
+                    <%= f.select(:classification, ["Freshman","Sophomore","Junior","Senior"], class: "form-control", autocomplete: "classification") %>     
+                  </div>
+
                   <div id="error-new"></div>
 
                   <div class="form-group m-0" id="login-form">
-                    <%= f.submit "Submit", class: "btn btn-primary btn-block", id: "submit-button" %>
+                    <%= f.submit "Submit", class: "btn btn-aggie btn-block", id: "submit-button" %>
                   </div>
                   
                 <% end %>
               </div>
             </div>
           </div>
+         
         </div>
       </div>
     </div>

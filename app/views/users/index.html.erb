@@ -1,0 +1,18 @@
+<style>
+th{
+    padding: 5px;
+    text-align: center;
+}
+</style>
+
+<h1> List of Users </h1>
+<table style="border:1">
+<% @user.each do |user| %>
+    <tr>
+        <th><%=user.first_name %></th>
+        <th><%=user.last_name %> </th>
+        <th><%=user.email %> </th>
+        <th> <%= link_to "View User", edit_user_path(user) %></th>
+    </tr>
+<% end %>
+</table>
