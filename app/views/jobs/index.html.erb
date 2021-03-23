@@ -7,10 +7,10 @@
     <h1 style="text-align:center">Internships</h1>
     <br/>
 
-    <% if is_admin %>
+    <% if admin? %>
       <center>
         <div class="col-md-3 bottom-buffer">
-          <a href=<%= new_job_path %> class="btn btn-primary btn-block">New Job Posting</a>
+          <a href=<%= new_job_path %> class="btn btn-aggie btn-block">New Job Posting</a>
         </div>
       </center>
     <% end %>

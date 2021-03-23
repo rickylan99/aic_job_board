@@ -49,7 +49,7 @@ th{
                 <th><%= user.first_name %></th>
                 <th><%= user.last_name %></th>
                 <th><%= user.email %></th>
-                <th><%= link_to "View User", edit_user_path(user) %></th>
+                <th><%= link_to "View User", users_show_path(user) %></th>
               </tr>
             <% end %>
           </table>

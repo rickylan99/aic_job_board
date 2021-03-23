@@ -1,0 +1,34 @@
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <h1> <%= @user.first_name %> <%= @user.last_name %></h1>
+  </div>
+</div>
+
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <div class="card" style= "width: 40%">
+      <div class="card-body">
+        <div class="row">
+          Classification: <b><%= @user.classification %></b>
+        </div>
+        <div class="row">
+          Major: <%= @user.major %>
+        </div>
+        <div class="row">
+          Email: <%= @user.email %>
+        </div>
+        <div class="row">
+        <% @user.documents.reload %>
+        <% if not @user.documents.empty? %>
+            <%= link_to("#{@user.documents[0].file_name}.pdf", cl_private_download_url(@user.documents[0].public_id, :pdf), target: :_blank) %>
+        <% else %>
+           <p> No Resume </p>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center align-items-center">
+          <%= link_to 'Back', admins_index_path %>
+  </div>
+</div>

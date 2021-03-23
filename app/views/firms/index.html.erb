@@ -3,9 +3,9 @@
     <h1>Firms</h1>
     <br/>
 
-    <% if is_admin %>
+    <% if admin? %>
       <div class="col-md-3 bottom-buffer">
-        <a href=<%= new_firm_path %> class="btn btn-primary btn-block">New Firm</a>
+        <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
       </div>
       <br/>
     <% end %>

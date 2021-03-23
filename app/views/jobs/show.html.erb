@@ -23,7 +23,7 @@
 					<% end %>
 					<br/>
 
-					<% if is_admin %>
+					<% if admin? %>
 
 						<div class="card text-right">
 							<%= link_to 'Applications', job_job_applications_path(@job), class: 'btn btn-outline-secondary'%>
