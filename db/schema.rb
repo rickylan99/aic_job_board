@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "access_applications", force: :cascade do |t|
-    t.string "questions"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "access_submissions", force: :cascade do |t|
     t.string "email"
     t.string "first_name"

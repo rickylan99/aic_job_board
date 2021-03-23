@@ -14,8 +14,8 @@ Role.create(roletype: "Admin")
 Role.create(roletype: "Student")
 
 
-user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Last", password: "test", role_id: 2)
-admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: 1)
+user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Last", password: "test", role_id: Role.find_by_roletype("Student").id)
+admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: Role.find_by_roletype("Admin").id)
 
 #Create Jobs
 Job.create(title: "Finance Intern", position: 'Intern Part-Time', location: "San Francisco", company: "Dell", logo: "PC go burr", description: "Please apply online", questions: "How are you", user_id: 1)
