@@ -1,6 +1,6 @@
 <div>
   <center>
-    <h1>List of firms</h1>
+    <h1>Firms</h1>
     <br/>
 
     <% if is_admin %>
@@ -16,16 +16,16 @@
           <div class="card">
             <div class="card-body">
               <div style="float:left">
-                <h5 class="card-title"><%= firm.name %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= firm.location %></h6>
-                <p class="card-text"> <%= firm.industry %> </p>
+                <h4 class="card-title"><%= firm.name %></h4>
+                <h6 class="card-subtitle mb-2 text-muted">Location: <%= firm.location %></h6>
+                <p class="card-text">Industry: <%= firm.industry %> </p>
               </div>
               <div style="float:right">
                 <br/>
                 <a href=<%= firm_path(firm) %> class="card_link">Company Overview</a>
                 <br/>
 
-                <% if is_admin %>
+                <% if current_user %>
                   <a href=<%= jobs_firm_path(firm) %> class="card_link">Internships</a>
                 <% end %>
 
