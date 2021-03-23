@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@users = User.all
+    @user = User.all
   end
 
   def create
@@ -60,6 +60,7 @@ class UsersController < ApplicationController
         redirect_to(edit_user_path)
       end
     else
+      flash[:alert] = "Failed to update User"
       render('edit')
     end
   end
