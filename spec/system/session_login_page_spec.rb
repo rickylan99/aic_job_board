@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Log In Page' do
+RSpec.describe Session do
   before do
     Role.create(roletype: 'Admin')
     Role.create(roletype: 'Student')
@@ -11,7 +11,7 @@ RSpec.describe 'Log In Page' do
                 role_id: Role.find_by(roletype: 'Admin').id)
   end
 
-  describe 'User visits site' do
+  describe 'User enter' do
     it 'visits page' do
       visit root_path
       expect(page).to have_text('Log In')

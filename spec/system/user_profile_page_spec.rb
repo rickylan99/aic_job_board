@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe Job do
+RSpec.describe User do
   before do
     # creates a user and auto logins in
     Role.create(roletype: 'Admin')
