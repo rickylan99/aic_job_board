@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe Session do
+RSpec.describe User do
   before do
     Role.create(roletype: 'Admin')
     Role.create(roletype: 'Student')

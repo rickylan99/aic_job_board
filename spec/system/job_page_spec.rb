@@ -31,7 +31,7 @@ RSpec.describe Job do
       fill_in 'Website', with: 'Freshmen'
       fill_in 'LinkedIn', with: 'How are you?'
       click_on 'Add Firm'
-      expect(page).to have_text('List of firms') # test creating a new job
+      expect(page).to have_text('Firms') # test creating a new job
       visit jobs_path
       expect(page).to have_text('New Job Posting') # test creating a new job
       click_on 'New Job Posting'
@@ -63,7 +63,7 @@ RSpec.describe Job do
       fill_in 'Website', with: 'Freshmen'
       fill_in 'LinkedIn', with: 'How are you?'
       click_on 'Add Firm'
-      expect(page).to have_text('List of firms') # test creating a new job
+      expect(page).to have_text('Firms') # test creating a new job
     end
   end
 end

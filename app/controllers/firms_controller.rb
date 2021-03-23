@@ -15,7 +15,13 @@ class FirmsController < ApplicationController
   end
 
   def create
-    Firm.create(firm_params)
+    firm = Firm.create(firm_params)
+
+    if firm.save
+      flash[:notice] = 'Firm Created Sucessfully!'
+    else
+      flash[:alert] = 'Failed to Create Firm'
+    end
 
     redirect_to firms_path
   end
@@ -65,6 +71,12 @@ class FirmsController < ApplicationController
     # @job = Job.create(params.require(:))
 
     job = Job.create(job_params)
+
+    if job.save
+      flash[:notice] = 'Job Created Sucessfully!'
+    else
+      flash[:alert] = 'Failed to Create Job'
+    end
 
     redirect_to jobs_firm_path(job.firm_id)
   end

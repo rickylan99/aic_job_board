@@ -1,15 +1,33 @@
+<div class="container h-100">
 
-<div>
-  <center>
+  <div class="col-md-1">
+		<a href=<%= job_path(@job) %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
+
+  <div class="row justify-content-center">
     <h1>Job Applications</h1>
+  </div>
 
 
-    <table border="1">
-      <% @job_applications.each do |job_application| %>
-        <tr>
-            <td> <%= job_application.job_id %> </td>
-            <td> <%= job_application.user_id %> </td>
-      <% end %>
-    </table>
-  </center>
+  <div >
+    <% @job_applications.each_with_index do |job_app, index| %>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+                <h5><%= index + 1%></h5>
+                <h5 class="card-title">First Name:<%= job_app.user.first_name %> </h5>
+                <h5 class="card-title">Last Name:<%= job_app.user.last_name %> </h5>
+                <h6 class="card-title">Answers:</h6>
+                <% job_app.job_application_answers.each do |answer| %>
+                  <p class="card-text"> <%= answer.job_question.question%>: <%= answer.answer%></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+    <% end %>
+  </div>
 </div>

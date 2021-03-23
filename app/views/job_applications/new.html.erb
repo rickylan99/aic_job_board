@@ -1,23 +1,55 @@
-<center>
-	<div class="col-8">
-		<h1>Create a New Job Application</h1>
-		<h2><%= "Company: #{@job.firm.name}" %>
-		<h2><%= "Description: #{@job.description}" %></h2>
-		<br/>
-		<%=form_with url: job_job_applications_path(@job.id), method: :post, model: @job_application do |form| %>
-		<%= form.hidden_field :user_id, value: current_user.id %>
-		Answers:
-		<% @job.job_questions.each_with_index do |question, index| %>
-			<%= form.fields_for :job_application_answers do |answers_form| %>
-			<li>
-				<%= answers_form.hidden_field :job_question_id, value: question.id %>
-				<label for="answer_question"><%= question.question %></label>
-				<%= answers_form.text_field :answer %>
-			</li>
-			<% end %>
-      	<% end %>
-		<br/>
-		<%= form.submit %>
-		<% end %>
+<div class="container h-100">
+
+	<div class="col-md-1">
+		<a href=<%= jobs_path %> class="btn btn-outline-primary btn-block">Back</a>
 	</div>
-</center>
+
+	<div class="row justify-content-center">
+		<div class="col-sm-7">
+			<div class="card">
+				<div class="card-body">
+
+					<h1 class="card-title" style="text-align: center"><%= @job.title %> </h1>
+					<h5 class="card-title">Position: <%= @job.position %></h5>
+					<h5 class="card-title">Company: <%= @job.firm.name %></h5>
+					<h5 class="card-title">Location: <%= @job.location %></h5>
+					<h5 class="card-title">Classifications: <%= @job.classifications %></h5>
+					<h5 class="card-title">Deadline: <%= @job.deadline %></h5>
+					<h5 class="card-title">Description:</h5>
+					<p class="card-text"> <%= @job.description %>
+			
+				</div>
+			</div>		
+		</div>
+	</div>
+	<br/>
+
+	<div class="row justify-content-center">
+		<div class="col-sm-10">
+			<div class="card">
+				<div class="card-body">
+
+					<h1 class="card-title" style="text-align: center">New Application</h1>
+
+					<%=form_with url: job_job_applications_path(@job.id), method: :post, model: @job_application do |form| %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+            <h5 class="card-title"> Answers: </h5>
+            <% @job.job_questions.each_with_index do |question, index| %>
+              <%= form.fields_for :job_application_answers do |answers_form| %>
+                <div class="form-group">
+                  <%= answers_form.hidden_field :job_question_id, value: question.id %>
+                  <label for="job_question"><%= question.question %></label>
+                  <%= answers_form.text_area :answer, placeholder: "Answer question", class: "form-control"%>
+                </div>
+              <% end %>
+            <% end %>
+					  <br/>
+					  <%= form.submit "Create Job Application", class: "btn btn-aggie btn-block" %>
+					<% end %>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
