@@ -33,7 +33,7 @@ RSpec.describe 'Job Page'  do
         visit access_submissions_path
         expect(page).to have_text("Pending Applications")
         click_on "View Application"
-        click_on "Accepted"
+        click_on "Accept"
         expect(page).to have_text("Account created successfully!")
     end
   end
