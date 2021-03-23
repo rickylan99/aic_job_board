@@ -2,7 +2,8 @@ class User < ApplicationRecord
     has_many :documents, :dependent => :destroy
 
     has_secure_password
-    validates :email, presence: true, uniqueness: true
+    validates :email, presence: true
+    validates :password_digest, :length => {:within => 8..40}, confirmation: true
 
     #belongs_to :role
 

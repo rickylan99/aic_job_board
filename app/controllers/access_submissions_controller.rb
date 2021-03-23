@@ -10,6 +10,10 @@ class AccessSubmissionsController < ApplicationController
   end
 
   def create
+    if User.exists?(email: params[:email].downcase!)
+      redirect_to access_submissions_new, alert: "Email already in use."
+    end
+    
     @access_submission = AccessSubmission.new(access_submission_params)
 
     cloud_output = Cloudinary::Uploader.upload(params[:documents][0], :type => :private)
