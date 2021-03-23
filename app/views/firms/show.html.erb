@@ -25,7 +25,7 @@
 						</div>
 					</div>
 
-					<% if is_admin %>
+					<% if admin? %>
 						<br/>
 						<div class="card text-right">
 							<%= link_to 'Delete', @firm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
