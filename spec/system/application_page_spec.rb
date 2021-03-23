@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'Job Page'  do
   before(:each) do
@@ -14,7 +16,7 @@ RSpec.describe 'Job Page'  do
         click_on 'Log In'
       end
   end
-  
+
   describe 'Applying to new User' do
     it 'Creates a user application' do     
         click_on "About Access"
@@ -41,5 +43,4 @@ RSpec.describe 'Job Page'  do
         expect(page).to have_text("Account created successfully!")
     end
   end
-  
 end

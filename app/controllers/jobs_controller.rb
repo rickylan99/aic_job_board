@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class JobsController < ApplicationController
   before_action :authorize
-  
-  #TODO: Refactor controller so that we do not look up job so many times, https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
+
+  # TODO: Refactor controller so that we do not look up job so many times,
+  # https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
 
   def index
     @job = Job.all
@@ -12,12 +15,13 @@ class JobsController < ApplicationController
 
     @job.job_questions.build
   end
-  
-  def create
-    #this will need some sort of authentication to make it admin only, right now I am just creating the page
-    #@job = Job.create(params.require(:))
 
-    job = Job.create(job_params)
+  def create
+    # this will need some sort of authentication to make it admin only,
+    # right now I am just creating the page
+    # @job = Job.create(params.require(:))
+
+    Job.create(job_params)
 
     redirect_to jobs_path
   end
@@ -41,7 +45,6 @@ class JobsController < ApplicationController
     redirect_to job_path(@job)
   end
 
-
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
@@ -52,7 +55,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:user_id, :firm_id, :title, :position, :location, :description, :classifications, :deadline, job_questions_attributes: [:id, :_destroy, :job_id, :question])
+    params.require(:job).permit(:user_id, :firm_id, :title, :position, :location, :description,
+                                :classifications, :deadline, job_questions_attributes: %i[id _destroy job_id question])
   end
-  
 end
