@@ -1,14 +1,13 @@
-
-	<div class="col-8">
-		<h1>Create a New Job Posting</h1>
-		<%= form_with model: @job do |form| %>
+<div class="col-8">
+    <h1>Create a New Job Posting</h1>
+    <%= form_with url: create_job_firms_path, method: :post, model: @job do |form| %>
       <%= form.hidden_field :user_id, value: current_user.id %>
-      <%= form.hidden_field :firm_id, value: 1 %>
+      <%= form.hidden_field :firm_id, value: @firm.id %>
 
       <div class="form-group">
         <label for="job_title">Job Title</label>
         <%= form.text_field :title, placeholder: "Job Title", class: "form-control"%>
-			</div>
+        </div>
       <div class="form-group">
         <label for="job_position">Position</label>
         <%= form.text_field :position, placeholder: "Job Position", class: "form-control" %>
@@ -16,18 +15,13 @@
       <div class="form-group">
         <label for="job_location">Location</label>
         <%= form.text_field :location, placeholder: "Job Location", class: "form-control" %>
-      </div>
+			<div class="form-group">
       <div class="form-group">
         <label for="job_classifications">Classifications</label>
         <%= form.text_field :classifications, placeholder: "Classifications that can apply", class: "form-control" %>
       </div>
-			<div class="form-group">
         <label for="job_description">Description</label>
         <%= form.text_area :description, placeholder: "Description", class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <label for="job_company">Company</label>
-        <%= form.select :firm_id, Firm.all.map { |firm| [firm.name, firm.id] }, class: "form-control" %>
       </div>
       <div class="form-group">
         <label for="job_date">Date</label>

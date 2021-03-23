@@ -1,0 +1,40 @@
+<div>
+  <center>
+    <h1>List of firms</h1>
+    <br/>
+
+    <% if is_admin %>
+      <div class="col-md-3 bottom-buffer">
+        <a href=<%= new_firm_path %> class="btn btn-primary btn-block">New Firm</a>
+      </div>
+      <br/>
+    <% end %>
+
+    <div>
+      <% @firms.each_with_index do |firm, index| %>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div style="float:left">
+                <h5 class="card-title"><%= firm.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= firm.location %></h6>
+                <p class="card-text"> <%= firm.industry %> </p>
+              </div>
+              <div style="float:right">
+                <br/>
+                <a href=<%= firm_path(firm) %> class="card_link">Company Overview</a>
+                <br/>
+
+                <% if is_admin %>
+                  <a href=<%= jobs_firm_path(firm) %> class="card_link">Internships</a>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <br/>
+      <% end %>
+    </div>
+  </center>
+</div>

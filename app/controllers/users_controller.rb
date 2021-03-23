@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     new 
 
     access_submission = AccessSubmission.find(params[:id])
-    email = access_submission.email
+    email = access_submission.email.downcase
     first_name = access_submission.first_name
     last_name = access_submission.last_name
     classification = access_submission.classification
