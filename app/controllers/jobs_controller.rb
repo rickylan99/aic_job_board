@@ -14,10 +14,13 @@ class JobsController < ApplicationController
   end
   
   def create
-    #this will need some sort of authentication to make it admin only, right now I am just creating the page
-    #@job = Job.create(params.require(:))
-
     job = Job.create(job_params)
+
+    if job.save 
+      flash[:notice] = "Job Created Sucessfully!"
+    else
+      flash[:alert] = "Failed to Create Job"
+    end
 
     redirect_to jobs_path
   end

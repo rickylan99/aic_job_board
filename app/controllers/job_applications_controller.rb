@@ -17,20 +17,10 @@ class JobApplicationsController < ApplicationController
 
     @job_application = @job.job_applications.build(application_params)
 
-    #put @job_application.to_s
-
-    #redirect_to jobs_path
-
-    #respond_to do |format|
-    if @job_application.save
-        flash.now.alert = "Worked"
-        ##format.html { redirect_to job_job_application_path(@job), notice: 'Job Application was successfully created.' }
-        #format.json { render :show, status: :created, location: @job_application }
+    if @job_application.save 
+      flash[:notice] = "Application Submitted Sucessfully!"
     else
-        flash.now.alert = @job_application.errors
-        #format.html { render :new }
-        #format.json { render json: @job_application.errors, status: :unprocessable_entity }
-    
+      flash[:alert] = "Failed to Submit Application"
     end
 
     redirect_to jobs_path

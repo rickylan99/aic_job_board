@@ -15,6 +15,12 @@ class FirmsController < ApplicationController
   def create
     firm = Firm.create(firm_params)
 
+    if firm.save 
+      flash[:notice] = "Firm Created Sucessfully!"
+    else
+      flash[:alert] = "Failed to Create Firm"
+    end
+
     redirect_to firms_path
   end
 
