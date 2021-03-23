@@ -10,29 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_011427) do
+ActiveRecord::Schema.define(version: 2021_03_22_183806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "access_applications", force: :cascade do |t|
-    t.string "questions"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "access_submissions", force: :cascade do |t|
-    t.string "answers"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "access_application_id", null: false
-    t.index ["access_application_id"], name: "index_access_submissions_on_access_application_id"
-    t.index ["user_id"], name: "index_access_submissions_on_user_id"
+    t.string "email"
+    t.string "first_name"
+    t.string "phone_number"
+    t.string "classification"
+    t.string "major"
+    t.string "last_name"
+    t.string "public_id"
+    t.string "file_name"
+    t.string "documenttype"
+    t.text "q1"
+    t.text "q2"
+    t.text "q3"
+    t.text "q4"
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "file"
+    t.string "public_id"
+    t.string "file_name"
     t.string "documenttype"
     t.datetime "dateupdate"
     t.datetime "created_at", precision: 6, null: false
@@ -112,16 +113,20 @@ ActiveRecord::Schema.define(version: 2021_03_15_011427) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
-    t.boolean "authorized"
-    t.boolean "first_login"
+    t.string "phone_number"
+    t.string "classification"
+    t.string "major"
+    t.integer "document_id"
+    t.boolean "isAuthorized"
+    t.boolean "firstLogin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "role_id", null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "access_submissions", "access_applications"
-  add_foreign_key "access_submissions", "users"
   add_foreign_key "documents", "users"
   add_foreign_key "job_application_answers", "job_applications"
   add_foreign_key "job_application_answers", "job_questions"
