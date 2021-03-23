@@ -1,7 +1,10 @@
 require 'rails_helper'
 RSpec.describe 'Log In Page'  do
   before(:each) do
-    user = User.create(email: "test@gmail.com", password: "test")
+    Role.create(roletype: "Admin")
+    Role.create(roletype: "Student")
+    user = User.create(email: "test@gmail.com", password: "test",role_id: Role.find_by_roletype("Student").id)
+    user1 = User.create(email: "admin@gmail.com", password: "test",role_id: Role.find_by_roletype("Admin").id)
   end
   
   describe 'User visits site' do
@@ -19,9 +22,7 @@ RSpec.describe 'Log In Page'  do
         fill_in 'Password', with: 'test'
         click_on 'Log In'
       end
-      expect(page).to have_text('New Job Posting')
-      visit root_path
-      expect(page).to have_text('New Job Posting')   
+      expect(page).to have_text('Log Out')   
     end
   end
   #rainy day scenario
@@ -43,7 +44,7 @@ RSpec.describe 'Log In Page'  do
         fill_in 'Password', with: 'test'
         click_on 'Log In'
       end
-      expect(page).to have_text('New Job Posting')
+      expect(page).to have_text('Log Out')
       click_on 'Log Out'
       expect(page).to have_text('Logged out!')
     end

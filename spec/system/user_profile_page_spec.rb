@@ -2,7 +2,10 @@ require 'rails_helper'
 RSpec.describe 'Job Page'  do
   before(:each) do
     #creates a user and auto logins in
-    user = User.create(email: "test@gmail.com", password: "test")
+    Role.create(roletype: "Admin")
+    Role.create(roletype: "Student")
+    user = User.create(email: "test@gmail.com", password: "test",role_id: Role.find_by_roletype("Student").id)
+    user1 = User.create(email: "admin@gmail.com", password: "test",role_id: Role.find_by_roletype("Admin").id)
     visit root_path
       within 'div#loginBox' do
         fill_in 'Email', with: 'test@gmail.com'

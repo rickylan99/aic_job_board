@@ -3,10 +3,13 @@ RSpec.describe 'Job Page'  do
   before(:each) do
     
     #creates a user and auto logins in
-    user = User.create(email: "test@gmail.com", password: "test")
+    Role.create(roletype: "Admin")
+    Role.create(roletype: "Student")
+    user = User.create(email: "test@gmail.com", password: "test",role_id: Role.find_by_roletype("Student").id)
+    user1 = User.create(email: "admin@gmail.com", password: "test",role_id: Role.find_by_roletype("Admin").id)
     visit root_path
       within 'div#loginBox' do
-        fill_in 'Email', with: 'test@gmail.com'
+        fill_in 'Email', with: 'admin@gmail.com'
         fill_in 'Password', with: 'test'
         click_on 'Log In'
       end
@@ -30,6 +33,7 @@ RSpec.describe 'Job Page'  do
         fill_in 'access_submission_q4', with: 'I club so much'
         click_on 'Apply'
         expect(page).to have_text("Application Submitted Sucessfully!")
+        
         visit access_submissions_path
         expect(page).to have_text("Pending Applications")
         click_on "View Application"
