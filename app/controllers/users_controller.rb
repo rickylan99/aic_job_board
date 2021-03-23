@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@users = User.all
+    @user = User.all
   end
 
   def create
@@ -56,12 +56,12 @@ class UsersController < ApplicationController
         # Cloudinary::Utils.private_download_url(user.documents[0].file, :pdf)
       end
     end
-    byebug
     if !user_params.nil?
       if @user.update(user_params)
         redirect_to(edit_user_path)
       end
     else
+      flash[:alert] = "Failed to update User"
       render('edit')
     end
   end

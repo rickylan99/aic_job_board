@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+    default from: 'zaalb599@gmail.com'
     default "Message-ID" => lambda {"<#{SecureRandom.uuid}@{ActionMailer::Base.smtp_settings[:domain]}>"}
 
     def forgot_password(user)
