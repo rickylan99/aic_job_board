@@ -1,7 +1,7 @@
-class StaticPageController < ApplicationController
-  def about
-  end
+# frozen_string_literal: true
 
-  def resources
-  end
+class StaticPageController < ApplicationController
+  def about; end
+
+  def resources; end
 end

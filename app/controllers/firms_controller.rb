@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class FirmsController < ApplicationController
-  before_action :authorize, only: [:create, :edit, :delete]
-  before_action :admin_only, only: [:new, :create, :edit]
-  
-  #TODO: Refactor controller so that we do not look up job so many times, https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
+  before_action :authorize, only: %i[create edit]
+  before_action :admin_only, only: %i[new create edit]
+
+  # TODO: Refactor controller so that we do not look up job so many times, https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
 
   def index
     @firms = Firm.all
@@ -11,9 +13,9 @@ class FirmsController < ApplicationController
   def new
     @firm = Firm.new
   end
-  
+
   def create
-    firm = Firm.create(firm_params)
+    Firm.create(firm_params)
 
     redirect_to firms_path
   end
@@ -35,7 +37,6 @@ class FirmsController < ApplicationController
 
     redirect_to firm_path(@firm)
   end
-
 
   def destroy
     @firm = Firm.find(params[:id])
@@ -59,8 +60,9 @@ class FirmsController < ApplicationController
   end
 
   def create_job
-    #this will need some sort of authentication to make it admin only, right now I am just creating the page
-    #@job = Job.create(params.require(:))
+    # this will need some sort of authentication to make it admin only,
+    # right now I am just creating the page
+    # @job = Job.create(params.require(:))
 
     job = Job.create(job_params)
 
@@ -74,7 +76,7 @@ class FirmsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:user_id, :firm_id, :title, :position, :location, :description, :classifications, :deadline, job_questions_attributes: [:id, :_destroy, :job_id, :question])
+    params.require(:job).permit(:user_id, :firm_id, :title, :position, :location, :description,
+                                :classifications, :deadline, job_questions_attributes: %i[id _destroy job_id question])
   end
-  
 end

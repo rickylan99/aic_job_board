@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 class PasswordForgetsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
-    user = User.find_by_email(params[:email])
-    user.send_password_forget if user
-    flash[:notice] = 'E-mail sent with password reset instructions. Please check your Spam folder as well'
+    user = User.find_by(email: params[:email])
+    user&.send_password_forget
+    flash[:notice] =
+      'E-mail sent with password reset instructions. Please check your Spam folder as well'
     redirect_to root_path
   end
 
   def edit
-    @user = User.find_by_password_reset_token!(params[:id])
+    @user = User.find_by!(password_reset_token: params[:id])
   end
 
   def update
-    @user = User.find_by_password_reset_token!(params[:id])
+    @user = User.find_by!(password_reset_token: params[:id])
     if @user.password_reset_sent_at < 1.day.ago
       flash[:notice] = 'Password reset has expired'
       redirect_to new_password_forget_path
@@ -25,8 +27,9 @@ class PasswordForgetsController < ApplicationController
       render :edit
     end
   end
-  
+
   private
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:password)
