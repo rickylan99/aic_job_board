@@ -1,11 +1,10 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="<%=root_path %>">ACCESS</a> <!-- changed this to root path instead of current page double check if this correct -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="navbar-brand" href="<%=root_path %>">ACCESS</a> <!-- changed this to root path instead of current page double check if this correct -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <% if current_user %>
 
@@ -34,8 +33,8 @@
         <a class ="nav-link" href ="<%= static_page_about_path %>"> About Access <span class ="sr-only"> (current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class ="nav-link" href ="<%= static_page_about_path %>"> Partner Firms <span class ="sr-only"> (current)</span></a>
-      </li> <!-- Please Add the correct link for partner firms which all users can view-->
+        <a class ="nav-link" href ="<%= firms_path %>"> Partner Firms <span class ="sr-only"> (current)</span></a>
+      </li> 
       <li class = "nav-item active">
         <a class = "nav-link" href="<%= static_page_resources_path %>"> Member Resources <span class="sr-only"> (current)</span></a>
       </li>
@@ -47,5 +46,5 @@
     </span>
     <% end %>
 
-    </div>
+  </div>
 </nav>

@@ -12,6 +12,16 @@ Rails.application.routes.draw do
     resources :job_applications
   end
 
+  resources :firms do
+    member do
+      get 'jobs'
+      get 'new_job'
+    end
+    collection do
+      post 'create_job'
+    end
+  end
+  
   #TODO: Figure out the routings for the document endpoints
   delete 'documents/:id', to: 'documents#destroy', as: :documents_delete
   resources :documents

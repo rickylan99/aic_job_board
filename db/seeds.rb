@@ -18,6 +18,6 @@ user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Las
 admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: Role.find_by_roletype("Admin").id)
 
 #Create Jobs
-Job.create(title: "Finance Intern", position: 'Intern Part-Time', location: "San Francisco", company: "Dell", logo: "PC go burr", description: "Please apply online", questions: "How are you", user_id: 1)
-Job.create(title: "Invest Intern", position: "Intern", location: "New York City", company: "JP Morgan", logo: "JP", description: "Please apply online", questions: "How are you", user_id: 1)
-Job.create(title: "Patty Melt Chef", position: "Goat", location: "College Station", company: "Whataburger", logo: "Whata", description: "Please apply online", questions: "How are you", user_id: 1)
+#Job.create(title: "Finance Intern", position: 'Intern Part-Time', location: "San Francisco", company: "Dell", logo: "PC go burr", description: "Please apply online", questions: "How are you", user_id: 1)
+#Job.create(title: "Invest Intern", position: "Intern", location: "New York City", company: "JP Morgan", logo: "JP", description: "Please apply online", questions: "How are you", user_id: 1)
+#Job.create(title: "Patty Melt Chef", position: "Goat", location: "College Station", company: "Whataburger", logo: "Whata", description: "Please apply online", questions: "How are you", user_id: 1)

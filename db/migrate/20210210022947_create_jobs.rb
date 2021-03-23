@@ -4,12 +4,9 @@ class CreateJobs < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :position
       t.string :location
-      t.string :company
-      t.string :logo
       t.string :description
-      t.string :questions
-      t.integer :user_id
-      t.integer :firm_id
+      t.string :classifications
+      t.date :deadline
 
       t.timestamps
     end

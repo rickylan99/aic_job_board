@@ -4,9 +4,12 @@
 <section class="job-listing h-75">
   <div class="container h-100">
     <div class="row h-100 justify-content-md-center align-items-center">
+
+      <% if is_admin %>
         <div class="col-md-3 bottom-buffer">
           <a href=<%= new_job_path %> class="btn btn-primary btn-block">New Job Posting</a>
         </div>
+      <% end %>
 
         <% @job.each do |job| %>
         <div class="col-md-10">
@@ -17,9 +20,9 @@
                       <div class="job-content">
 
                           <h5 class="text-center text-md-left"> <%= job.title %></h5>
-                          <h6 class="text-center text-md-left"> <%= job.position %> </h6>
-                          <h6 class="text-center text-md-left"> <%= job.company %> </h6> 
-                          <h6 class="text-center text-md-left"> <%= job.location %> </h6>    
+                          <h6 class="text-center text-md-left"> <%= job.position %>  </h6>
+                          <h6 class="text-center text-md-left"> <%= job.location %> - <%= job.classifications %>  </h6>  
+                          <h6 class="text-center text-md-left"> Deadline: <%= job.deadline %> </h6>
                       </div>
                 </div>
 
