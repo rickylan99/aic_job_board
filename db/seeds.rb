@@ -7,11 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Create Users
-user = User.create(email: "test@gmail.com", first_name: "test first name", last_name: "test_last_name", password: "test", role_id: 1)
+
 
 #Create Roles
 Role.create(roletype: "Admin")
 Role.create(roletype: "Student")
+
+
+user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Last", password: "test", role_id: 2)
+admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: 1)
 
 #Create Jobs
 Job.create(title: "Finance Intern", position: 'Intern Part-Time', location: "San Francisco", company: "Dell", logo: "PC go burr", description: "Please apply online", questions: "How are you", user_id: 1)
