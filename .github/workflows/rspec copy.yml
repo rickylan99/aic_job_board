@@ -1,0 +1,95 @@
+# .github/workflows/main.yaml
+name: Brakeman
+
+on: [push, pull_request]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: postgres
+          PG_PASSWORD: password
+          POSTGRES_DB: postgres
+          CI_HOST: localhost
+        ports:
+        # will assign a random free host port
+        - 5432/tcp
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      chrome:
+        image: selenium/standalone-chrome:3.141.59-zirconium # this version should match that of the selenium-webdriver gem (see Gemfile)
+        env:
+          HUB_URL: http://chrome:4444/wd/hub
+        volumes:
+          - /dev/shm:/dev/shm
+
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Ruby 2.7.2
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7.2
+      
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.23.1'
+        registry-url: 'https://registry.npmjs.org'
+        
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    
+    # required to compile pg ruby gem
+    - name: install PostgreSQL client
+      run: sudo apt-get install libpq-dev
+    
+    - name: Install yarn
+      run: npm install -g yarn
+
+    - name: Get yarn cache dir
+      id: yarn-cache-dir
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: Yarn cache
+      id: cache-yarn
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.yarn-cache-dir.outputs.dir }}
+        key: yarn-${{ hashFiles('**/yarn.lock') }}
+
+    - name: Yarn install
+      run: yarn install
+
+    - name: Build DB and install gems
+      env:
+        # use localhost for the host here because we have specified a container for the job.
+        # If we were running the job on the VM this would be postgres
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
+        RAILS_ENV: test
+        CI_HOST: localhost
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+        bin/rails db:migrate:reset
+        
+    - name: Run tests
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
+        RAILS_ENV: test
+        CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+      run: bundle exec brakeman
