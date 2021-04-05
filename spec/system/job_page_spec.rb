@@ -23,13 +23,16 @@ RSpec.describe Job do
       visit firms_path
       click_on 'New Firm'
       expect(page).to have_text('Create a New Firm') # test creating a new job
-      fill_in 'Name', with: 'Apple Engineer'
+      fill_in 'Firm Name', with: 'Apple Engineer'
       fill_in 'Description', with: 'be smart'
       fill_in 'Location', with: 'Seattle'
       # fill_in 'Company Name' , with: 'Apple'
       fill_in 'Industry', with: 'Apples are great'
-      fill_in 'Website', with: 'Freshmen'
-      fill_in 'LinkedIn', with: 'How are you?'
+      fill_in 'Firm Website', with: 'Freshmen'
+      fill_in 'Firm LinkedIn', with: 'How are you?'
+      fill_in 'Contact Name', with: 'Exaple Name'
+      fill_in 'Contact Email', with: 'example@gmail.com?'
+      fill_in 'Contact LinkedIn', with: 'How are you?'
       click_on 'Add Firm'
       expect(page).to have_text('Firms') # test creating a new job
       visit jobs_path
@@ -55,13 +58,16 @@ RSpec.describe Job do
       visit firms_path
       click_on 'New Firm'
       expect(page).to have_text('Create a New Firm') # test creating a new job
-      fill_in 'Name', with: 'Apple Engineer'
+      fill_in 'Firm Name', with: 'Apple Engineer'
       fill_in 'Description', with: 'be smart'
       fill_in 'Location', with: 'Seattle'
       # fill_in 'Company Name' , with: 'Apple'
       fill_in 'Industry', with: 'Apples are great'
-      fill_in 'Website', with: 'Freshmen'
-      fill_in 'LinkedIn', with: 'How are you?'
+      fill_in 'Firm Website', with: 'Freshmen'
+      fill_in 'Firm LinkedIn', with: 'How are you?'
+      fill_in 'Contact Name', with: 'Exaple Name'
+      fill_in 'Contact Email', with: 'example@gmail.com?'
+      fill_in 'Contact LinkedIn', with: 'How are you?'
       click_on 'Add Firm'
       expect(page).to have_text('Firms') # test creating a new job
     end
