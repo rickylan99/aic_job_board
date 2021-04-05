@@ -35,6 +35,18 @@
             <label for="firm_linkedin">LinkedIn:</label>
             <%= form.text_field :linkedin, placeholder: "Enter the firm's LinkedIn url", class: "form-control" %>
           </div>
+          <div class="form-group">
+            <label for="firm_contact_name">Contact Name:</label>
+            <%= form.text_field :contact_name, placeholder: "Enter the contact's full name", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="firm_contact_email">Contact Email:</label>
+            <%= form.text_field :contact_email, placeholder: "Enter the contact's email", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="firm_contact_linkedin">Contact LinkedIn:</label>
+            <%= form.text_field :contact_linkedin, placeholder: "Enter the contact's LinkedIn url", class: "form-control" %>
+          </div>
           <%= form.submit "Add Firm", class: "btn btn-aggie btn-block" %>
         <% end %>
       </div>

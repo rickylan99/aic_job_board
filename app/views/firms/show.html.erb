@@ -25,6 +25,14 @@
 						</div>
 					</div>
 
+					<% if current_user %>
+            <br/>
+					  <p class="card-title">Contact Name: <%= @firm.contact_name %></p>
+						<p class="card-title">Contact Email: <%= @firm.contact_email %></p>
+						<a href=<%= @firm.contact_linkedin %> class="btn btn-outline-dark">Contact LinkedIn</a>
+            <br/>
+					<% end %>
+
 					<% if admin? %>
 						<br/>
 						<div class="card text-right">
