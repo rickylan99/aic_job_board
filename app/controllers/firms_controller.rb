@@ -84,7 +84,7 @@ class FirmsController < ApplicationController
   private
 
   def firm_params
-    params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin)
+    params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin, :contact_name, :contact_email, :contact_linkedin)
   end
 
   def job_params
