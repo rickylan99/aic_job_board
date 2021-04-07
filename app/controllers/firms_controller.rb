@@ -16,6 +16,19 @@ class FirmsController < ApplicationController
 
   def create
     firm = Firm.create(firm_params)
+    
+    logger.debug "Params #{params}"
+
+    if params[:images][0]
+      logger.debug "----------- Inside If Statement ----------"
+      file        = params[:images][0].read
+      filename  = params[:images][0].original_filename
+      mime_type = params[:images][0].content_type
+
+      firm.build_image(file: file, filename: filename, mime_type: mime_type)
+    else
+      logger.debug "----------- Inside Else Statement ----------"
+    end
 
     if firm.save
       flash[:notice] = 'Firm Created Sucessfully!'

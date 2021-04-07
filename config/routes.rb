@@ -21,6 +21,10 @@ Rails.application.routes.draw do
       post 'create_job'
     end
   end
+
+  resources :images do
+    get "serve", :on => :member
+  end
   
   #TODO: Figure out the routings for the document endpoints
   delete 'documents/:id', to: 'documents#destroy', as: :documents_delete
