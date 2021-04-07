@@ -57,6 +57,8 @@ Rails.application.routes.draw do
 
   get 'users/show/:id' => 'users#show', as: :user_show
 
+  delete 'users/delete/:id' => 'users#destroy', as: :user_delete
+
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
 	

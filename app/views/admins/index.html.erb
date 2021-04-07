@@ -26,6 +26,7 @@ th{
                 <th><%= access_submission.last_name %></th>
                 <th><%= access_submission.email %></th>
                 <th><%= link_to "View Application", access_submission_path(access_submission) %></th>
+                
               </tr>
             <% end %>
           </table>
@@ -50,6 +51,7 @@ th{
                 <th><%= user.last_name %></th>
                 <th><%= user.email %></th>
                 <th><%= link_to "View User", user_show_path(user.id) %></th>
+                <th><%= link_to 'Delete', user_delete_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></th>
               </tr>
             <% end %>
           </table>
