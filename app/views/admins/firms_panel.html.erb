@@ -3,38 +3,33 @@
     <h1>Firms</h1>
     <br/>
 
-    <% if admin? %>
-      <div class="col-md-3 bottom-buffer">
-        <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
-      </div>
-      <br/>
-    <% end %>
-
-    <div>
-      <% @firms.each_with_index do |firm, index| %>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <div style="float:left">
-                <h4 class="card-title"><%= firm.name %></h4>
-                <h6 class="card-subtitle mb-2 text-muted">Location: <%= firm.location %></h6>
-                <p class="card-text">Industry: <%= firm.industry %> </p>
-              </div>
-              <div style="float:right">
-                <br/>
-                <a href=<%= firm_path(firm) %> class="card_link">Company Overview</a>
-                <br/>
-
-                <% if current_user %>
-                  <a href=<%= jobs_firm_path(firm) %> class="card_link">Internships</a>
-                <% end %>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <br/>
-      <% end %>
+    <div class="col-md-3 bottom-buffer">
+    <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
     </div>
+    <br/>
+
+    <div class="col d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Industry</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @firms.each do |firm| %>
+              <tr>
+                <th> <%= firm.name %> </th>
+                <td> <%= firm.industry %> </td>
+                <td> <a href=<%= root_path %> class="btn btn-outline-dark">View</a> <a href=<%= root_path %> class="btn btn-outline-dark">Edit</a> <a href=<%= root_path %> class="btn btn-outline-danger">Delete</a> </td>
+              </tr>
+            <%end%>
+        </table>
+      </div>
+    </div>
+  </div>
   </center>
 </div>

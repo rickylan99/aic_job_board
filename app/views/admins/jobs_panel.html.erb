@@ -11,23 +11,27 @@
   </center>
 
   <div class="col d-flex justify-content-center">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Company</th>
-          <th scope="col">Deadline</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @job.each do |job| %>
-          <tr>
-            <th> <%= job.title %> </th>
-            <td> <%= job.firm.name %> </td>
-            <td> <%= job.deadline %> </td>
-            <td> <a href=<%= root_path %> class="btn btn-outline-dark">View</a> <a href=<%= root_path %> class="btn btn-outline-dark">Export</a> <a href=<%= root_path %> class="btn btn-outline-danger">Delete</a>  </td>
-          </tr>
-        <%end%>
-    </table>
+    <div class="col-md-10">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Company</th>
+              <th scope="col">Deadline</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @job.each do |job| %>
+              <tr>
+                <th> <%= job.title %> </th>
+                <td> <%= job.firm.name %> </td>
+                <td> <%= job.deadline %> </td>
+                <td> <a href=<%= root_path %> class="btn btn-outline-dark">View</a> <a href=<%= root_path %> class="btn btn-outline-dark">Export</a> <a href=<%= root_path %> class="btn btn-outline-danger">Delete</a>  </td>
+              </tr>
+            <%end%>
+        </table>
+      </div>
+    </div>
   </div>
