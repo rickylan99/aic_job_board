@@ -31,7 +31,7 @@
 
 					<h1 class="card-title" style="text-align: center">New Application</h1>
 
-					<%=form_with url: job_job_applications_path(@job.id), method: :post, model: @job_application do |form| %>
+					<%=form_with url: job_job_applications_path(@job.id), method: :post, model: @job_application, :html => { multipart: true } do |form| %>
             <%= form.hidden_field :user_id, value: current_user.id %>
             <h5 class="card-title"> Answers: </h5>
             <% @job.job_questions.each_with_index do |question, index| %>
@@ -44,6 +44,15 @@
               <% end %>
             <% end %>
 					  <br/>
+					  <h5>Resume Upload</h5>
+            <div class="form-group">
+              <%= form.fields_for :document do |ff| %>
+                  <div class="field">
+                      <%= ff.label :document,'Resume' %><br>
+                      <%= ff.file_field :document, multiple: false, name: "documents[]",id: "file_upload_button", required: true %>
+                  </div>
+              <% end %>
+            </div>
 					  <%= form.submit "Create Job Application", class: "btn btn-aggie btn-block" %>
 					<% end %>
 					</div>

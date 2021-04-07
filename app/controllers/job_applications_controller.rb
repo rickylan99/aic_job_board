@@ -17,7 +17,14 @@ class JobApplicationsController < ApplicationController
   def create
     @job_application = @job.job_applications.build(application_params)
 
-    if @job_application.save
+    cloud_output = Cloudinary::Uploader.upload(params[:documents][0], type: :private)
+    @resume_document = @job_application.document.new(
+      public_id: cloud_output['public_id'], 
+      file_name: cloud_output['original_filename'], 
+      documenttype: 'resume'
+    )
+
+    if @job_application.save && @resume_document.save
       flash[:notice] = 'Application Submitted Sucessfully!'
     else
       flash[:alert] = 'Failed to Submit Application'
