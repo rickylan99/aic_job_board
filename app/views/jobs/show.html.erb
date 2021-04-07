@@ -1,29 +1,47 @@
-<div class="col-md-3 bottom-buffer">
-    <a href=<%= jobs_path %> class="btn btn-primary btn-block">Back to Job Listings</a>
-</div>
+<div class="container h-100">
 
-<p>
-<strong> User Id: </strong>
-<%= @job.user_id %>
-<br/>
-<strong> Job Title: </strong>
-<%= @job.title %>
-<br/>
-<strong> Job Position: </strong>
-<%= @job.position %>
-<br/>
-<strong> Job Location: </strong>
-<%= @job.location %>
-<br/>
-<strong> Description: </strong>
-<%= @job.description %>
-<br/>
-<strong> Created Date: </strong>
-<%= @job.created_at %>
-<br/>
-<%= link_to 'Edit', edit_job_path(@job) %>
-<br/>
-<%= link_to 'Applications', job_job_applications_path(@job)%>
-<br/>
-<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' } %>
-</p>
+	<div class="col-md-1">
+		<a href=<%= jobs_path %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
+
+	<div class="row justify-content-center">
+		<div class="col-sm-7">
+			<div class="card">
+				<div class="card-body">
+
+					<h1 class="card-title" style="text-align: center"><%= @job.title %> </h1>
+					<h5 class="card-title">Position: <%= @job.position %></h5>
+					<h5 class="card-title">Company: <%= @job.firm.name %></h5>
+					<h5 class="card-title">Location: <%= @job.location %></h5>
+					<h5 class="card-title">Classifications: <%= @job.classifications %></h5>
+					<h5 class="card-title">Deadline: <%= @job.deadline %></h5>
+					<h5 class="card-title">Description:</h5>
+					<p class="card-text"> <%= @job.description %>
+					<h5 class="card-title">Questions:</h5>
+					<% @questions.each_with_index do |question, index| %>
+						<p class="card-text" ><%= index + 1%>: <%= question.question %></p>
+					<% end %>
+					<br/>
+
+					<% if admin? %>
+
+						<div class="card text-right">
+							<%= link_to 'Applications', job_job_applications_path(@job), class: 'btn btn-outline-secondary'%>
+						</div>
+						<div class="card text-right">
+							<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+						</div>
+						<br/>
+
+					<% end %>
+
+					<div class="card text-right">
+						<%= link_to 'Apply Now', new_job_job_application_path(@job), class: 'btn btn-aggie'%>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

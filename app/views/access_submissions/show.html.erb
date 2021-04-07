@@ -1,15 +1,46 @@
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <h1> <%= @access_submission.first_name%> <%= @access_submission.last_name%>'s Application</h1>
+  </div>
+</div>
 
-
-<h3><%= @access_submission.first_name%> <%= @access_submission.last_name%>'s Application </h3>
-<ul>
-<li> Name: <%= @access_submission.first_name%> <%= @access_submission.last_name%> </li>
-<li> Email: <%= @access_submission.email%> </li>
-<li> Phone Number: <%= @access_submission.phone_number%>  </li>
-<li> Classification: <%= @access_submission.classification%> </li>
-<li> Question 1: <%= @access_submission.q1%>  </li>
-<li> Question 2: <%= @access_submission.q2%>  </li>
-<li> Question 3: <%= @access_submission.q3%>  </li>
-<li> Question 4: <%= @access_submission.q4%>  </li>
-</ul>
-<%= button_to "Back",access_submissions_path, method: :get %>
-<%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>
+<div class ="container pb-5 ">
+  <div class="row h-100 justify-content-md-center align-items-center">
+    <div class="card" style= "width: 40%">
+      <div class="card-body">
+        <div class="row">
+          <b>Email: </b> <%= @access_submission.email%>
+        </div>
+        <div class="row">
+          <b>Phone Number: </b> <%= @access_submission.phone_number%>
+        </div>
+        <div class="row">
+          <b>Classification: </b> <%= @access_submission.classification%>
+        </div>
+        <div class="row">
+          <strong>Question 1:</strong> <br> <%= @access_submission.q1%>
+        </div>
+        <div class="row">
+          <b>Question 2:</b> <br> <%= @access_submission.q2%>
+        </div>
+        <div class="row">
+         <b>Question 3:</b> <br> <%= @access_submission.q3%>
+        </div>
+        <div class="row">
+          <b>Question 4:</b> <br> <%= @access_submission.q4%>
+        </div>
+        <div class="row">
+        <% if not @access_submission.public_id.nil? %>
+            <%= link_to("#{@access_submission.file_name}.pdf", cl_private_download_url(@access_submission.public_id, :pdf), target: :_blank) %>
+        <% else %>
+           <p> No Resume </p>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center align-items-center">
+        <%= button_to "Back",admins_index_path, method: :get %>
+        <%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>
+  </div>
+</div>
