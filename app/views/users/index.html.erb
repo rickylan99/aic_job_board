@@ -13,6 +13,7 @@ th{
         <th><%=user.last_name %> </th>
         <th><%=user.email %> </th>
         <th> <%= link_to "View User", edit_user_path(user) %></th>
+         <th><%= link_to 'Delete', user_delete_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></th>
     </tr>
 <% end %>
 </table>
