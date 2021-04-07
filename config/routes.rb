@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   get 'roles/delete'
 
   get 'admins/index'
+  get 'admins/users_panel', as: :users_panel
+  get 'admins/jobs_panel', as: :jobs_panel
+  get 'admins/firms_panel', as: :firms_panel
 
   #TODO: Figure out what to do with these user routes, could be combined with the previous admin routes and student routes into just "User" routes
   get 'users/index'
