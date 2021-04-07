@@ -1,0 +1,35 @@
+<div>
+  <center>
+    <h1>Firms</h1>
+    <br/>
+
+    <div class="col-md-3 bottom-buffer">
+    <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
+    </div>
+    <br/>
+
+    <div class="col d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Industry</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @firms.each do |firm| %>
+              <tr>
+                <th> <%= firm.name %> </th>
+                <td> <%= firm.industry %> </td>
+                <td> <a href=<%= root_path %> class="btn btn-outline-dark">View</a> <a href=<%= root_path %> class="btn btn-outline-dark">Edit</a> <a href=<%= root_path %> class="btn btn-outline-danger">Delete</a> </td>
+              </tr>
+            <%end%>
+        </table>
+      </div>
+    </div>
+  </div>
+  </center>
+</div>

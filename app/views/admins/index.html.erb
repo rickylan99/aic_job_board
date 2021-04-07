@@ -1,60 +1,22 @@
-<style>
-th{
-    padding: 5px;
-    text-align: center;
-}
-</style>
-
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <h1>Admin Information</h1>
-  </div>
-</div>
-
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
-      <div class="card-body">
-        <div class="row h-100 justify-content-md-center align-items-center">
-          <h2> Pending Applications </h2>
-        </div>
-        <div class="row">
-          <table style="border:1">
-            <% @access_submission.each do |access_submission| %>
-              <tr>
-                <th><%= access_submission.first_name %></th>
-                <th><%= access_submission.last_name %></th>
-                <th><%= access_submission.email %></th>
-                <th><%= link_to "View Application", access_submission_path(access_submission) %></th>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
-      <div class="card-body">
-        <div class="row h-100 justify-content-md-center align-items-center">
-          <h2> List of Users </h2>
-        </div>
-        <div class="row">
-          <table style="border:1">
-            <% @user.each do |user| %>
-              <tr>
-                <th><%= user.first_name %></th>
-                <th><%= user.last_name %></th>
-                <th><%= user.email %></th>
-                <th><%= link_to "View User", user_show_path(user.id) %></th>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+<h1 style="text-align:center">Admin Panel</h1>
+<br/>
+<br/>
+<div class="col d-flex justify-content-center">
+	<div class="card">
+		<div class="card-body">
+			<div class="row">
+						<div class="col-sm-4">
+							<a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
+						</div>
+						<div class="col-sm-4">
+							<a href=<%= firms_panel_path %> class="btn btn-outline-dark">Firms</a>
+						</div>
+						<div class="col-sm-4">
+							<a href=<%= jobs_panel_path %> class="btn btn-outline-dark">Jobs</a>
+						</div>
+					</div>
+		</div>
+	</div>
+	<br/>
+	<br/>
 </div>
