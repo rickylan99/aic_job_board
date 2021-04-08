@@ -35,7 +35,7 @@ class AccessSubmissionsController < ApplicationController
   def destroy
     @access_submission = AccessSubmission.find(params[:id])
     @access_submission.destroy
-    redirect_to admins_index_path
+    redirect_to users_panel_path
   end
   private
 
