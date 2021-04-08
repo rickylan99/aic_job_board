@@ -1,4 +1,9 @@
 <div>
+
+    <div class="col-md-1">
+		<a href=<%= admins_index_path %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
+
   <center>
     <h1>Firms</h1>
     <br/>
@@ -24,7 +29,7 @@
               <tr>
                 <th> <%= firm.name %> </th>
                 <td> <%= firm.industry %> </td>
-                <td> <a href=<%= root_path %> class="btn btn-outline-dark">View</a> <a href=<%= root_path %> class="btn btn-outline-dark">Edit</a> <a href=<%= root_path %> class="btn btn-outline-danger">Delete</a> </td>
+                <td> <a href=<%= firm_view_path(firm) %> class="btn btn-outline-dark">View</a> <a href=<%= edit_firm_path(firm) %> class="btn btn-outline-dark">Edit</a> <a href=<%= new_job_firm_path(firm) %> class="btn btn-outline-dark">Add Internship</a> <%= link_to 'Delete', firm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%> </td>
               </tr>
             <%end%>
         </table>

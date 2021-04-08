@@ -1,5 +1,8 @@
-<%= stylesheet_link_tag 'job_list', media: 'all', 'data-turbolinks-track': 'reload' %>
+<div>
 
+  <div class="col-md-1">
+		<a href=<%= admins_index_path %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
 
   <h1 style="text-align:center">Internships</h1>
   <br/>
@@ -8,6 +11,7 @@
     <div class="col-md-3 bottom-buffer">
       <a href=<%= new_job_path %> class="btn btn-aggie btn-block">New Internship</a>
     </div>
+    <br/>
   </center>
 
   <div class="col d-flex justify-content-center">
@@ -35,3 +39,4 @@
       </div>
     </div>
   </div>
+</div>
