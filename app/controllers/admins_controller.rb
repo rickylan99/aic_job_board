@@ -18,4 +18,15 @@ class AdminsController < ApplicationController
   def firms_panel
     @firms = Firm.all
   end
+
+  def firm_view
+    @firm = Firm.find(params[:id])
+
+    @jobs = @firm.jobs
+  end
+
+  def job_view
+    @job = Job.find(params[:id])
+    @questions = @job.job_questions
+  end
 end

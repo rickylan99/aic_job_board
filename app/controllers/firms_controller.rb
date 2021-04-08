@@ -23,7 +23,7 @@ class FirmsController < ApplicationController
       flash[:alert] = 'Failed to Create Firm'
     end
 
-    redirect_to firms_path
+    redirect_to firms_panel_path
   end
 
   def show
@@ -41,14 +41,14 @@ class FirmsController < ApplicationController
 
     @firm.update(firm_params)
 
-    redirect_to firm_path(@firm)
+    redirect_to firm_view_path(@firm)
   end
 
   def destroy
     @firm = Firm.find(params[:id])
     @firm.destroy
 
-    redirect_to firms_path
+    redirect_to firms_panel_path
   end
 
   def jobs

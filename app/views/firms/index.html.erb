@@ -3,13 +3,6 @@
     <h1>Firms</h1>
     <br/>
 
-    <% if admin? %>
-      <div class="col-md-3 bottom-buffer">
-        <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
-      </div>
-      <br/>
-    <% end %>
-
     <div>
       <% @firms.each_with_index do |firm, index| %>
         <div class="col-md-6">
