@@ -32,7 +32,11 @@
                 <th> <%= job.title %> </th>
                 <td> <%= job.firm.name %> </td>
                 <td> <%= job.deadline %> </td>
-                <td> <a href=<%= root_path %> class="btn btn-outline-dark">View</a> <a href=<%= root_path %> class="btn btn-outline-dark">Export</a> <a href=<%= root_path %> class="btn btn-outline-danger">Delete</a>  </td>
+                <td> 
+                  <a href=<%= job_view_path(job) %> class="btn btn-outline-dark">View</a> 
+                  <a href=<%= root_path %> class="btn btn-outline-dark">Export</a> 
+                  <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%> </td>  
+                </td>
               </tr>
             <%end%>
         </table>

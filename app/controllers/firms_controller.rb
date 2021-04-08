@@ -23,7 +23,7 @@ class FirmsController < ApplicationController
       flash[:alert] = 'Failed to Create Firm'
     end
 
-    redirect_to firms_path
+    redirect_to firms_panel_path
   end
 
   def show

@@ -24,4 +24,9 @@ class AdminsController < ApplicationController
 
     @jobs = @firm.jobs
   end
+
+  def job_view
+    @job = Job.find(params[:id])
+    @questions = @job.job_questions
+  end
 end
