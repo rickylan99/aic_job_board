@@ -13,9 +13,8 @@ class AccessSubmissionsController < ApplicationController
 
   def create
     if User.exists?(email: access_submission_params[:email].downcase)
-      redirect_to access_submissions_new, alert: 'Email already in use.'
-    end
-
+      redirect_to new_access_submission_path, alert: 'Email already in use.'
+    else
     @access_submission = AccessSubmission.new(access_submission_params)
     cloud_output = Cloudinary::Uploader.upload(params[:documents][0], type: :private)
     @access_submission.public_id = cloud_output['public_id']
@@ -26,13 +25,18 @@ class AccessSubmissionsController < ApplicationController
     else
       flash[:alert] = 'Failed to Submit Application'
     end
-    redirect_to root_path
+      redirect_to root_path
+    end
   end
 
   def show
     @access_submission = AccessSubmission.find(params[:id])
   end
-
+  def destroy
+    @access_submission = AccessSubmission.find(params[:id])
+    @access_submission.destroy
+    redirect_to admins_index_path
+  end
   private
 
   def access_submission_params
