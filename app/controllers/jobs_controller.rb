@@ -25,7 +25,7 @@ class JobsController < ApplicationController
       flash[:alert] = 'Failed to Create Job'
     end
 
-    redirect_to jobs_path
+    redirect_to jobs_panel_path
   end
 
   def show
@@ -51,7 +51,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
 
-    redirect_to jobs_path
+    redirect_to jobs_panel_path
   end
 
   private

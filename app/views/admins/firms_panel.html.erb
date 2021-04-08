@@ -1,0 +1,44 @@
+<div>
+
+    <div class="col-md-1">
+		<a href=<%= admins_index_path %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
+
+  <center>
+    <h1>Firms</h1>
+    <br/>
+
+    <div class="col-md-3 bottom-buffer">
+    <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
+    </div>
+    <br/>
+
+    <div class="col d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Industry</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @firms.each do |firm| %>
+              <tr>
+                <td> <%= firm.name %> </td>
+                <td> <%= firm.industry %> </td>
+                <td> 
+                  <a href=<%= firm_view_path(firm) %> class="btn btn-outline-dark">View</a> 
+                  <a href=<%= edit_firm_path(firm) %> class="btn btn-outline-dark">Edit</a> 
+                  <a href=<%= new_job_firm_path(firm) %> class="btn btn-outline-dark">Add Internship</a> 
+                  <%= link_to 'Delete', firm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%> </td>
+              </tr>
+            <%end%>
+        </table>
+      </div>
+    </div>
+  </div>
+  </center>
+</div>

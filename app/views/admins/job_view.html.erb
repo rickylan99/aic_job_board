@@ -1,7 +1,7 @@
 <div class="container h-100">
 
 	<div class="col-md-1">
-		<a href=<%= jobs_path %> class="btn btn-outline-primary btn-block">Back</a>
+		<a href=<%= jobs_panel_path %> class="btn btn-outline-primary btn-block">Back</a>
 	</div>
 
 	<div class="row justify-content-center">
@@ -21,12 +21,16 @@
 					<% @questions.each_with_index do |question, index| %>
 						<p class="card-text" ><%= index + 1%>: <%= question.question %></p>
 					<% end %>
-					
+                    
 					<br/>
 
-					<div class="card text-right">
-						<%= link_to 'Apply Now', new_job_job_application_path(@job), class: 'btn btn-aggie'%>
-					</div>
+                    <div class="card text-right">
+                        <%= link_to 'Applications', job_job_applications_path(@job), class: 'btn btn-outline-secondary'%>
+                    </div>
+                    <div class="card text-right">
+                        <%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+                    </div>
+                    <br/>
 
 				</div>
 			</div>
