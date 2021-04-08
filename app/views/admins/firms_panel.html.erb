@@ -27,7 +27,7 @@
           <tbody>
             <% @firms.each do |firm| %>
               <tr>
-                <th> <%= firm.name %> </th>
+                <td> <%= firm.name %> </td>
                 <td> <%= firm.industry %> </td>
                 <td> 
                   <a href=<%= firm_view_path(firm) %> class="btn btn-outline-dark">View</a> 
