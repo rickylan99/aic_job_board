@@ -30,6 +30,7 @@
           <b>Question 4:</b> <br> <%= @access_submission.q4%>
         </div>
         <div class="row">
+        <b>Resume: </b> <br>
         <% if not @access_submission.public_id.nil? %>
             <%= link_to("#{@access_submission.file_name}.pdf", cl_private_download_url(@access_submission.public_id, :pdf), target: :_blank) %>
         <% else %>
@@ -42,5 +43,6 @@
   <div class="row justify-content-md-center align-items-center">
         <%= button_to "Back",admins_index_path, method: :get %>
         <%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>
+        <%= button_to 'Reject', @access_submission, method: :delete, data: { confirm: 'Are you sure, the applicant will have to resubmit?'} %>
   </div>
 </div>
