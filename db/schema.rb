@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_235016) do
+ActiveRecord::Schema.define(version: 2021_04_09_012147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_04_04_235016) do
     t.text "q2"
     t.text "q3"
     t.text "q4"
+  end
+
+  create_table "application_documents", force: :cascade do |t|
+    t.string "public_id"
+    t.string "documenttype"
+    t.string "file_name"
+    t.integer "job_application_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "documents", force: :cascade do |t|
