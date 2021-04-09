@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'job_list', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <style>
 th{
     padding: 5px;
@@ -11,56 +13,59 @@ th{
 
 <div class ="container pb-5 ">
   <div class="row h-100 justify-content-md-center align-items-center">
-    <h1>Admin Information</h1>
+    <h1>User Information</h1>
   </div>
 </div>
 
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
-      <div class="card-body">
-        <div class="row h-100 justify-content-md-center align-items-center">
-          <h2> Pending Applications </h2>
-        </div>
-        <div class="row">
-          <table style="border:1">
-            <% @access_submission.each do |access_submission| %>
+  <div class="col d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% @access_submission.each do |access_submission| %>
               <tr>
-                <th><%= access_submission.first_name %></th>
-                <th><%= access_submission.last_name %></th>
-                <th><%= access_submission.email %></th>
-                <th><%= link_to "View Application", access_submission_path(access_submission) %></th>
-                
+                <td><%= access_submission.first_name %></td>
+                <td><%= access_submission.last_name %></td>
+                <td><%= access_submission.email %></td>
+                <td><%= link_to "View Application", access_submission_path(access_submission) %></td>             
               </tr>
             <% end %>
-          </table>
-        </div>
+        </table>
       </div>
     </div>
   </div>
-</div>
 
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
-      <div class="card-body">
-        <div class="row h-100 justify-content-md-center align-items-center">
-          <h2> List of Users </h2>
-        </div>
-        <div class="row">
-          <table style="border:1">
+  <div class="col d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
             <% @user.each do |user| %>
               <tr>
-                <th><%= user.first_name %></th>
-                <th><%= user.last_name %></th>
-                <th><%= user.email %></th>
-                <th><%= link_to "View User", user_show_path(user.id) %></th>
-                <th><%= link_to 'Delete', user_delete_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></th>
+                <td> <%= user.first_name %> </td>
+                <td> <%= user.last_name %> </td>
+                <td> <%= user.email %> </td>
+                <td><%= link_to "View User", user_show_path(user.id) %></td>
+                <td><%= link_to 'Delete', user_delete_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>          
               </tr>
-            <% end %>
-          </table>
-        </div>
+            <%end%>
+        </table>
       </div>
     </div>
   </div>
-</div>
