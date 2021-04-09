@@ -20,7 +20,7 @@ RSpec.describe Job do
 
   describe 'Creating Job' do
     it 'Job creation from job page' do
-      visit firms_path
+      visit firms_panel_path
       click_on 'New Firm'
       expect(page).to have_text('Create a New Firm') # test creating a new job
       fill_in 'Firm Name', with: 'Apple Engineer'
@@ -35,9 +35,9 @@ RSpec.describe Job do
       fill_in 'Contact LinkedIn', with: 'How are you?'
       click_on 'Add Firm'
       expect(page).to have_text('Firms') # test creating a new job
-      visit jobs_path
-      expect(page).to have_text('New Job Posting') # test creating a new job
-      click_on 'New Job Posting'
+      visit jobs_panel_path
+      expect(page).to have_text('New Internship') # test creating a new job
+      click_on 'New Internship'
       fill_in 'Job Title', with: 'Apple Engineer'
       fill_in 'Job Position', with: 'be smart'
       fill_in 'Job Location', with: 'Seattle'
@@ -47,7 +47,7 @@ RSpec.describe Job do
       fill_in 'job_job_questions_attributes_0_question', with: 'How are you?'
       click_on 'Create Job'
       expect(page).to have_text('Apple Engineer')
-      click_on 'Info'
+      click_on 'View'
       click_on 'Delete'
       page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)
     end
@@ -55,7 +55,7 @@ RSpec.describe Job do
 
   describe 'Creating Firm' do
     it 'Job creation from job page' do
-      visit firms_path
+      visit firms_panel_path
       click_on 'New Firm'
       expect(page).to have_text('Create a New Firm') # test creating a new job
       fill_in 'Firm Name', with: 'Apple Engineer'

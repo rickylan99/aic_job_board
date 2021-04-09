@@ -34,6 +34,11 @@ Rails.application.routes.draw do
   get 'roles/delete'
 
   get 'admins/index'
+  get 'admins/users_panel', as: :users_panel
+  get 'admins/jobs_panel', as: :jobs_panel
+  get 'admins/firms_panel', as: :firms_panel
+  get 'admins/firm_view/:id' => 'admins#firm_view', as: :firm_view
+  get 'admins/job_view/:id' => 'admins#job_view', as: :job_view
 
   #TODO: Figure out what to do with these user routes, could be combined with the previous admin routes and student routes into just "User" routes
   get 'users/index'
@@ -56,6 +61,8 @@ Rails.application.routes.draw do
   patch 'users/edit' => 'users#update'
 
   get 'users/show/:id' => 'users#show', as: :user_show
+
+  delete 'users/delete/:id' => 'users#destroy', as: :user_delete
 
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
