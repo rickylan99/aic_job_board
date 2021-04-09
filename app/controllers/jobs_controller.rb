@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   # https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
 
   def index
-    @job = Job.all
+    @job = Job.where(:expired => false)
   end
 
   def new
@@ -18,6 +18,8 @@ class JobsController < ApplicationController
 
   def create
     job = Job.create(job_params)
+
+    job.expired = false
 
     if job.save
       flash[:notice] = 'Job Created Sucessfully!'
