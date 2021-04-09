@@ -89,6 +89,8 @@ class UsersController < ApplicationController
   def user_params
     # that can be submitted by a form to the user model #=> require(:user)
     params.require(:user).permit(:name, :email, :first_name, :last_name, :major, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :investment_banking, :private_equity, 
+                                 :venture_capital, :real_estate, :other_prefs, 
+                                 :other_industrty_preferences)
   end
 end
