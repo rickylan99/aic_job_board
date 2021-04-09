@@ -77,6 +77,13 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def promote
+    @user = User.find(params[:id])
+    role_id = Role.find_by(roletype: 'Admin').id
+    @user = User.update(role_id: role_id)
+    redirect_to users_panel_path
+  end
+
   private
 
   def user_params
