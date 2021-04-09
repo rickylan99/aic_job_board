@@ -13,7 +13,9 @@
 			<div class="card">
 				<div class="card-body">
 					<% if not @firm.image.nil?%>
-						<%= image_tag serve_image_path(@firm.image) %>
+					<div class="text-center">
+						<%= image_tag serve_image_path(@firm.image), class: "img-fluid"%>
+					</div>
 					<% end %>
 					<h1 class="card-title" style="text-align: center"><%= @firm.name %> </h1>
 					<h5 class="card-title" style="text-align: center">Industry: <%= @firm.industry %></h5>
