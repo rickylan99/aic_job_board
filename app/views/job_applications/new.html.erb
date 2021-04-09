@@ -46,10 +46,9 @@
 					  <br/>
 					  <h5>Resume Upload</h5>
             <div class="form-group">
-              <%= form.fields_for :document do |ff| %>
+              <%= form.fields_for :application_document do |ff| %>
                   <div class="field">
-                      <%= ff.label :document,'Resume' %><br>
-                      <%= ff.file_field :document, multiple: false, name: "documents[]",id: "file_upload_button", required: true %>
+                      <%= ff.file_field :application_document, multiple: false, name: "application_documents[]",id: "file_upload_button", required: true %>
                   </div>
               <% end %>
             </div>
