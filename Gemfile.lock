@@ -310,6 +310,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  rubyzip
   sass-rails
   selenium-webdriver
   simplecov
