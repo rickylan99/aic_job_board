@@ -41,7 +41,7 @@
     </div>
   </div>
   <div class="row justify-content-md-center align-items-center">
-        <%= button_to "Back",admins_index_path, method: :get %>
+        <%= button_to "Back",users_panel_path, method: :get %>
         <%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>
         <%= button_to 'Reject', @access_submission, method: :delete, data: { confirm: 'Are you sure, the applicant will have to resubmit?'} %>
   </div>
