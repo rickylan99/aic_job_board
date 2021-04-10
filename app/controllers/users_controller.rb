@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path
+    redirect_to users_panel_path
   end
 
   def promote
