@@ -131,6 +131,12 @@ ActiveRecord::Schema.define(version: 2021_04_09_053902) do
     t.integer "document_id"
     t.boolean "isAuthorized"
     t.boolean "firstLogin"
+    t.boolean "investment_banking"
+    t.boolean "private_equity"
+    t.boolean "venture_capital"
+    t.boolean "real_estate"
+    t.boolean "other_prefs"
+    t.string "other_industrty_preferences"
     t.integer "role_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -5,20 +5,22 @@
 	<div class="card">
 		<div class="card-body">
 			<div class="row">
-						<div class="col-sm-4">
-							<a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
-						</div>
-						<div class="col-sm-4">
-							<a href=<%= firms_panel_path %> class="btn btn-outline-dark">Firms</a>
-						</div>
-						<div class="col-sm-4">
-							<a href=<%= jobs_panel_path %> class="btn btn-outline-dark">Jobs</a>
-						</div>
-					</div>
+				<div class="col-sm-4">
+					<a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
+				</div>
+				<div class="col-sm-4">
+					<a href=<%= firms_panel_path %> class="btn btn-outline-dark">Firms</a>
+				</div>
+				<div class="col-sm-4">
+					<a href=<%= jobs_panel_path %> class="btn btn-outline-dark">Jobs</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<br/>
 	<br/>
 </div>
+
+
 <% storage = Cloudinary::Api.usage()["storage"]["usage"].to_f / 1.megabyte %>
 <h4 style="text-align:center">Storage Used: <%= "#{number_with_delimiter(storage.round(2), :delimiter => ',')} MB / 10,000 MB"%> </h1>
