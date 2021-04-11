@@ -61,15 +61,6 @@ ActiveRecord::Schema.define(version: 2021_04_07_194619) do
     t.string "contact_linkedin"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.integer "firm_id"
-    t.binary "file"
-    t.string "filename"
-    t.string "mime_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "job_application_answers", force: :cascade do |t|
     t.text "answer"
     t.bigint "job_application_id", null: false
@@ -111,6 +102,15 @@ ActiveRecord::Schema.define(version: 2021_04_07_194619) do
     t.bigint "user_id", null: false
     t.index ["firm_id"], name: "index_jobs_on_firm_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "logos", force: :cascade do |t|
+    t.integer "firm_id"
+    t.binary "file"
+    t.string "filename"
+    t.string "mime_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|

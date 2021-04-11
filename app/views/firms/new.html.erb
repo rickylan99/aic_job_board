@@ -20,10 +20,10 @@
             <%= form.text_area :description, placeholder: "Enter a description of the firm", class: "form-control" %>
           </div>
 
-          <%= form.fields_for :image do |ff| %>
+          <%= form.fields_for :logo do |ff| %>
           <div class="form-group">
             <label for="firm_logo">Firm Logo: </label>
-            <%= ff.file_field :image, multiple: false, name: "images[]",id: "file_upload_button", required: true %>
+            <%= ff.file_field :logo, multiple: false, name: "logos[]",id: "file_upload_button", required: true %>
           </div>
           <% end %>
 

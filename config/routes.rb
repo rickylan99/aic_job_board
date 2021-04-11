@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :images do
+  resources :logos do
     get "serve", :on => :member
   end
   

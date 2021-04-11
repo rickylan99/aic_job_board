@@ -19,13 +19,13 @@ class FirmsController < ApplicationController
     
     logger.debug "Params #{params}"
 
-    if params[:images][0]
+    if params[:logos][0]
       logger.debug "----------- Inside If Statement ----------"
-      file        = params[:images][0].read
-      filename  = params[:images][0].original_filename
-      mime_type = params[:images][0].content_type
+      file        = params[:logos][0].read
+      filename  = params[:logos][0].original_filename
+      mime_type = params[:logos][0].content_type
 
-      firm.build_image(file: file, filename: filename, mime_type: mime_type)
+      firm.build_logo(file: file, filename: filename, mime_type: mime_type)
     else
       logger.debug "----------- Inside Else Statement ----------"
     end

@@ -22,8 +22,8 @@
               <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
                 <div>
                     <% firm = Firm.find(job.firm_id) %>
-                      <% if not firm.image.nil?%>
-                        <%= image_tag serve_image_path(firm.image), alt: "#{firm.name} Logo"%>
+                      <% if not firm.logo.nil?%>
+                        <%= image_tag serve_logo_path(firm.logo), alt: "#{firm.name} Logo"%>
                       <% else %>
                         <%= image_tag "grey-box.jpg", alt: "#{firm.name} Logo"%>
                       <% end %>

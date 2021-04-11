@@ -1,6 +1,6 @@
-class CreateImages < ActiveRecord::Migration[6.1]
+class CreateLogos < ActiveRecord::Migration[6.1]
   def change
-    create_table :images do |t|
+    create_table :logos do |t|
       t.integer :firm_id
       t.binary :file
       t.string :filename
