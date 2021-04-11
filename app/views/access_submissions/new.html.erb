@@ -19,19 +19,19 @@
                 </div>    
                 <div class ="col-6">
                     <div class="form-group">
-                        <%= f.label :email %>
-                        <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", required: 'required' %>           
+                        <%= f.label :last_name %>
+                        <%= f.text_field :last_name, autofocus: true, class: "form-control", required: 'required' %>    
                     </div>
                 </div>
         </div>
         <div class="form-row justify-content-md-center">  
                 <div class = "col-6">
                     <div class="form-group">
-                        <%= f.label :last_name %>
-                        <%= f.text_field :last_name, autofocus: true, class: "form-control", required: 'required' %>           
+                        <%= f.label :email %>
+                        <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", required: 'required' %>            
                     </div>
                 </div>
-                 <div class = "col-6">
+                <div class = "col-6">
                     <div class="form-group">
                         <%= f.label :phone_number %>
                         <%= f.text_field :phone_number, autofocus: true, class: "form-control", required: 'required' %>           
@@ -39,9 +39,18 @@
                 </div>   
         </div> 
         <div class="form-row content-md-center">
-            <div class="form-group">
-                <%= f.label :classification %>
-                <%= f.select :classification,["Freshman","Sophmore","Junior"], autofocus: true, class: "form-control", required: 'required' %>           
+            <div class = "col-6">
+                <div class="form-group">
+                    <%= f.label :major %>
+                    <%= f.text_field :major, autofocus: true, class: "form-control", required: 'required' %>           
+                </div>
+            </div>
+            
+            <div class = "col-6">
+                <div class="form-group">
+                    <%= f.label :classification %>
+                    <%= f.select :classification,["Freshman","Sophmore","Junior"], autofocus: true, class: "form-control", required: 'required' %>           
+                </div>
             </div>
         </div>
         <div class="form-row content-md-center">
