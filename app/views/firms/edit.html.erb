@@ -1,7 +1,7 @@
 <div class="container h-100">
 
   <div class="col-md-1">
-      <a href=<%= firms_path %> class="btn btn-outline-primary btn-block">Back</a>
+      <a href=<%= firms_panel_path %> class="btn btn-outline-primary btn-block">Back</a>
   </div>
 
   <div class="row justify-content-center">
@@ -47,7 +47,7 @@
             <label for="firm_contact_linkedin">Contact LinkedIn:</label>
             <%= form.text_field :contact_linkedin, placeholder: "Enter the contact's LinkedIn url", class: "form-control" %>
           </div>
-          <%= form.submit "Add Firm", class: "btn btn-aggie btn-block" %>
+          <%= form.submit "Update Firm", class: "btn btn-aggie btn-block" %>
         <% end %>
       </div>
     </div>

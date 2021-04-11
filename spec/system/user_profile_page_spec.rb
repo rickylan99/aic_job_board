@@ -29,4 +29,11 @@ RSpec.describe User do
       expect(page).to have_text('E-mail sent with password reset instructions. Please check your Spam folder as well')
     end
   end
+
+  describe 'user edit page' do
+    it 'send a forget password email' do
+      click_on "My Profile"
+      expect(page).to have_text('My Profile')
+    end
+  end
 end

@@ -38,14 +38,7 @@
             <br/>
 					<% end %>
 
-					<% if admin? %>
-						<br/>
-						<div class="card text-right">
-							<%= link_to 'Delete', @firm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
-						</div>
-						<br/>
-
-					<% end %>
+					
 				</div>
 			</div>
 		</div>
@@ -55,16 +48,6 @@
 
 	<section class="job-listing h-75">
   <div class="container">
-
-		<% if admin? %>
-
-			<center>
-			<div class="col-md-3 bottom-buffer">
-				<a href=<%= new_job_firm_path %> class="btn btn-aggie btn-block">Add Internship</a>
-			</div>
-			</center>
-
-		<% end %>
 
 		<% if current_user %>
 

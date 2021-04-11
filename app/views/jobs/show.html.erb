@@ -21,19 +21,8 @@
 					<% @questions.each_with_index do |question, index| %>
 						<p class="card-text" ><%= index + 1%>: <%= question.question %></p>
 					<% end %>
+					
 					<br/>
-
-					<% if admin? %>
-
-						<div class="card text-right">
-							<%= link_to 'Applications', job_job_applications_path(@job), class: 'btn btn-outline-secondary'%>
-						</div>
-						<div class="card text-right">
-							<%= link_to 'Delete', @job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
-						</div>
-						<br/>
-
-					<% end %>
 
 					<div class="card text-right">
 						<%= link_to 'Apply Now', new_job_job_application_path(@job), class: 'btn btn-aggie'%>

@@ -1,7 +1,7 @@
 <div class="container h-100">
 
   <div class="col-md-1">
-		<a href=<%= job_path(@job) %> class="btn btn-outline-primary btn-block">Back</a>
+		<a href=<%= job_view_path(@job) %> class="btn btn-outline-primary btn-block">Back</a>
 	</div>
 
   <div class="row justify-content-center">
@@ -22,6 +22,8 @@
                 <% job_app.job_application_answers.each do |answer| %>
                   <p class="card-text"> <%= answer.job_question.question%>: <%= answer.answer%></p>
                 <% end %>
+                <h6 class="card-title">Resume:</h6>
+                <%= link_to("#{job_app.application_documents[0].file_name}.pdf", cl_private_download_url(job_app.application_documents[0].public_id, :pdf), target: :_blank) %>
               </div>
             </div>
           </div>
