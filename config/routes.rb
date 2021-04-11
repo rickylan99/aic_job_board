@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'static_page/about'
   get 'static_page/resources'
+  get 'static_page/help_user'
+  get 'static_page/help_user'
+  get 'static_page/help_firm'
+  get 'static_page/help_job'
   resources :jobs do 
     resources :job_applications
   end
@@ -45,6 +49,7 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/edit'
   get 'users/delete'
+  get 'users/promote'
   
   get 'students/create'
   get 'students/index'
@@ -68,6 +73,8 @@ Rails.application.routes.draw do
   get 'users/show/:id' => 'users#show', as: :user_show
 
   delete 'users/delete/:id' => 'users#destroy', as: :user_delete
+
+  post 'users/promote/:id' => 'users#promote', as: :user_promote
 
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login

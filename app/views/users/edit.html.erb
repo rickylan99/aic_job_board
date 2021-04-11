@@ -97,9 +97,35 @@
               <% end %>      
             </div>
 
-            <div class="form-group">
+            <div>
               Select your industry preference
             </div>
+            <%= form_for @user, url: edit_user_path do |f| %>
+              <div>
+                <%= f.check_box :investment_banking %>
+                Investment Banking
+              </div>
+              <div>
+                <%= f.check_box :private_equity %>
+                Private Equity
+              </div>
+              <div>
+                <%= f.check_box :venture_capital %>
+                Venture Capital
+              </div>
+              <div>
+                <%= f.check_box :real_estate %>
+                Real Estate
+              </div>
+              <div>
+                <%= f.check_box :other_prefs %>
+                Other
+              </div>
+              <div>
+                <%= f.text_area :other_industrty_preferences, autofocus: true, class: "form-control", autofocus: true, autocomplete: "other_industrty_preferences" %>
+              </div>
+              <%= f.submit "Update Industry Preference" %>
+            <% end %>
           </div>
         </div>
       </div>

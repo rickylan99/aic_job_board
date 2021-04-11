@@ -75,7 +75,14 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path
+    redirect_to users_panel_path
+  end
+
+  def promote
+    @user = User.find(params[:id])
+    role_id = Role.find_by(roletype: 'Admin').id
+    @user = User.update(role_id: role_id)
+    redirect_to users_panel_path
   end
 
   private
@@ -83,6 +90,8 @@ class UsersController < ApplicationController
   def user_params
     # that can be submitted by a form to the user model #=> require(:user)
     params.require(:user).permit(:name, :email, :first_name, :last_name, :major, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :investment_banking, :private_equity, 
+                                 :venture_capital, :real_estate, :other_prefs, 
+                                 :other_industrty_preferences)
   end
 end

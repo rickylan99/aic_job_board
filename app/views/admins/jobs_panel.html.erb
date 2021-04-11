@@ -28,7 +28,7 @@
           </thead>
           <tbody>
             <% @job.each do |job| %>
-              <tr>
+              <tr class="<%= job.expired ? 'table-warning' : 'table-light' %>">
                 <td> <%= job.title %> </td>
                 <td> <%= job.firm.name %> </td>
                 <td> <%= job.deadline %> </td>
