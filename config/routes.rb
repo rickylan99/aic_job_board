@@ -58,6 +58,11 @@ Rails.application.routes.draw do
   get 'students/create'
   get 'students/index'
   # Authentication Routes
+
+  # Export job
+	get 'export/job/:id' => 'export#export_job', as: :export_job
+
+  get 'export/users' => 'export#export_users', as: :export_users
   	
   # Sign up page with form:
 	get 'users/new' => 'users#new', as: :new_user
