@@ -26,12 +26,56 @@ RSpec.describe User do
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
       expect(page).to have_text('User Information')
-      within(:xpath,'/html/body/div[4]/div/div/table/tbody/tr[1]') do
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
       click_on 'View User'
       end
       expect(page).to have_text('Classification')
       click_on 'Back'
-      expect(page).to have_text('Storage Used')
+      click_on 'Users'
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
+        click_on 'Delete'
+        page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)'
+        end
+    end
+  end
+  describe 'user promote controls' do
+    it 'navigates the user panel to promote' do
+      expect(page).to have_text('Internships')
+      
+      click_on 'Admin Panel'
+      expect(page).to have_text('Admin Panel')
+      click_on 'Users'
+      expect(page).to have_text('User Information')
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
+      click_on 'View User'
+      end
+      expect(page).to have_text('Classification')
+      click_on 'Back'
+      click_on 'Users'
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
+        click_on 'Promote'
+        page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)'
+        end
+      end
+    end
+  describe 'jobs panel controls' do
+    it 'navigates the user jobs' do
+    expect(page).to have_text('Internships')
+    
+    click_on 'Admin Panel'
+    expect(page).to have_text('Admin Panel')
+    click_on 'Jobs'
+    
+    end
+  end
+  describe 'firms panel controls' do
+    it 'navigates the firms panel' do
+    expect(page).to have_text('Internships')
+    
+    click_on 'Admin Panel'
+    expect(page).to have_text('Admin Panel')
+    click_on 'Firms'
+    
     end
   end
   
