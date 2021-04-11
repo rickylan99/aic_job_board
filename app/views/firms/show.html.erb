@@ -12,6 +12,11 @@
 		<div class="col-sm-7">
 			<div class="card">
 				<div class="card-body">
+					<% if not @firm.logo.nil?%>
+					<div class="text-center">
+						<%= image_tag serve_logo_path(@firm.logo), class: "img-fluid"%>
+					</div>
+					<% end %>
 					<h1 class="card-title" style="text-align: center"><%= @firm.name %> </h1>
 					<h5 class="card-title" style="text-align: center">Industry: <%= @firm.industry %></h5>
 					<h5 class="card-title" style="text-align: center">Location: <%= @firm.location %></h5>
