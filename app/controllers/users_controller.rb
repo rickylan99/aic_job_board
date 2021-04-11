@@ -80,7 +80,14 @@ class UsersController < ApplicationController
   def promote
     @user = User.find(params[:id])
     role_id = Role.find_by(roletype: 'Admin').id
-    @user = User.update(role_id: role_id)
+    @user.update(role_id: role_id)
+    redirect_to users_panel_path
+  end
+
+  def demote
+    @user = User.find(params[:id])
+    role_id = Role.find_by(roletype: 'Student').id
+    @user.update(role_id: role_id)
     redirect_to users_panel_path
   end
 

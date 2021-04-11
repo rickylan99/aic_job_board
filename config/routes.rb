@@ -71,6 +71,8 @@ Rails.application.routes.draw do
 
   post 'users/promote/:id' => 'users#promote', as: :user_promote
 
+  post 'users/demote/:id' => 'users#demote', as: :user_demote
+
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
 	
