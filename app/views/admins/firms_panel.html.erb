@@ -32,7 +32,7 @@
                 <td> 
                   <a href=<%= firm_view_path(firm) %> class="btn btn-outline-dark">View</a> 
                   <a href=<%= edit_firm_path(firm) %> class="btn btn-outline-dark">Edit</a> 
-                  <a href=<%= new_job_firm_path(firm) %> class="btn btn-outline-dark">Add Internship</a> 
+                  <a href=<%= new_job_firm_path(firm) %> class="btn btn-outline-dark">Add Job</a> 
                   <%= link_to 'Delete', firm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%> </td>
               </tr>
             <%end%>

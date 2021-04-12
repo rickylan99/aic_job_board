@@ -36,8 +36,8 @@ RSpec.describe Job do
       click_on 'Add Firm'
       expect(page).to have_text('Firms') # test creating a new job
       visit jobs_panel_path
-      expect(page).to have_text('New Internship') # test creating a new job
-      click_on 'New Internship'
+      expect(page).to have_text('New Job') # test creating a new job
+      click_on 'New Job'
       fill_in 'Job Title', with: 'Apple Engineer'
       fill_in 'Job Position', with: 'be smart'
       fill_in 'Job Location', with: 'Seattle'

@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_many :documents, dependent: :destroy
 
+  has_many :job_applications, dependent: :destroy
+
   has_secure_password
   validates :email, presence: true
 

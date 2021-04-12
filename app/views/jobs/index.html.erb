@@ -3,8 +3,14 @@
 <section class="job-listing h-75">
   <div class="container h-100">
 
-    <h1 style="text-align:center">Internships</h1>
+    <h1 style="text-align:center">Jobs</h1>
     <br/>
+
+    <% if @jobs.count == 0 %>
+      <center>
+        <h1><b> NONE </b></h1>
+      </center> 
+    <% end %>
 
     <% @jobs.each do |job| %>
       <div class="row justify-content-center">
