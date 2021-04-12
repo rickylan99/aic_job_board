@@ -43,8 +43,22 @@
     </div>
   </div>
 </div>
-
-
-
+<h1 style="text-align:center"> Help Pages </h1> 
+<div class="row justify-content-center">
+  <div class="justify-content-center ">
+    <a href=<%= static_page_help_user_path %> class="btn btn-outline-dark">User Tutorial</a>
+  </div>
+  <div class="justify-content-center ">
+    <a href=<%= static_page_help_job_path %> class="btn btn-outline-dark">Jobs Tutorial</a>
+  </div>
+  <div class="justify-content-center">
+    <a href=<%= static_page_help_firm_path %> class="btn btn-outline-dark">Firms Tutorial</a>
+  </div>
+</div>
+<br>
 <% storage = Cloudinary::Api.usage()["storage"]["usage"].to_f / 1.megabyte %>
 <h4 style="text-align:center">Storage Used: <%= "#{number_with_delimiter(storage.round(2), :delimiter => ',')} MB / 10,000 MB"%> </h1>
+
+
+
+

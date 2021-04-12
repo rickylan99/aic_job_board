@@ -31,4 +31,12 @@ class User < ApplicationRecord
       break unless User.exists?(column => self[column])
     end
   end
+
+  def has_applied(job_id)
+    if JobApplication.exists?(user_id: self.id, job_id: job_id)
+      return true
+    end
+
+    return false
+  end
 end

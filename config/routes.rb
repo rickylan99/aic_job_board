@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'static_page/about'
   get 'static_page/resources'
   get 'static_page/help_user'
-  get 'static_page/help_user'
   get 'static_page/help_firm'
   get 'static_page/help_job'
   resources :jobs do 
