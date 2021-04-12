@@ -25,15 +25,14 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('User Information')
-      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
-      click_on 'View User'
+      expect(page).to have_text('Current Student Information')
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[2]') do
+      click_on 'View Student'
       end
       expect(page).to have_text('Classification')
       click_on 'Back'
-      click_on 'Users'
-      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
-        click_on 'Delete'
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[2]') do
+        click_on 'Delete Student'
         page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)'
         end
     end
@@ -45,15 +44,14 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('User Information')
-      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
-      click_on 'View User'
+      expect(page).to have_text('Current Student Information')
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[2]') do
+      click_on 'View Student'
       end
       expect(page).to have_text('Classification')
       click_on 'Back'
-      click_on 'Users'
-      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[1]') do
-        click_on 'Promote'
+      within(:xpath,'/html/body/div[5]/div/div/table/tbody/tr[2]') do
+        click_on 'Promote to Admin'
         page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)'
         end
       end
