@@ -25,6 +25,10 @@ Rails.application.routes.draw do
       post 'create_job'
     end
   end
+
+  resources :logos do
+    get "serve", :on => :member
+  end
   
   #TODO: Figure out the routings for the document endpoints
   delete 'documents/:id', to: 'documents#destroy', as: :documents_delete
@@ -54,6 +58,11 @@ Rails.application.routes.draw do
   get 'students/create'
   get 'students/index'
   # Authentication Routes
+
+  # Export job
+	get 'export/job/:id' => 'export#export_job', as: :export_job
+
+  get 'export/users' => 'export#export_users', as: :export_users
   	
   # Sign up page with form:
 	get 'users/new' => 'users#new', as: :new_user

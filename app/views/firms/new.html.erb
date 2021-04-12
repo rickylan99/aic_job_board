@@ -10,7 +10,7 @@
 
         <h1 style="text-align: center">Create a New Firm</h1>
 
-        <%= form_with model: @firm do |form| %>
+        <%= form_with(model: @firm, :html => { multipart: true }) do |form| %>
           <div class="form-group">
             <label for="firm_name">Firm Name: </label>
             <%= form.text_field :name, placeholder: "Enter the name of the firm", class: "form-control"%>
@@ -19,6 +19,14 @@
             <label for="firm_description">Description:</label>
             <%= form.text_area :description, placeholder: "Enter a description of the firm", class: "form-control" %>
           </div>
+
+          <%= form.fields_for :logo do |ff| %>
+          <div class="form-group">
+            <label for="firm_logo">Firm Logo: </label>
+            <%= ff.file_field :logo, multiple: false, name: "logos[]",id: "file_upload_button", required: true %>
+          </div>
+          <% end %>
+
           <div class="form-group">
             <label for="firm_location">Location:</label>
             <%= form.text_field :location, placeholder: "Enter the location of the firm", class: "form-control" %>

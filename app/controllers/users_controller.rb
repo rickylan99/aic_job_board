@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     first_name = access_submission.first_name
     last_name = access_submission.last_name
     classification = access_submission.classification
+    major = access_submission.major
     phone_number = access_submission.phone_number
     public_id = access_submission.public_id
     file_name = access_submission.file_name
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
 
     @user = User.create(password: 'password', password_confirmation: 'password', email: email,
                         first_name: first_name, last_name: last_name,
-                        classification: classification,
+                        classification: classification, major: major,
                         phone_number: phone_number, role_id: role_id)
 
     doc = @user.documents.new(public_id: public_id, file_name: file_name, documenttype: 'resume')
