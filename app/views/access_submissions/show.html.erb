@@ -1,3 +1,7 @@
+<div class="col-md-1">
+  <a href=<%= users_panel_path %> class="btn btn-outline-primary btn-block">Back</a>
+</div>
+
 <div class ="container pb-5 ">
   <div class="row h-100 justify-content-md-center align-items-center">
     <h1> <%= @access_submission.first_name%> <%= @access_submission.last_name%>'s Application</h1>
@@ -6,43 +10,31 @@
 
 <div class ="container pb-5 ">
   <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 40%">
-      <div class="card-body">
-        <div class="row">
-          <b>Email: </b> <%= @access_submission.email%>
-        </div>
-        <div class="row">
-          <b>Phone Number: </b> <%= @access_submission.phone_number%>
-        </div>
-        <div class="row">
-          <b>Classification: </b> <%= @access_submission.classification%>
-        </div>
-        <div class="row">
-          <strong>Question 1:</strong> <br> <%= @access_submission.q1%>
-        </div>
-        <div class="row">
-          <b>Question 2:</b> <br> <%= @access_submission.q2%>
-        </div>
-        <div class="row">
-         <b>Question 3:</b> <br> <%= @access_submission.q3%>
-        </div>
-        <div class="row">
-          <b>Question 4:</b> <br> <%= @access_submission.q4%>
-        </div>
-        <div class="row">
+    <div class="card" style= "width: 50%">
+      <div class="card-body text-center">
+        
+          <b>Email: </b> <%= @access_submission.email%> <br>
+          <b>Phone Number: </b> <%= @access_submission.phone_number%> <br>  
+          <b>Classification: </b> <%= @access_submission.classification%> <br>
+          <b>Question 1: List and Explain your extracirriculars that are applicable to AIC Access.</b>  <%= @access_submission.q1%> <br>  
+          <b>Question 2: List and explain your past and current work experience that would be applicable to AIC Access.</b>  <%= @access_submission.q2%> <br>
+          <b>Question 3: Why did you choose your industry prefrence[s] and what makes you stand out among other applicants?</b>  <%= @access_submission.q3%> <br>  
+          <b>Question 4: How did you hear about AIC Access?</b>  <%= @access_submission.q4%> <br>
+        
+      
         <b>Resume: </b> <br>
         <% if not @access_submission.public_id.nil? %>
             <%= link_to("#{@access_submission.file_name}.pdf", cl_private_download_url(@access_submission.public_id, :pdf), target: :_blank) %>
         <% else %>
            <p> No Resume </p>
         <% end %>
-        </div>
+       
       </div>
     </div>
-  </div>
-  <div class="row justify-content-md-center align-items-center">
-        <%= button_to "Back",users_panel_path, method: :get %>
+    <div class="row justify-content-md-center align-items-center col-8">
         <%= button_to "Accept",accepted_user_path(id: @access_submission.id),method: :get %>
         <%= button_to 'Reject', @access_submission, method: :delete, data: { confirm: 'Are you sure, the applicant will have to resubmit?'} %>
   </div>
+  </div>
+  
 </div>

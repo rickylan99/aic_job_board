@@ -1,3 +1,7 @@
+<div class="col-md-1">
+  <a href=<%= users_panel_path %> class="btn btn-outline-primary btn-block">Back</a>
+</div>
+
 <div class ="container pb-5 ">
   <div class="row h-100 justify-content-md-center align-items-center">
     <h1> <%= @user.first_name %> <%= @user.last_name %></h1>
@@ -27,8 +31,5 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-md-center align-items-center">
-          <%= link_to 'Back', admins_index_path %>
   </div>
 </div>
