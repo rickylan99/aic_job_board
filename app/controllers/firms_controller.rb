@@ -85,6 +85,8 @@ class FirmsController < ApplicationController
 
     job = Job.create(job_params)
 
+    job.expired = false
+
     if job.save
       flash[:notice] = 'Job Created Sucessfully!'
     else
