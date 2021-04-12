@@ -65,7 +65,7 @@
                 <%= f.fields_for :document do |ff| %>
                 <div class="field">
                   <%= ff.label :document %><br>
-                  <%= ff.file_field :document, multiple: false, name: "documents[]"%>
+                  <%= ff.file_field :document, multiple: false, name: "documents[]", accept: ".pdf", id: "file_upload_button"%>
                 </div>
                 <% end %>
 

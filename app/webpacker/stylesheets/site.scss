@@ -19,3 +19,16 @@ body {
       column-count: 3;
     }
 }
+
+.count {
+  z-index: 1;
+  position: absolute;
+  right: 1;
+  top: 15;
+  background-color:red;
+  color: white;
+}
+
+.badge.badge-pill {
+  border-radius: 10rem
+}
