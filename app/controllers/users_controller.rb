@@ -69,6 +69,11 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @document = @user.documents.build
+
+    @readonly_email = true;
+    @readonly_password = false;
+    @readonly_classification = false;
+    @readonly_major = false;
   end
 
   def destroy

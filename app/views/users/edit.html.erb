@@ -35,8 +35,8 @@
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :email %>
-              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
-              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email" %>
+              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png")  %>
+              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", readonly: @readonly_email %>
               <% end %>      
             </div>
 
@@ -85,7 +85,7 @@
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :classification %>
-              <%= f.select(:classification, ["Freshman","Sophomore","Junior","Senior"], class: "form-control", autocomplete: "classification") %>   
+              <%= f.select :classification, ["Freshman","Sophomore","Junior","Senior"], class: "form-control", autocomplete: "classification" %>   
               <% end %>  
             </div>
 

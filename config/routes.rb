@@ -63,7 +63,7 @@ Rails.application.routes.draw do
 
   get 'users/my_profile' => 'users#edit', as: :edit_user
 
-  patch 'users/edit' => 'users#update'
+  patch 'users/my_profile' => 'users#update'
 
   get 'users/show/:id' => 'users#show', as: :user_show
 
