@@ -1,0 +1,46 @@
+<div>
+
+  <div class="col-md-1">
+		<a href=<%= admins_index_path %> class="btn btn-outline-primary btn-block">Back</a>
+	</div>
+
+  <h1 style="text-align:center">Jobs</h1>
+  <br/>
+
+  <center>
+    <div class="col-md-3 bottom-buffer">
+      <a href=<%= new_job_path %> class="btn btn-aggie btn-block">New Job</a>
+    </div>
+    <br/>
+  </center>
+
+  <div class="col d-flex justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Company</th>
+              <th scope="col">Deadline</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @job.each do |job| %>
+              <tr class="<%= job.expired ? 'table-warning' : 'table-light' %>">
+                <td> <%= job.title %> </td>
+                <td> <%= job.firm.name %> </td>
+                <td> <%= job.deadline %> </td>
+                <td> 
+                  <a href=<%= job_view_path(job) %> class="btn btn-outline-dark">View</a> 
+                  <a href=<%= export_job_path(:id => job.id) %> class="btn btn-outline-dark">Export</a> 
+                  <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%> </td>  
+                </td>
+              </tr>
+            <%end%>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

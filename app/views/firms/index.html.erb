@@ -3,38 +3,41 @@
     <h1>Firms</h1>
     <br/>
 
-    <% if admin? %>
-      <div class="col-md-3 bottom-buffer">
-        <a href=<%= new_firm_path %> class="btn btn-aggie btn-block">New Firm</a>
-      </div>
-      <br/>
-    <% end %>
-
-    <div>
-      <% @firms.each_with_index do |firm, index| %>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <div style="float:left">
-                <h4 class="card-title"><%= firm.name %></h4>
-                <h6 class="card-subtitle mb-2 text-muted">Location: <%= firm.location %></h6>
-                <p class="card-text">Industry: <%= firm.industry %> </p>
-              </div>
-              <div style="float:right">
-                <br/>
-                <a href=<%= firm_path(firm) %> class="card_link">Company Overview</a>
-                <br/>
-
-                <% if current_user %>
-                  <a href=<%= jobs_firm_path(firm) %> class="card_link">Internships</a>
+    <div class="container">
+      <div class="row justify-content-md-left align-items-left">
+        <% @firms.each_with_index do |firm, index| %>
+          <div class="col-sm-6 col-lg-6 py-2">
+            <div class="card h-100"> 
+              <div class="embed-responsive embed-responsive-4by3">
+                <% if not firm.logo.nil?%>
+                  <%= image_tag serve_logo_path(firm.logo), class: "w-0 card-img-top embed-responsive-item", alt: "#{firm.name} Logo"%>
+                <% else %>
+                  <%= image_tag "grey-box.jpg", class: "card-img-top embed-responsive-item", alt: "#{firm.name} Logo"%>
                 <% end %>
+              </div>
+              
+              <div class="card-body">
+                <div style="float:center">
+                  <h4 class="card-title"><%= firm.name %></h4>
+                  <h6 class="card-subtitle mb-2 text-muted">Location: <%= firm.location %></h6>
+                  <p class="card-text">Industry: <%= firm.industry %> </p>
+                </div>
+                <div style="float:center">
+                  <br/>
+                  <a href=<%= firm_path(firm) %>  class="btn d-block w-100 d-sm-inline-block btn-light mb-2">Company Overview</a>
+                  <br/>
 
+                  <% if current_user %>
+                    <a href=<%= jobs_firm_path(firm) %>  class="btn d-block w-100 d-sm-inline-block btn-light">Jobs</a>
+                  <% end %>
+
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <br/>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+    
   </center>
 </div>

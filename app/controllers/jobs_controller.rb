@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   # https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
 
   def index
-    @job = Job.all
+    @jobs = Job.where(expired: false)
   end
 
   def new
@@ -19,13 +19,15 @@ class JobsController < ApplicationController
   def create
     job = Job.create(job_params)
 
+    job.expired = false
+
     if job.save
       flash[:notice] = 'Job Created Sucessfully!'
     else
       flash[:alert] = 'Failed to Create Job'
     end
 
-    redirect_to jobs_path
+    redirect_to jobs_panel_path
   end
 
   def show
@@ -51,7 +53,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
 
-    redirect_to jobs_path
+    redirect_to jobs_panel_path
   end
 
   private

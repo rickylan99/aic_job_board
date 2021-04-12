@@ -60,3 +60,10 @@ RSpec/MultipleExpectations:
 
 RSpec/DescribedClass:
   Enabled: false
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 150
+
+Security/Open:
+  Enabled: false

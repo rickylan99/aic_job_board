@@ -39,9 +39,11 @@
         <li> Set up your log-in credentials and fill out all fields for your profile information (This may be shared with companies) </li>
     </ol>
 </div>
+<% if not current_user %>
 <div class = "container text-center">
  <%= link_to '<button type="button" class ="btn btn-aggie btn-block" id=About_Button> Apply Today </button>'.html_safe,new_access_submission_path %>
 </div>
+<% end %>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

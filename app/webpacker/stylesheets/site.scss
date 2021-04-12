@@ -10,3 +10,33 @@ body {
     background-color: #800000;
     color: #f7f9fb;
 }
+
+.card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 3;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 3;
+    }
+}
+
+.count {
+  z-index: 1;
+  position: absolute;
+  right: 1;
+  top: 15;
+  background-color:red;
+  color: white;
+}
+
+.badge.badge-pill {
+  border-radius: 10rem
+}
+
+.card {
+  border-color: transparent;
+  box-shadow: 0 8px 16px rgba(0,0,0,.05);
+  .card-title {
+    margin-bottom: 30px;
+  }
+}

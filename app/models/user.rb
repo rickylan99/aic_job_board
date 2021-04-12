@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_many :documents, dependent: :destroy
 
+  has_many :job_applications, dependent: :destroy
+
   has_secure_password
   validates :email, presence: true
 
@@ -28,5 +30,11 @@ class User < ApplicationRecord
       self[column] = SecureRandom.urlsafe_base64
       break unless User.exists?(column => self[column])
     end
+  end
+
+  def applied?(job_id)
+    return true if JobApplication.exists?(user_id: id, job_id: job_id)
+
+    false
   end
 end

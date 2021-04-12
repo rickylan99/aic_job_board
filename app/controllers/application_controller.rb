@@ -13,19 +13,19 @@ class ApplicationController < ActionController::Base
 
   def admin?
     if !current_user.nil?
-      current_user.role_id == Role.find_by(roletype: 'Admin').id
+      current_user.role_id == Role.find_by(roletype: 'Admin').id or current_user.role_id == Role.find_by(roletype: 'Head Admin').id
     else
       false
     end
   end
 
-  # Add before_action :authorize to beginning of controller to prevent unathorized acess
+  # Add before_action :authorize to beginning of controller to prevent unathorized access
   def authorize
     redirect_to login_path, alert: 'You must be logged in to access this page.' if current_user.nil?
   end
 
   def admin_only
-    if current_user.role_id != Role.find_by(roletype: 'Admin').id
+    unless admin?
       redirect_to root_path,
                   alert: 'You must be an Admin to access this page.'
     end

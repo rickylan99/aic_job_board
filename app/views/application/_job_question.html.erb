@@ -1,7 +1,7 @@
-<tr>
-  <td><%= f.text_area :question, label: false %></td>
-  <td>
-    <%= f.hidden_field :_destroy %>
-    <%= link_to 'Delete', '#', class: 'remove_record' %>
-  </td>
-</tr>
+<div class="form-group">
+  <%= f.text_area :question, label: false, class: 'col-10'%>
+  <%= f.hidden_field :_destroy %>
+  <span style="float:right">
+  <%= link_to 'Delete', '#', class: 'remove_record btn btn-outline-secondary'%>
+  <span>
+</div>

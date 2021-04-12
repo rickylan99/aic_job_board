@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_183806) do
+ActiveRecord::Schema.define(version: 2021_04_09_053902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,23 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
     t.string "public_id"
     t.string "file_name"
     t.string "documenttype"
+    t.boolean "investment_banking"
+    t.boolean "private_equity"
+    t.boolean "venture_capital"
+    t.boolean "real_estate"
     t.text "q1"
     t.text "q2"
     t.text "q3"
     t.text "q4"
+  end
+
+  create_table "application_documents", force: :cascade do |t|
+    t.string "public_id"
+    t.string "documenttype"
+    t.string "file_name"
+    t.integer "job_application_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -56,6 +69,9 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
     t.string "linkedin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "contact_linkedin"
   end
 
   create_table "job_application_answers", force: :cascade do |t|
@@ -97,8 +113,18 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "firm_id", null: false
     t.bigint "user_id", null: false
+    t.boolean "expired"
     t.index ["firm_id"], name: "index_jobs_on_firm_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "logos", force: :cascade do |t|
+    t.integer "firm_id"
+    t.binary "file"
+    t.string "filename"
+    t.string "mime_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -118,6 +144,10 @@ ActiveRecord::Schema.define(version: 2021_03_22_183806) do
     t.integer "document_id"
     t.boolean "isAuthorized"
     t.boolean "firstLogin"
+    t.boolean "investment_banking"
+    t.boolean "private_equity"
+    t.boolean "venture_capital"
+    t.boolean "real_estate"
     t.integer "role_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

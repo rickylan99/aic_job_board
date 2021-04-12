@@ -11,6 +11,10 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.integer :document_id
       t.boolean :isAuthorized
       t.boolean :firstLogin
+      t.boolean :investment_banking
+      t.boolean :private_equity
+      t.boolean :venture_capital
+      t.boolean :real_estate
       t.integer :role_id
      
 

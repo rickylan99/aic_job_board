@@ -4,6 +4,7 @@ require 'rails_helper'
 RSpec.describe AccessSubmission do
   before do
     # creates a user and auto logins in
+    Role.create(roletype: 'Head Admin')
     Role.create(roletype: 'Admin')
     Role.create(roletype: 'Student')
     User.create(email: 'test@gmail.com', password: 'test',
@@ -20,6 +21,7 @@ RSpec.describe AccessSubmission do
 
   describe 'Applying to new User' do
     it 'Creates a user application' do
+      click_on 'Log Out'
       click_on 'About Access'
       expect(page).to have_text('What is AIC ACCESS?')
       click_on 'About_Button'
@@ -28,6 +30,7 @@ RSpec.describe AccessSubmission do
       fill_in 'Last name', with: 'test1'
       fill_in 'Email', with: 'test1@gmail.com'
       fill_in 'Phone number', with: 'test'
+      fill_in 'Major', with: 'CEEN'
       # select 'Freshmen', from 'access_submission_classification'
       attach_file 'file_upload_button', 'Z.pdf'
       fill_in 'access_submission_q1', with: 'I love this club so much'
@@ -37,7 +40,13 @@ RSpec.describe AccessSubmission do
       click_on 'Apply'
       expect(page).to have_text('Application Submitted Sucessfully!')
 
-      visit access_submissions_path
+      within 'div#loginBox' do
+        fill_in 'Email', with: 'admin@gmail.com'
+        fill_in 'Password', with: 'test'
+        click_on 'Log In'
+      end
+      click_on 'Admin Panel'
+      click_on 'Users'
       expect(page).to have_text('Pending Applications')
       click_on 'View Application'
       click_on 'Accept'

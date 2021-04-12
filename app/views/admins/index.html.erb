@@ -1,60 +1,69 @@
-<style>
-th{
-    padding: 5px;
-    text-align: center;
-}
-</style>
-
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <h1>Admin Information</h1>
-  </div>
+<h1 style="text-align:center">Admin Panel</h1>
+<br/>
+<br/>
+<div class="col d-flex justify-content-center">
+	<div class="card">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-sm-4">
+          <% if AccessSubmission.all.length() > 0 %>
+          <div><sup><span class="badge badge-pill count"><%=AccessSubmission.all.length()%></sup></div>
+              <a href=<%= users_panel_path %> class="btn btn-outline-dark"> Users </a>
+            <% else %>
+					    <a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
+          <% end %>
+				</div>
+				<div class="col-sm-4">
+					<a href=<%= firms_panel_path %> class="btn btn-outline-dark">Firms</a>
+				</div>
+				<div class="col-sm-4">
+					<a href=<%= jobs_panel_path %> class="btn btn-outline-dark">Jobs</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<br/>
 </div>
 
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
-      <div class="card-body">
-        <div class="row h-100 justify-content-md-center align-items-center">
-          <h2> Pending Applications </h2>
-        </div>
-        <div class="row">
-          <table style="border:1">
-            <% @access_submission.each do |access_submission| %>
-              <tr>
-                <th><%= access_submission.first_name %></th>
-                <th><%= access_submission.last_name %></th>
-                <th><%= access_submission.email %></th>
-                <th><%= link_to "View Application", access_submission_path(access_submission) %></th>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
+
+<div class="col d-flex justify-content-center pt-5 pb-5">
+  <div class="col-md-2">
+    <div class="card">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Industry Preferences</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @prefs.each do |pref| %>
+            <tr>
+              <td><%= pref[0] %></td>
+              <td><%= pref[1] %></td>       
+            </tr>
+		<% end %>
+      </table>
     </div>
   </div>
 </div>
-
-<div class ="container pb-5 ">
-  <div class="row h-100 justify-content-md-center align-items-center">
-    <div class="card" style= "width: 60%">
-      <div class="card-body">
-        <div class="row h-100 justify-content-md-center align-items-center">
-          <h2> List of Users </h2>
-        </div>
-        <div class="row">
-          <table style="border:1">
-            <% @user.each do |user| %>
-              <tr>
-                <th><%= user.first_name %></th>
-                <th><%= user.last_name %></th>
-                <th><%= user.email %></th>
-                <th><%= link_to "View User", user_show_path(user.id) %></th>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-    </div>
+<h1 style="text-align:center"> Help Pages </h1> 
+<div class="row justify-content-center">
+  <div class="justify-content-center ">
+    <a href=<%= static_page_help_user_path %> class="btn btn-outline-dark">User Tutorial</a>
+  </div>
+  <div class="justify-content-center ">
+    <a href=<%= static_page_help_job_path %> class="btn btn-outline-dark">Jobs Tutorial</a>
+  </div>
+  <div class="justify-content-center">
+    <a href=<%= static_page_help_firm_path %> class="btn btn-outline-dark">Firms Tutorial</a>
   </div>
 </div>
+<br>
+<% storage = Cloudinary::Api.usage()["storage"]["usage"].to_f / 1.megabyte %>
+<h4 style="text-align:center">Storage Used: <%= "#{number_with_delimiter(storage.round(2), :delimiter => ',')} MB / 10,000 MB"%> </h1>
+
+
+
+

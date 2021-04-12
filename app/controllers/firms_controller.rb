@@ -17,13 +17,21 @@ class FirmsController < ApplicationController
   def create
     firm = Firm.create(firm_params)
 
+    if params[:logos][0]
+      file = params[:logos][0].read
+      filename  = params[:logos][0].original_filename
+      mime_type = params[:logos][0].content_type
+
+      firm.build_logo(file: file, filename: filename, mime_type: mime_type)
+    end
+
     if firm.save
       flash[:notice] = 'Firm Created Sucessfully!'
     else
       flash[:alert] = 'Failed to Create Firm'
     end
 
-    redirect_to firms_path
+    redirect_to firms_panel_path
   end
 
   def show
@@ -41,14 +49,14 @@ class FirmsController < ApplicationController
 
     @firm.update(firm_params)
 
-    redirect_to firm_path(@firm)
+    redirect_to firm_view_path(@firm)
   end
 
   def destroy
     @firm = Firm.find(params[:id])
     @firm.destroy
 
-    redirect_to firms_path
+    redirect_to firms_panel_path
   end
 
   def jobs
@@ -72,6 +80,8 @@ class FirmsController < ApplicationController
 
     job = Job.create(job_params)
 
+    job.expired = false
+
     if job.save
       flash[:notice] = 'Job Created Sucessfully!'
     else
@@ -84,7 +94,8 @@ class FirmsController < ApplicationController
   private
 
   def firm_params
-    params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin)
+    params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin,
+                                 :contact_name, :contact_email, :contact_linkedin)
   end
 
   def job_params

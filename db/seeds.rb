@@ -10,13 +10,18 @@
 
 
 #Create Roles
-Role.create(roletype: "Admin")
-Role.create(roletype: "Student")
+if Role.count == 0
+    Role.create(roletype: "Head Admin")
+    Role.create(roletype: "Admin")
+    Role.create(roletype: "Student")
+end
 
-
-user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Last", password: "test", role_id: Role.find_by_roletype("Student").id)
-admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: Role.find_by_roletype("Admin").id)
-
-firm = Firm.create(name: "JP Morgan", industry: "Banking", location: "New York City", description: "JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City. JPMorgan Chase is ranked by S&P Global as the largest bank in the United States and the seventh largest bank in the world by total assets, with total assets of US$3.213 trillion.", website: "https://www.jpmorganchase.com/", linkedin: "https://www.linkedin.com/company/jpmorgan/")
+if User.count == 0
+    user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Last", password: "test", role_id: Role.find_by_roletype("Student").id)
+    user = User.create(email: "test1@gmail.com", first_name: "First1", last_name: "Last1", password: "test", role_id: Role.find_by_roletype("Student").id)
+    user = User.create(email: "test2@gmail.com", first_name: "First2", last_name: "Last2", password: "test", role_id: Role.find_by_roletype("Student").id)
+    user = User.create(email: "test3@gmail.com", first_name: "First3", last_name: "Last3", password: "test", role_id: Role.find_by_roletype("Student").id)
+    admin = User.create(email: "admin@gmail.com", first_name: "AdminFirst", last_name: "AdminLast", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
+end
 
 
