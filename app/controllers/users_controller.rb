@@ -18,15 +18,22 @@ class UsersController < ApplicationController
     first_name = access_submission.first_name
     last_name = access_submission.last_name
     classification = access_submission.classification
+    major = access_submission.major
     phone_number = access_submission.phone_number
     public_id = access_submission.public_id
     file_name = access_submission.file_name
+    investment_banking = access_submission.investment_banking
+    private_equity = access_submission.private_equity
+    venture_capital = access_submission.venture_capital
+    real_estate = access_submission.real_estate
     role_id = Role.find_by(roletype: 'Student').id
 
     @user = User.create(password: 'password', password_confirmation: 'password', email: email,
                         first_name: first_name, last_name: last_name,
-                        classification: classification,
-                        phone_number: phone_number, role_id: role_id)
+                        classification: classification, major: major,
+                        phone_number: phone_number,investment_banking: investment_banking,
+                        private_equity: private_equity,venture_capital: venture_capital,
+                        real_estate: real_estate,role_id: role_id)
 
     doc = @user.documents.new(public_id: public_id, file_name: file_name, documenttype: 'resume')
     doc.save
@@ -69,6 +76,11 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @document = @user.documents.build
+
+    @readonly_email = true;
+    @readonly_password = false;
+    @readonly_classification = false;
+    @readonly_major = false;
   end
 
   def destroy
@@ -80,7 +92,14 @@ class UsersController < ApplicationController
   def promote
     @user = User.find(params[:id])
     role_id = Role.find_by(roletype: 'Admin').id
-    @user = User.update(role_id: role_id)
+    @user.update(role_id: role_id)
+    redirect_to users_panel_path
+  end
+
+  def demote
+    @user = User.find(params[:id])
+    role_id = Role.find_by(roletype: 'Student').id
+    @user.update(role_id: role_id)
     redirect_to users_panel_path
   end
 
@@ -90,7 +109,6 @@ class UsersController < ApplicationController
     # that can be submitted by a form to the user model #=> require(:user)
     params.require(:user).permit(:name, :email, :first_name, :last_name, :major, :password,
                                  :password_confirmation, :investment_banking, :private_equity, 
-                                 :venture_capital, :real_estate, :other_prefs, 
-                                 :other_industrty_preferences)
+                                 :venture_capital, :real_estate)
   end
 end

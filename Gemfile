@@ -30,6 +30,12 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'carrierwave'
 gem 'cloudinary'
 
+gem 'rubyzip'
+
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+gem 'combine_pdf'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

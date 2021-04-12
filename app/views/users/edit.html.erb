@@ -35,8 +35,8 @@
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :email %>
-              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
-              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email" %>
+              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png")  %>
+              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", readonly: @readonly_email %>
               <% end %>      
             </div>
 
@@ -65,7 +65,7 @@
                 <%= f.fields_for :document do |ff| %>
                 <div class="field">
                   <%= ff.label :document %><br>
-                  <%= ff.file_field :document, multiple: false, name: "documents[]"%>
+                  <%= ff.file_field :document, multiple: false, name: "documents[]", accept: ".pdf", id: "file_upload_button"%>
                 </div>
                 <% end %>
 
@@ -85,7 +85,7 @@
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :classification %>
-              <%= f.select(:classification, ["Freshman","Sophomore","Junior","Senior"], class: "form-control", autocomplete: "classification") %>   
+              <%= f.select :classification, ["Freshman","Sophomore","Junior","Senior"], class: "form-control", autocomplete: "classification" %>   
               <% end %>  
             </div>
 
@@ -116,13 +116,6 @@
               <div>
                 <%= f.check_box :real_estate %>
                 Real Estate
-              </div>
-              <div>
-                <%= f.check_box :other_prefs %>
-                Other
-              </div>
-              <div>
-                <%= f.text_area :other_industrty_preferences, autofocus: true, class: "form-control", autofocus: true, autocomplete: "other_industrty_preferences" %>
               </div>
               <%= f.submit "Update Industry Preference" %>
             <% end %>

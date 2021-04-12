@@ -58,6 +58,11 @@ Rails.application.routes.draw do
   get 'students/create'
   get 'students/index'
   # Authentication Routes
+
+  # Export job
+	get 'export/job/:id' => 'export#export_job', as: :export_job
+
+  get 'export/users' => 'export#export_users', as: :export_users
   	
   # Sign up page with form:
 	get 'users/new' => 'users#new', as: :new_user
@@ -65,15 +70,17 @@ Rails.application.routes.draw do
 	# Create action for when sign up form is submitted:
 	post 'users' => 'users#create'
 
-  get 'users/edit' => 'users#edit', as: :edit_user
+  get 'users/my_profile' => 'users#edit', as: :edit_user
 
-  patch 'users/edit' => 'users#update'
+  patch 'users/my_profile' => 'users#update'
 
   get 'users/show/:id' => 'users#show', as: :user_show
 
   delete 'users/delete/:id' => 'users#destroy', as: :user_delete
 
   post 'users/promote/:id' => 'users#promote', as: :user_promote
+
+  post 'users/demote/:id' => 'users#demote', as: :user_demote
 
   # Log in page with form:
 	get '/login'     => 'sessions#new',  as: :login
