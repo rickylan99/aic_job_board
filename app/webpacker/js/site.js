@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
     
 });
 
-$("input[type='file']").on("change", function () {
+$("#file_upload_button").on("change", function () {
   fname = this.files[0].name;
   fextension = fname.substring(fname.lastIndexOf('.')+1);
   if(this.files[0].size > 5000000 || fextension != "pdf") {
@@ -35,3 +35,4 @@ $("input[type='file']").on("change", function () {
     $(this).val('');
   }
  });
+

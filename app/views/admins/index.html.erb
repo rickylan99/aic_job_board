@@ -21,6 +21,29 @@
 	<br/>
 </div>
 
+<div class="col d-flex justify-content-center pt-5 pb-5">
+  <div class="col-md-2">
+    <div class="card">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Industry Preferences</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @prefs.each do |pref| %>
+            <tr>
+              <td><%= pref[0] %></td>
+              <td><%= pref[1] %></td>       
+            </tr>
+		<% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 
 <% storage = Cloudinary::Api.usage()["storage"]["usage"].to_f / 1.megabyte %>
 <h4 style="text-align:center">Storage Used: <%= "#{number_with_delimiter(storage.round(2), :delimiter => ',')} MB / 10,000 MB"%> </h1>
