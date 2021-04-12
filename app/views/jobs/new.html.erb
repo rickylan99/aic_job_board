@@ -43,13 +43,11 @@
           </div>
 
           <label for="job_questions"> Questions</label>
-          <table class='table'>
-            <tbody class='fields'>
+          <div class="fields">
               <%= form.fields_for :job_questions do |builder| %>
                 <%= render 'job_question', f: builder %>
               <% end %>
-            </tbody>
-          </table>
+          </div>
           <div class="card text-right">
             <%= link_to_add_row('Add Question', form, :job_questions, class: 'btn btn-outline-secondary')%>
           </div>
