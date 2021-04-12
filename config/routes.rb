@@ -54,8 +54,6 @@ Rails.application.routes.draw do
   get 'users/delete'
   get 'users/promote'
   
-  get 'students/create'
-  get 'students/index'
   # Authentication Routes
 
   # Export job
