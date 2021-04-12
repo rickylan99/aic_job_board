@@ -24,7 +24,8 @@ RSpec.describe Job do
       visit firms_panel_path
       click_on 'New Firm'
       expect(page).to have_text('Create a New Firm') # test creating a new job
-      fill_in 'Firm Name', with: 'Apple Engineer'
+      fill_in 'Firm Name', with: 'Apple'
+      attach_file 'logo_upload_button', 'chase.png'
       fill_in 'Description', with: 'be smart'
       fill_in 'Location', with: 'Seattle'
       # fill_in 'Company Name' , with: 'Apple'
@@ -35,14 +36,14 @@ RSpec.describe Job do
       fill_in 'Contact Email', with: 'example@gmail.com?'
       fill_in 'Contact LinkedIn', with: 'How are you?'
       click_on 'Add Firm'
-      expect(page).to have_text('Firms') # test creating a new job
+      expect(page).to have_text('Apple') # test creating a new job
       visit jobs_panel_path
       expect(page).to have_text('New Job') # test creating a new job
       click_on 'New Job'
       fill_in 'Job Title', with: 'Apple Engineer'
       fill_in 'Job Position', with: 'be smart'
       fill_in 'Job Location', with: 'Seattle'
-      # fill_in 'Company Name' , with: 'Apple'
+      #fill_in 'Company Name' , with: 'Apple'
       fill_in 'Description', with: 'Apples are great'
       fill_in 'Classifications', with: 'Freshmen'
       fill_in 'job_job_questions_attributes_0_question', with: 'How are you?'
