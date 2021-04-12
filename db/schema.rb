@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_053902) do
     t.boolean "private_equity"
     t.boolean "venture_capital"
     t.boolean "real_estate"
-    t.boolean "other_prefs"
-    t.string "other_industrty_preferences"
     t.text "q1"
     t.text "q2"
     t.text "q3"
@@ -150,8 +148,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_053902) do
     t.boolean "private_equity"
     t.boolean "venture_capital"
     t.boolean "real_estate"
-    t.boolean "other_prefs"
-    t.string "other_industrty_preferences"
     t.integer "role_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
