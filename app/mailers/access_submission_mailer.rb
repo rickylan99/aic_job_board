@@ -5,7 +5,7 @@ class AccessSubmissionMailer < ApplicationMailer
 
     def submission_new(submission)
         @submission = submission
-        mail to: ENV['ADMIN_ADDRESS'], subject: "New AIC Access Request Recieved"
+        mail to: 'test@gmail.com', subject: "New AIC Access Request Recieved"
     end
 
 end
