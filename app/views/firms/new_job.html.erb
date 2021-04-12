@@ -16,11 +16,11 @@
 
           <div class="form-group">
             <label for="job_title">Job Title</label>
-            <%= form.text_field :title, placeholder: "Job Title", class: "form-control"%>
+            <%= form.text_field :title, placeholder: "Job Title", class: "form-control", required: true %>
             </div>
           <div class="form-group">
             <label for="job_position">Position</label>
-            <%= form.text_field :position, placeholder: "Job Position", class: "form-control" %>
+            <%= form.text_field :position, placeholder: "Job Position", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="job_location">Location</label>
@@ -28,29 +28,22 @@
           <div class="form-group">
           <div class="form-group">
             <label for="job_classifications">Classifications</label>
-            <%= form.text_field :classifications, placeholder: "Classifications that can apply", class: "form-control" %>
+            <%= form.text_field :classifications, placeholder: "Classifications that can apply", class: "form-control", required: true %>
           </div>
             <label for="job_description">Description</label>
-            <%= form.text_area :description, placeholder: "Description", class: "form-control" %>
+            <%= form.text_area :description, placeholder: "Description", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="job_date">Date</label>
             <%= form.date_select :deadline %>
           </div>
 
-          <table class='table'>
-            <thead>
-              <tr>
-                <th>Question</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody class='fields'>
+          <label for="job_questions"> Questions</label>
+          <div class="fields">
               <%= form.fields_for :job_questions do |builder| %>
                 <%= render 'job_question', f: builder %>
               <% end %>
-            </tbody>
-          </table>
+          </div>
           <div class="card text-right">
             <%= link_to_add_row('Add Question', form, :job_questions, class: 'btn btn-outline-secondary')%>
           </div>

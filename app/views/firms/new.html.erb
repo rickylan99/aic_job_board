@@ -13,11 +13,11 @@
         <%= form_with(model: @firm, :html => { multipart: true }) do |form| %>
           <div class="form-group">
             <label for="firm_name">Firm Name: </label>
-            <%= form.text_field :name, placeholder: "Enter the name of the firm", class: "form-control"%>
+            <%= form.text_field :name, placeholder: "Enter the name of the firm", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="firm_description">Description:</label>
-            <%= form.text_area :description, placeholder: "Enter a description of the firm", class: "form-control" %>
+            <%= form.text_area :description, placeholder: "Enter a description of the firm", class: "form-control", required: true%>
           </div>
 
           <%= form.fields_for :logo do |ff| %>
@@ -29,31 +29,31 @@
 
           <div class="form-group">
             <label for="firm_location">Location:</label>
-            <%= form.text_field :location, placeholder: "Enter the location of the firm", class: "form-control" %>
+            <%= form.text_field :location, placeholder: "Enter the location of the firm", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="firm_industry">Industry:</label>
-            <%= form.text_field :industry, placeholder: "Enter the industry of the firm", class: "form-control" %>
+            <%= form.text_field :industry, placeholder: "Enter the industry of the firm", class: "form-control", required: true%>
           </div>
           <div class="form-group">
             <label for="firm_website">Firm Website:</label>
-            <%= form.text_field :website, placeholder: "Enter the firm's website url", class: "form-control" %>
+            <%= form.text_field :website, placeholder: "Enter the firm's website url", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="firm_linkedin">Firm LinkedIn:</label>
-            <%= form.text_field :linkedin, placeholder: "Enter the firm's LinkedIn url", class: "form-control" %>
+            <%= form.text_field :linkedin, placeholder: "Enter the firm's LinkedIn url", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="firm_contact_name">Contact Name:</label>
-            <%= form.text_field :contact_name, placeholder: "Enter the contact's full name", class: "form-control" %>
+            <%= form.text_field :contact_name, placeholder: "Enter the contact's full name", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="firm_contact_email">Contact Email:</label>
-            <%= form.text_field :contact_email, placeholder: "Enter the contact's email", class: "form-control" %>
+            <%= form.text_field :contact_email, placeholder: "Enter the contact's email", class: "form-control", required: true %>
           </div>
           <div class="form-group">
             <label for="firm_contact_linkedin">Contact LinkedIn:</label>
-            <%= form.text_field :contact_linkedin, placeholder: "Enter the contact's LinkedIn url", class: "form-control" %>
+            <%= form.text_field :contact_linkedin, placeholder: "Enter the contact's LinkedIn url", class: "form-control", required: true %>
           </div>
           <%= form.submit "Add Firm", class: "btn btn-aggie btn-block" %>
         <% end %>
