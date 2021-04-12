@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+A new access submission has been recieved: <br>
+
+<p><strong>Name: </strong> <%=@submission.first_name + " " + @submission.last_name%></p>
+<p><strong>Classification: </strong> <%=@submission.classification%></p> 
+<p><strong>Major: </strong> <%=@submission.major%></p> <br>
+
+Navigate to the AIC Access <a href=<%="#{ENV['HEROKU_URL']}/admins/index"%>>Admin Panel</a> to review new user.
+</body>
+</html>

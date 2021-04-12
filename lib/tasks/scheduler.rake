@@ -9,6 +9,7 @@ task :update_expired_jobs => :environment do
     if DateTime.now.to_date > job.deadline
       job.expired = true
       job.save
+      job&.expired_job
     end
 
   end 
