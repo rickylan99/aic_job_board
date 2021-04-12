@@ -20,7 +20,7 @@ RSpec.describe User do
   
   describe 'user panel controls' do
     it 'navigates the user panel' do
-      expect(page).to have_text('Internships')
+      expect(page).to have_text('Jobs')
       
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
@@ -40,7 +40,7 @@ RSpec.describe User do
   end
   describe 'user promote controls' do
     it 'navigates the user panel to promote' do
-      expect(page).to have_text('Internships')
+      expect(page).to have_text('Jobs')
       
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
@@ -60,7 +60,7 @@ RSpec.describe User do
     end
   describe 'jobs panel controls' do
     it 'navigates the user jobs' do
-    expect(page).to have_text('Internships')
+    expect(page).to have_text('Jobs')
     
     click_on 'Admin Panel'
     expect(page).to have_text('Admin Panel')
@@ -70,7 +70,7 @@ RSpec.describe User do
   end
   describe 'firms panel controls' do
     it 'navigates the firms panel' do
-    expect(page).to have_text('Internships')
+    expect(page).to have_text('Jobs')
     
     click_on 'Admin Panel'
     expect(page).to have_text('Admin Panel')
