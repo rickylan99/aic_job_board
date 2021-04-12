@@ -36,7 +36,7 @@
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :email %>
               <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png")  %>
-              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", readonly: @readonly_email %>
+              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email" %>
               <% end %>      
             </div>
 

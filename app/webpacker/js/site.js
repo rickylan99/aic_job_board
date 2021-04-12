@@ -1,7 +1,7 @@
 // Site Wide Javascript
 
 // Automatically Close Alerts
-$( document ).on('turbolinks:load', function() {
+$( document ).ready(function() {
     // show the alert
     setTimeout(function() {
         $(".alert").alert('close');
@@ -9,7 +9,7 @@ $( document ).on('turbolinks:load', function() {
 });
 
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
 
     $('form').on('click', '.remove_record', function(event) {
       $(this).prev('input[type=hidden]').val('1');
@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
     
 });
 
-$("#file_upload_button").on("change", function () {
+$("#file_upload_button").change(function () {
   fname = this.files[0].name;
   fextension = fname.substring(fname.lastIndexOf('.')+1);
   if(this.files[0].size > 5000000 || fextension != "pdf") {
