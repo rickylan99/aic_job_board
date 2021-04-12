@@ -31,11 +31,20 @@
 					</div>
 
 					<% if current_user %>
-            <br/>
+            			<br/>	
+					<% if not @firm.contact_name == "" %>
 					  <p class="card-title">Contact Name: <%= @firm.contact_name %></p>
+					<% end%>
+
+					<% if not @firm.contact_email == "" %>
 						<p class="card-title">Contact Email: <%= @firm.contact_email %></p>
+					<% end%>
+
+					<% if not @firm.contact_linkedin == "" %>
 						<a href=<%= @firm.contact_linkedin %> class="btn btn-outline-dark">Contact LinkedIn</a>
-            <br/>
+					<% end %>
+
+            			<br/>
 					<% end %>
 
 					
