@@ -70,6 +70,11 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     @document = @user.documents.build
+
+    @readonly_email = true;
+    @readonly_password = false;
+    @readonly_classification = false;
+    @readonly_major = false;
   end
 
   def destroy
@@ -81,7 +86,14 @@ class UsersController < ApplicationController
   def promote
     @user = User.find(params[:id])
     role_id = Role.find_by(roletype: 'Admin').id
-    @user = User.update(role_id: role_id)
+    @user.update(role_id: role_id)
+    redirect_to users_panel_path
+  end
+
+  def demote
+    @user = User.find(params[:id])
+    role_id = Role.find_by(roletype: 'Student').id
+    @user.update(role_id: role_id)
     redirect_to users_panel_path
   end
 
