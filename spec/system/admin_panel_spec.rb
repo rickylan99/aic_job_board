@@ -4,6 +4,7 @@ require 'rails_helper'
 RSpec.describe User do
   before do
     # creates a user and auto logins in
+    Role.create(roletype: "Head Admin")
     Role.create(roletype: 'Admin')
     Role.create(roletype: 'Student')
     User.create(email: 'test@gmail.com', password: 'test',
