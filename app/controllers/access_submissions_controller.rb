@@ -42,6 +42,7 @@ class AccessSubmissionsController < ApplicationController
 
   def access_submission_params
     params.require(:access_submission).permit(:email, :first_name, :last_name, :major, :classification,
-                                              :phone_number, :q1, :q2, :q3, :q4)
+                                              :phone_number,:investment_banking, :private_equity, 
+                                              :venture_capital, :real_estate, :q1, :q2, :q3, :q4)
   end
 end
