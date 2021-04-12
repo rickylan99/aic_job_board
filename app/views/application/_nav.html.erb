@@ -9,7 +9,15 @@
       <% if current_user %>
 
         <li class="nav-item active">
-          <a class="nav-link" href="<%= logout_path %>"> Log Out <span class="sr-only">(current)</span></a>
+          <a class ="nav-link" href ="<%= root_path %>"> Jobs <span class ="sr-only"> (current)</span></a>
+        </li> 
+
+        <li class="nav-item active">
+          <a class ="nav-link" href ="<%= firms_path %>"> Partner Firms <span class ="sr-only"> (current)</span></a>
+        </li> 
+
+        <li class = "nav-item active">
+          <a class = "nav-link" href="<%= static_page_resources_path %>"> Member Resources <span class="sr-only"> (current)</span></a>
         </li>
 
         <% if admin? %>
@@ -27,23 +35,33 @@
           <a class="nav-link" href="<%= edit_user_path %>"> My Profile <span class="sr-only">(current)</span></a>
         </li>
 
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= logout_path %>"> Log Out <span class="sr-only">(current)</span></a>
+        </li>
+
+      
+      </ul>
+
         
 
       <% else %>
         <li class="nav-item active" id="login-nav">
           <a class="nav-link" href="<%= login_path %>"> Log In <span class="sr-only">(current)</span></a>
         </li>
+
+        <li class="nav-item active">
+          <a class ="nav-link" href ="<%= static_page_about_path %>"> About Access <span class ="sr-only"> (current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class ="nav-link" href ="<%= firms_path %>"> Partner Firms <span class ="sr-only"> (current)</span></a>
+        </li> 
+        <li class = "nav-item active">
+          <a class = "nav-link" href="<%= static_page_resources_path %>"> Member Resources <span class="sr-only"> (current)</span></a>
+        </li>
+        </ul>
       <% end %>
-      <li class="nav-item active">
-        <a class ="nav-link" href ="<%= static_page_about_path %>"> About Access <span class ="sr-only"> (current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class ="nav-link" href ="<%= firms_path %>"> Partner Firms <span class ="sr-only"> (current)</span></a>
-      </li> 
-      <li class = "nav-item active">
-        <a class = "nav-link" href="<%= static_page_resources_path %>"> Member Resources <span class="sr-only"> (current)</span></a>
-      </li>
-    </ul>
+
+      
 
     <% if current_user %>
     <span class="navbar-text">

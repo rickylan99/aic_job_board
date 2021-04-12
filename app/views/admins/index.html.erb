@@ -6,7 +6,12 @@
 		<div class="card-body">
 			<div class="row">
 				<div class="col-sm-4">
-					<a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
+          <% if AccessSubmission.all.length() > 0 %>
+          <div><sup><span class="badge badge-pill count"><%=AccessSubmission.all.length()%></sup></div>
+              <a href=<%= users_panel_path %> class="btn btn-outline-dark"> Users </a>
+            <% else %>
+					    <a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
+          <% end %>
 				</div>
 				<div class="col-sm-4">
 					<a href=<%= firms_panel_path %> class="btn btn-outline-dark">Firms</a>
