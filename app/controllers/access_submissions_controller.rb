@@ -21,6 +21,7 @@ class AccessSubmissionsController < ApplicationController
     @access_submission.file_name = cloud_output['original_filename']
     @access_submission.documenttype = 'resume'
     if @access_submission.save
+      @access_submission.submission_new
       flash[:notice] = 'Application Submitted Sucessfully!'
     else
       flash[:alert] = 'Failed to Submit Application'

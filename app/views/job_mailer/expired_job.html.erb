@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+A job has expired: <br>
+
+<p><strong>Firm: </strong> <%=@firm.name%></p>
+<p><strong>Job: </strong> <%=@job.title%></p> <br>
+
+Navigate to the AIC Access <a href=<%="#{ENV['HEROKU_URL']}/admins/index"%>>Admin Panel</a> to generate an export.
+</body>
+</html>
