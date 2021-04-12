@@ -10,6 +10,10 @@ class CreateAccessSubmissions < ActiveRecord::Migration[6.1]
     t.string :public_id
     t.string :file_name
     t.string :documenttype
+    t.boolean :investment_banking
+    t.boolean :private_equity
+    t.boolean :venture_capital
+    t.boolean :real_estate
     t.text :q1
     t.text :q2
     t.text :q3

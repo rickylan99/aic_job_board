@@ -53,6 +53,28 @@
                 </div>
             </div>
         </div>
+        <div class = "form-row content-md-center">
+            <div class="form-group">
+                Industry Preferences
+              <div>
+                <%= f.check_box :investment_banking %>
+                Investment Banking
+              </div>
+              <div>
+                <%= f.check_box :private_equity %>
+                Private Equity
+              </div>
+              <div>
+                <%= f.check_box :venture_capital %>
+                Venture Capital
+              </div>
+              <div>
+                <%= f.check_box :real_estate %>
+                Real Estate
+              </div>
+              
+            </div>
+        </div>   
         <div class="form-row content-md-center">
             <div class="form-group">
                     <%= f.fields_for :document do |ff| %>

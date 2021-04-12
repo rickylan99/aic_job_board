@@ -13,21 +13,28 @@
     <div class="card" style= "width: 50%">
       <div class="card-body">
         <div class="row">
-         <b> Classification: </b> <%= @user.classification %>
+         <p><b> Classification: </b> <%= @user.classification %> </p>
         </div>
         <div class="row">
-          <b> Major: </b> <%= @user.major %>
+          <p><b> Major: </b> <%= @user.major %></p>
         </div>
         <div class="row">
-          <b> Email: </b> <%= @user.email %>
+          <p><b> Email: </b> <%= @user.email %></p>
         </div>
         <div class="row">
         <% @user.documents.reload %>
         <% if not @user.documents.empty? %>
-            <b> Resume: </b> <%= link_to("#{@user.documents[0].file_name}.pdf", cl_private_download_url(@user.documents[0].public_id, :pdf), target: :_blank) %>
+            <p><b> Resume: </b> <%= link_to("#{@user.documents[0].file_name}.pdf", cl_private_download_url(@user.documents[0].public_id, :pdf), target: :_blank) %></p>
         <% else %>
            <p> No Resume </p>
         <% end %>
+        </div>
+        <div class ="row">
+          <p> <b>Industry Prefrences:</b> <br>
+          <% if @user.investment_banking%> Investment Banking<br> <%end%> 
+          <% if @user.private_equity%> Private Equity  <br> <%end%>
+          <% if @user.venture_capital%> Venture Capital <br> <%end%> 
+          <% if @user.real_estate%> Real Estate <br> <%end%>  
         </div>
       </div>
     </div>
