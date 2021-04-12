@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExportController < ApplicationController
   require 'open-uri'
   require 'rubygems'
@@ -10,13 +12,11 @@ class ExportController < ApplicationController
 
     index = 1
     User.all.each do |user|
-
-      if not user.documents.empty?
+      unless user.documents.empty?
         doc = user.documents[0]
         Dir.chdir(dir_name) do
-          File.open("#{user.first_name}_#{user.last_name}_Resume_#{index}.pdf", "wb") do |file|
+          File.open("#{user.first_name}_#{user.last_name}_Resume_#{index}.pdf", 'wb') do |file|
             url = Cloudinary::Utils.private_download_url doc.public_id, :pdf, attachment: false
-            puts url
             file.write open(url).read
           end
         end
@@ -24,7 +24,7 @@ class ExportController < ApplicationController
       index += 1
     end
 
-    @zipfile_name = "#{dir_name}/User Export - #{Time.now.strftime('%B %d, %Y')}.zip"
+    @zipfile_name = "#{dir_name}/User Export - #{Time.zone.now.strftime('%B %d, %Y')}.zip"
     Zip::File.open(@zipfile_name, Zip::File::CREATE) do |zipfile|
       Dir.foreach(dir_name) do |filename|
         zipfile.add(filename, File.join(dir_name, filename))
@@ -32,7 +32,6 @@ class ExportController < ApplicationController
     end
 
     send_file @zipfile_name
-    
   end
 
   def export_job
@@ -62,12 +61,11 @@ class ExportController < ApplicationController
       end
 
       pdf_data = WickedPdf.new.pdf_from_string(pdf_string(user, questions, answers))
-      user_details  << CombinePDF.parse(pdf_data)
+      user_details << CombinePDF.parse(pdf_data)
 
       Dir.chdir(dir_name) do
-        File.open("#{user.first_name}_#{user.last_name}_Resume_#{index}.pdf", "wb") do |file|
+        File.open("#{user.first_name}_#{user.last_name}_Resume_#{index}.pdf", 'wb') do |file|
           url = Cloudinary::Utils.private_download_url doc.public_id, :pdf, attachment: false
-          puts url
           file.write open(url).read
         end
       end
@@ -88,7 +86,6 @@ class ExportController < ApplicationController
     send_file @zipfile_name
   end
 
-
   private
 
   def pdf_string(user, questions, answers)
@@ -98,15 +95,14 @@ class ExportController < ApplicationController
               "<h2>Major: #{user.major}</h2> <br>\n" \
               "<h3>Questions: </h3>\n"
 
-    body = ""
+    body = ''
 
     index = 1
     questions.zip(answers).each do |q, a|
       body += "<p><strong> #{index}. #{q} </strong></p> \n <p> #{a} </p> <br>\n"
       index += 1
     end
-    
-    return heading + body
-  end
 
+    heading + body
+  end
 end

@@ -31,9 +31,9 @@ class UsersController < ApplicationController
     @user = User.create(password: 'password', password_confirmation: 'password', email: email,
                         first_name: first_name, last_name: last_name,
                         classification: classification, major: major,
-                        phone_number: phone_number,investment_banking: investment_banking,
-                        private_equity: private_equity,venture_capital: venture_capital,
-                        real_estate: real_estate,role_id: role_id)
+                        phone_number: phone_number, investment_banking: investment_banking,
+                        private_equity: private_equity, venture_capital: venture_capital,
+                        real_estate: real_estate, role_id: role_id)
 
     doc = @user.documents.new(public_id: public_id, file_name: file_name, documenttype: 'resume')
     doc.save
@@ -77,10 +77,10 @@ class UsersController < ApplicationController
     @user = current_user
     @document = @user.documents.build
 
-    @readonly_email = true;
-    @readonly_password = false;
-    @readonly_classification = false;
-    @readonly_major = false;
+    @readonly_email = true
+    @readonly_password = false
+    @readonly_classification = false
+    @readonly_major = false
   end
 
   def destroy
@@ -108,7 +108,7 @@ class UsersController < ApplicationController
   def user_params
     # that can be submitted by a form to the user model #=> require(:user)
     params.require(:user).permit(:name, :email, :first_name, :last_name, :major, :password,
-                                 :password_confirmation, :investment_banking, :private_equity, 
+                                 :password_confirmation, :investment_banking, :private_equity,
                                  :venture_capital, :real_estate)
   end
 end

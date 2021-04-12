@@ -11,5 +11,4 @@ class Job < ApplicationRecord
     # This sends an e-mail with a alerting an admin a job has expired
     JobMailer.expired_job(self).deliver_now
   end
-
 end

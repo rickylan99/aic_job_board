@@ -16,18 +16,14 @@ class FirmsController < ApplicationController
 
   def create
     firm = Firm.create(firm_params)
-    
-    logger.debug "Params #{params}"
+
 
     if params[:logos][0]
-      logger.debug "----------- Inside If Statement ----------"
-      file        = params[:logos][0].read
+      file = params[:logos][0].read
       filename  = params[:logos][0].original_filename
       mime_type = params[:logos][0].content_type
 
       firm.build_logo(file: file, filename: filename, mime_type: mime_type)
-    else
-      logger.debug "----------- Inside Else Statement ----------"
     end
 
     if firm.save
@@ -99,7 +95,8 @@ class FirmsController < ApplicationController
   private
 
   def firm_params
-    params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin, :contact_name, :contact_email, :contact_linkedin)
+    params.require(:firm).permit(:name, :description, :location, :industry, :website, :linkedin,
+                                 :contact_name, :contact_email, :contact_linkedin)
   end
 
   def job_params

@@ -3,7 +3,7 @@
 require 'rails_helper'
 RSpec.describe User do
   before do
-    Role.create(roletype: "Head Admin")
+    Role.create(roletype: 'Head Admin')
     Role.create(roletype: 'Admin')
     Role.create(roletype: 'Student')
     User.create(email: 'test@gmail.com', password: 'test',

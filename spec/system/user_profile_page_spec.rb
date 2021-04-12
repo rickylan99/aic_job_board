@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe User do
   before do
     # creates a user and auto logins in
-    Role.create(roletype: "Head Admin")
+    Role.create(roletype: 'Head Admin')
     Role.create(roletype: 'Admin')
     Role.create(roletype: 'Student')
     User.create(email: 'test@gmail.com', password: 'test',
@@ -33,7 +33,7 @@ RSpec.describe User do
 
   describe 'user edit page' do
     it 'send a forget password email' do
-      click_on "My Profile"
+      click_on 'My Profile'
       expect(page).to have_text('My Profile')
     end
   end

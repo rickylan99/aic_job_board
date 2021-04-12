@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def admin?
     if !current_user.nil?
-      current_user.role_id == Role.find_by(roletype: 'Admin').id or current_user.role_id == Role.find_by(roletype: 'Head Admin').id 
+      current_user.role_id == Role.find_by(roletype: 'Admin').id or current_user.role_id == Role.find_by(roletype: 'Head Admin').id
     else
       false
     end
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_only
-    if not admin?
+    unless admin?
       redirect_to root_path,
                   alert: 'You must be an Admin to access this page.'
     end
