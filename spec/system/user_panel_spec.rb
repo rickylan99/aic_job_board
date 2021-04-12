@@ -8,8 +8,12 @@ RSpec.describe User do
     Role.create(roletype: 'Student')
     User.create(email: 'test@gmail.com', password: 'test',
                 role_id: Role.find_by(roletype: 'Student').id)
+    public_id = 'w0qc7svuzjypp0mpj60e'
+    file_name = 'Z.pdf'
     User.create(email: 'admin@gmail.com', password: 'admin',
-                role_id: Role.find_by(roletype: 'Admin').id)
+                role_id: Role.find_by(roletype: 'Admin').id).documents.new(public_id: public_id, file_name: file_name,
+                                                                           documenttype: 'resume').save
+
     visit root_path
     within 'div#loginBox' do
       fill_in 'Email', with: 'admin@gmail.com'
@@ -25,15 +29,14 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('User Information')
-      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[1]') do
-        click_on 'View User'
+      expect(page).to have_text('Current Student Information')
+      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[2]') do
+        click_on 'View Student'
       end
       expect(page).to have_text('Classification')
       click_on 'Back'
-      click_on 'Users'
-      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[1]') do
-        click_on 'Delete'
+      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[2]') do
+        click_on 'Delete Student'
         page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)'
       end
     end
@@ -46,17 +49,27 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('User Information')
-      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[1]') do
-        click_on 'View User'
+      expect(page).to have_text('Current Student Information')
+      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[2]') do
+        click_on 'View Student'
       end
       expect(page).to have_text('Classification')
       click_on 'Back'
-      click_on 'Users'
-      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[1]') do
-        click_on 'Promote'
+      within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[2]') do
+        click_on 'Promote to Admin'
         page.driver.browser.switch_to.alert.accept # test deleting job application (through the flash)'
       end
+    end
+  end
+
+  describe 'user export' do
+    it 'press user export' do
+      click_on 'Admin Panel'
+      expect(page).to have_text('Admin Panel')
+      click_on 'Users'
+      expect(page).to have_text('Current Student Information')
+      click_on 'Export All Student Resumes'
+      expect(page).to have_text('Current Student Information')
     end
   end
 

@@ -1,0 +1,140 @@
+warning: parser/current is loading parser/ruby27, which recognizes
+warning: 2.7.3-compliant syntax, but you are running 2.7.2.
+warning: please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+[33m.rubocop.yml:25: `Metrics/LineLength` is concealed by line 64[0m
+.rubocop.yml: Metrics/LineLength has the wrong namespace - should be Layout
+[33mThe following cops were added to RuboCop, but are not configured. Please set Enabled to either `true` or `false` in your `.rubocop.yml` file.
+
+Please also note that can also opt-in to new cops by default by adding this to your config:
+  AllCops:
+    NewCops: enable
+[0m
+[33mGemspec/DateAssignment: # (new in 1.10)[0m
+[33m  Enabled: true[0m
+[33mLayout/SpaceBeforeBrackets: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mLint/AmbiguousAssignment: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mLint/DeprecatedConstants: # (new in 1.8)[0m
+[33m  Enabled: true[0m
+[33mLint/DuplicateBranch: # (new in 1.3)[0m
+[33m  Enabled: true[0m
+[33mLint/DuplicateRegexpCharacterClassElement: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mLint/EmptyBlock: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mLint/EmptyClass: # (new in 1.3)[0m
+[33m  Enabled: true[0m
+[33mLint/LambdaWithoutLiteralBlock: # (new in 1.8)[0m
+[33m  Enabled: true[0m
+[33mLint/NoReturnInBeginEndBlocks: # (new in 1.2)[0m
+[33m  Enabled: true[0m
+[33mLint/NumberedParameterAssignment: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mLint/OrAssignmentToConstant: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mLint/RedundantDirGlobSort: # (new in 1.8)[0m
+[33m  Enabled: true[0m
+[33mLint/SymbolConversion: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mLint/ToEnumArguments: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mLint/TripleQuotes: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mLint/UnexpectedBlockArity: # (new in 1.5)[0m
+[33m  Enabled: true[0m
+[33mLint/UnmodifiedReduceAccumulator: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mStyle/ArgumentsForwarding: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mStyle/CollectionCompact: # (new in 1.2)[0m
+[33m  Enabled: true[0m
+[33mStyle/DocumentDynamicEvalDefinition: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mStyle/EndlessMethod: # (new in 1.8)[0m
+[33m  Enabled: true[0m
+[33mStyle/HashConversion: # (new in 1.10)[0m
+[33m  Enabled: true[0m
+[33mStyle/HashExcept: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mStyle/IfWithBooleanLiteralBranches: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mStyle/NegatedIfElseCondition: # (new in 1.2)[0m
+[33m  Enabled: true[0m
+[33mStyle/NilLambda: # (new in 1.3)[0m
+[33m  Enabled: true[0m
+[33mStyle/RedundantArgument: # (new in 1.4)[0m
+[33m  Enabled: true[0m
+[33mStyle/StringChars: # (new in 1.12)[0m
+[33m  Enabled: true[0m
+[33mStyle/SwapValues: # (new in 1.1)[0m
+[33m  Enabled: true[0m
+[33mPerformance/AncestorsInclude: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/BigDecimalWithNumericArgument: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/BlockGivenWithExplicitBlock: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mPerformance/CollectionLiteralInLoop: # (new in 1.8)[0m
+[33m  Enabled: true[0m
+[33mPerformance/ConstantRegexp: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mPerformance/MethodObjectAsBlock: # (new in 1.9)[0m
+[33m  Enabled: true[0m
+[33mPerformance/RedundantEqualityComparisonBlock: # (new in 1.10)[0m
+[33m  Enabled: true[0m
+[33mPerformance/RedundantSortBlock: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/RedundantSplitRegexpArgument: # (new in 1.10)[0m
+[33m  Enabled: true[0m
+[33mPerformance/RedundantStringChars: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/ReverseFirst: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/SortReverse: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/Squeeze: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/StringInclude: # (new in 1.7)[0m
+[33m  Enabled: true[0m
+[33mPerformance/Sum: # (new in 1.8)[0m
+[33m  Enabled: true[0m
+[33mRails/ActiveRecordCallbacksOrder: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/AfterCommitOverride: # (new in 2.8)[0m
+[33m  Enabled: true[0m
+[33mRails/AttributeDefaultBlockValue: # (new in 2.9)[0m
+[33m  Enabled: true[0m
+[33mRails/FindById: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/Inquiry: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/MailerName: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/MatchRoute: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/NegateInclude: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/Pluck: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/PluckInWhere: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/RenderInline: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/RenderPlainText: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/ShortI18n: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/SquishedSQLHeredocs: # (new in 2.8)[0m
+[33m  Enabled: true[0m
+[33mRails/WhereEquals: # (new in 2.9)[0m
+[33m  Enabled: true[0m
+[33mRails/WhereExists: # (new in 2.7)[0m
+[33m  Enabled: true[0m
+[33mRails/WhereNot: # (new in 2.8)[0m
+[33m  Enabled: true[0m
+[33mFor more information: https://docs.rubocop.org/rubocop/versioning.html[0m
+Inspecting 73 files
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m
+
+73 files inspected, [32mno offenses[0m detected

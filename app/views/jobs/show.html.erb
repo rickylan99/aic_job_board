@@ -25,7 +25,7 @@
 					<br/>
 
 					<div class="card text-right">
-						<% if current_user.has_applied(@job.id) %>
+						<% if current_user.applied?(@job.id) %>
               <%= link_to 'Already Applied', new_job_job_application_path(@job), class: 'btn btn-aggie disabled'%>
             <% else %>
               <%= link_to 'Apply Now', new_job_job_application_path(@job), class: 'btn btn-aggie'%>

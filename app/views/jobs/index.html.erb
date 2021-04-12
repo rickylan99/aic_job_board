@@ -29,7 +29,7 @@
 
                 <div class="job-right my-4 flex-shrink-0">
                     <a href="<%= job_path(job) %>"  class="btn d-block w-100 d-sm-inline-block btn-light">Info</a>
-                    <% if current_user.has_applied(job.id) %>
+                    <% if current_user.applied?(job.id) %>
                       <a href="<%= new_job_job_application_path(job)%>"  class="btn d-block w-100 d-sm-inline-block btn-light disabled">Already Applied</a>
                     <% else %>
                       <a href="<%= new_job_job_application_path(job)%>"  class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>

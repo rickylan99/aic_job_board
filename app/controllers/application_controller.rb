@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Add before_action :authorize to beginning of controller to prevent unathorized acess
+  # Add before_action :authorize to beginning of controller to prevent unathorized access
   def authorize
     redirect_to login_path, alert: 'You must be logged in to access this page.' if current_user.nil?
   end

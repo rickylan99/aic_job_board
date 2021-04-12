@@ -17,7 +17,6 @@ class FirmsController < ApplicationController
   def create
     firm = Firm.create(firm_params)
 
-
     if params[:logos][0]
       file = params[:logos][0].read
       filename  = params[:logos][0].original_filename

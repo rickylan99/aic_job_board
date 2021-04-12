@@ -11,6 +11,7 @@ RSpec.describe Job do
                 role_id: Role.find_by(roletype: 'Student').id)
     User.create(email: 'admin@gmail.com', password: 'test',
                 role_id: Role.find_by(roletype: 'Admin').id)
+
     visit root_path
     within 'div#loginBox' do
       fill_in 'Email', with: 'admin@gmail.com'
@@ -43,7 +44,7 @@ RSpec.describe Job do
       fill_in 'Job Title', with: 'Apple Engineer'
       fill_in 'Job Position', with: 'be smart'
       fill_in 'Job Location', with: 'Seattle'
-      #fill_in 'Company Name' , with: 'Apple'
+      # fill_in 'Company Name' , with: 'Apple'
       fill_in 'Description', with: 'Apples are great'
       fill_in 'Classifications', with: 'Freshmen'
       fill_in 'job_job_questions_attributes_0_question', with: 'How are you?'

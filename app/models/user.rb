@@ -32,7 +32,7 @@ class User < ApplicationRecord
     end
   end
 
-  def has_applied(job_id)
+  def applied?(job_id)
     return true if JobApplication.exists?(user_id: id, job_id: job_id)
 
     false

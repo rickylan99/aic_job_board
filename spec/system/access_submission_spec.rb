@@ -39,7 +39,7 @@ RSpec.describe AccessSubmission do
       fill_in 'access_submission_q4', with: 'I club so much'
       click_on 'Apply'
       expect(page).to have_text('Application Submitted Sucessfully!')
-  
+
       within 'div#loginBox' do
         fill_in 'Email', with: 'admin@gmail.com'
         fill_in 'Password', with: 'test'
