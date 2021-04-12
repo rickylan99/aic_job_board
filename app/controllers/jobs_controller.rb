@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   # https://medium.com/@nancydo7/ruby-on-rails-crud-tutorial-899117710c7a
 
   def index
-    @job = Job.where(:expired => false)
+    @jobs = Job.where(:expired => false)
   end
 
   def new

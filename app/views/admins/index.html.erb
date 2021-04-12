@@ -21,6 +21,7 @@
 	<br/>
 </div>
 
+<br/>
 
 <% storage = Cloudinary::Api.usage()["storage"]["usage"].to_f / 1.megabyte %>
 <h4 style="text-align:center">Storage Used: <%= "#{number_with_delimiter(storage.round(2), :delimiter => ',')} MB / 10,000 MB"%> </h1>

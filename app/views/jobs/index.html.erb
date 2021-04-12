@@ -1,13 +1,12 @@
 <%= stylesheet_link_tag 'job_list', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-
 <section class="job-listing h-75">
   <div class="container h-100">
 
     <h1 style="text-align:center">Internships</h1>
     <br/>
 
-    <% @job.each do |job| %>
+    <% @jobs.each do |job| %>
       <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="filter-result">
@@ -15,20 +14,17 @@
                 <div>
                     <% firm = Firm.find(job.firm_id) %>
                       <% if not firm.logo.nil?%>
-                        <%= image_tag serve_logo_path(firm.logo), alt: "#{firm.name} Logo"%>
+                        <div class="img" style="background-image: url('<%= serve_logo_path(firm.logo) %>')"></div>
                       <% else %>
                         <%= image_tag "grey-box.jpg", alt: "#{firm.name} Logo"%>
                       <% end %>
-                    </div>
+                </div>
                 <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                    
                       <div class="job-content">
-
-                          <h5 class="text-center text-md-left"> <%= job.title %></h5>
-                          <h6 class="text-center text-md-left"> <%= job.position %>  </h6>
-                          <h6 class="text-center text-md-left"> <%= job.firm.name %>  </h6>
-                          <h6 class="text-center text-md-left"> <%= job.location %> - <%= job.classifications %> </h6>  
-                          <h6 class="text-center text-md-left"> Deadline: <%= job.deadline %> </h6>
+                          <h1 class="text-center text-md-left"> <%= job.firm.name %></h1>
+                          <h5 class="text-center text-md-left"> <%= job.title %>  </h5>
+                          <h5 class="text-center text-md-left"> <%= job.location %> - <b><%= job.classifications %></b></h5>  
+                          <h5 class="text-center text-md-left"> Deadline: <%= job.deadline %> 11:59 PM</h5>
                       </div>
                 </div>
 
