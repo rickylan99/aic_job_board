@@ -7,7 +7,7 @@ class AccessSubmissionMailer < ApplicationMailer
                           }
   def submission_new(submission)
     @submission = submission
-    if ENV['RAILS_ENV'] ||= 'test'
+    if ENV['RAILS_ENV'] == 'test'
       mail to: 'test@gmail.com', subject: 'New AIC Access Request Recieved'
     else
       mail to: ENV['ADMIN_ADDRESS'], subject: 'New AIC Access Request Recieved'
