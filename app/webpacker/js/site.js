@@ -26,3 +26,12 @@ $(document).on('turbolinks:load', function() {
     });
     
 });
+
+$("input[type='file']").on("change", function () {
+  fname = this.files[0].name;
+  fextension = fname.substring(fname.lastIndexOf('.')+1);
+  if(this.files[0].size > 5000000 || fextension != "pdf") {
+    alert("Resume must be a PDF and less than 5MB");
+    $(this).val('');
+  }
+ });
