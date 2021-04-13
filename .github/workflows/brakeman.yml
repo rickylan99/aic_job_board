@@ -92,4 +92,4 @@ jobs:
         PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
         RAILS_ENV: test
         CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
-      run: bundle exec brakeman
+      run: bundle exec brakeman --except SendFile,FileAccess
