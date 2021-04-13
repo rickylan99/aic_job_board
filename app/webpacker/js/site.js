@@ -36,3 +36,50 @@ $("#file_upload_button").change(function () {
   }
  });
 
+ $(document).ready(function() {
+
+  $('#first_name_edit_pencil').click(function() {
+    $('#first_name_edit_submit').show();
+    $( "#first_name_edit_box" ).prop( "disabled", false );
+  });
+
+  $('#last_name_edit_pencil').click(function() {
+    $('#last_name_edit_submit').show();
+    $( "#last_name_edit_box" ).prop( "disabled", false );
+  });
+
+  $('#email_edit_pencil').click(function() {
+    $('#email_edit_submit').show();
+    $( "#email_edit_box" ).prop( "disabled", false );
+  });
+
+  $('#password_edit_pencil').click(function() {
+    $('#password_edit_submit').show();
+    $('#edit_password_confirmation_box').show()
+    $('#password_confirmation_label').show()
+    $( "#edit_password_box" ).prop( "disabled", false );
+  });
+
+  $('#password_edit_submit').on('click', function () {
+    if ($('#edit_password_box').val() != $('#edit_password_confirmation_box').val()) {
+      $('#edit_password_box').val('');
+      $('#edit_password_confirmation_box').val('');
+      alert('Password and Confirmation must match!');
+    }
+  });
+
+  $("#classification_edit").on('change', function() {
+    $('#classification_edit_submit').show();
+  });
+
+  $('#major_edit_pencil').click(function() {
+    $('#major_edit_submit').show();
+    $( "#major_edit_box" ).prop( "disabled", false );
+  });
+
+  $("#pref_edit").on('change', function() {
+    $('#pref_edit_submit').show();
+  });
+
+});
+
