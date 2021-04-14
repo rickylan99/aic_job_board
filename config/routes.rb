@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   end
   
   #TODO: Figure out the routings for the document endpoints
-  delete 'documents/:id', to: 'documents#destroy', as: :documents_delete
+  delete 'documents/:id', to: 'documents#destroy', as: :document_destroy
+
   resources :documents
 
   #TODO: Figure out what to do with these role routes, I do not think are necessary just seed DB
