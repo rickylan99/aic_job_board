@@ -4,16 +4,17 @@ class AdminsController < ApplicationController
   before_action :authorize, :admin_only
 
   def index
-    @prefs = []
-    @prefs << ['Investment Banking', User.count(&:investment_banking?)]
-    @prefs << ['Private Equity', User.count(&:private_equity?)]
-    @prefs << ['Venture Capital', User.count(&:venture_capital?)]
-    @prefs << ['Real Estate', User.count(&:real_estate?)]
   end
 
   def users_panel
     @user = User.all
     @access_submission = AccessSubmission.all
+
+    @prefs = []
+    @prefs << ['Investment Banking', User.count(&:investment_banking?)]
+    @prefs << ['Private Equity', User.count(&:private_equity?)]
+    @prefs << ['Venture Capital', User.count(&:venture_capital?)]
+    @prefs << ['Real Estate', User.count(&:real_estate?)]
   end
 
   def jobs_panel

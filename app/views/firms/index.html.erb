@@ -6,13 +6,11 @@
     <div class="container">
       <div class="row justify-content-md-left align-items-left">
         <% @firms.each_with_index do |firm, index| %>
-          <div class="col-sm-6 col-lg-6 py-2">
+          <div class="col-sm-6 col-lg-3 py-2">
             <div class="card h-100"> 
               <div class="embed-responsive embed-responsive-4by3">
                 <% if not firm.logo.nil?%>
                   <%= image_tag serve_logo_path(firm.logo), class: "w-0 card-img-top embed-responsive-item", alt: "#{firm.name} Logo"%>
-                <% else %>
-                  <%= image_tag "grey-box.jpg", class: "card-img-top embed-responsive-item", alt: "#{firm.name} Logo"%>
                 <% end %>
               </div>
               
@@ -28,7 +26,7 @@
                   <br/>
 
                   <% if current_user %>
-                    <a href=<%= jobs_firm_path(firm) %>  class="btn d-block w-100 d-sm-inline-block btn-light">Jobs</a>
+                    <a href=<%= jobs_firm_path(firm) %>  class="btn d-block w-100 d-sm-inline-block btn-light">Internships</a>
                   <% end %>
 
                 </div>
