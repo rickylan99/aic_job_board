@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # Load CLOUDINARY_URL
-gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'dotenv-rails'
 # Cloudinary for document and image storage
 gem 'carrierwave'
 gem 'cloudinary'

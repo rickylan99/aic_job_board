@@ -6,6 +6,11 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+case ENV['RAILS_ENV'] when "test","development" then
+  require 'dotenv'
+  Dotenv.load('cloudinary.env', 'gmail.env')
+end
+
 module AicJobBoard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
