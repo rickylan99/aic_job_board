@@ -6,32 +6,23 @@ class ExportController < ApplicationController
   require 'zip'
   require 'combine_pdf'
 
+  def download_export
+    send_file Export.find_by(user_id: current_user.id).file_location
+  end
+
   def export_users
-    dir_name = "tmp/export/#{Time.now.to_i}_users"
-    FileUtils.mkdir_p(dir_name) unless File.directory?(dir_name)
-
-    index = 1
-    User.all.each do |user|
-      unless user.documents.empty?
-        doc = user.documents[0]
-        Dir.chdir(dir_name) do
-          File.open("#{user.first_name}_#{user.last_name}_Resume_#{index}.pdf", 'wb') do |file|
-            url = Cloudinary::Utils.private_download_url doc.public_id, :pdf, attachment: false
-            file.write open(url).read
-          end
-        end
-      end
-      index += 1
+    if not Export.exists?(user_id: current_user.id)
+      @export = Export.create(user_id: current_user.id)
+    else
+      @export = Export.find_by(user_id: current_user.id)
     end
+    @export.assign_attributes(total_actions: User.all.count, progress: 0, file_location: "")
+    @export.save
 
-    @zipfile_name = "#{dir_name}/User Export - #{Time.zone.now.strftime('%B %d, %Y')}.zip"
-    Zip::File.open(@zipfile_name, Zip::File::CREATE) do |zipfile|
-      Dir.foreach(dir_name) do |filename|
-        zipfile.add(filename, File.join(dir_name, filename))
-      end
-    end
+    gon.watch.export_progress = @export.progress
+    gon.total_actions = @export.total_actions
 
-    send_file @zipfile_name
+    ExportUsersJob.perform_now current_user.id
   end
 
   def export_job

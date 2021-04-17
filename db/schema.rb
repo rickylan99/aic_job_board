@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_232904) do
     t.integer "total_actions"
     t.integer "progress"
     t.integer "user_id"
+    t.string "file_location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

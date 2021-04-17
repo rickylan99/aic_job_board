@@ -4,6 +4,7 @@ class CreateExports < ActiveRecord::Migration[6.1]
       t.integer :total_actions
       t.integer :progress
       t.integer :user_id
+      t.string :file_location
 
       t.timestamps
     end
