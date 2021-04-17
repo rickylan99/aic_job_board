@@ -81,5 +81,18 @@ $("#file_upload_button").change(function () {
     $('#pref_edit_submit').show();
   });
 
+
 });
+
+$(document).ready(function() {
+  if ($("#generating-spinner").length > 0){
+    var total_time = parseInt($("#total-time").text());
+
+    setTimeout(function() {
+      $('#generating-spinner').hide();
+      $('#download-export-btn').show();
+    }, (total_time));
+  }
+});
+    
 
