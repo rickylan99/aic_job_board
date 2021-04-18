@@ -85,13 +85,22 @@ $("#file_upload_button").change(function () {
 });
 
 $(document).ready(function() {
-  if ($("#generating-spinner").length > 0){
+  if ($(".progress").length > 0){
     var total_time = parseInt($("#total-time").text());
 
-    setTimeout(function() {
-      $('#generating-spinner').hide();
-      $('#download-export-btn').show();
-    }, (total_time));
+    var i = 0;
+
+    var counterBack = setInterval(function(){
+      i++;
+      if (i <= total_time){
+        $('.progress-bar').css('width', Math.ceil((i / total_time)*100) + '%');
+      } else {
+        $('#download-export-btn').show();
+        clearInterval(counterBack);
+      }
+      
+    }, 1750);
+
   }
 });
     

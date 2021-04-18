@@ -1,6 +1,6 @@
 
 
-<div id="total-time" class="hidden"> <%=@export.total_actions * 1000 %> </div>
+<div id="total-time" class="hidden"> <%= @export.total_actions %> </div>
 
 <div class="container h-75">
   <center><h1>Exporting Users</h1></center>
@@ -8,10 +8,10 @@
       <div class="col-md-8">
 
       <center>
-      <div id="generating-spinner">
-      <div class="spinner-border" role="status" >
-        <span class="sr-only">Generating Report...</span>
-      </div>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+          <span class="sr-only"></span>
+        </div>
       </div>
       </center>
 
