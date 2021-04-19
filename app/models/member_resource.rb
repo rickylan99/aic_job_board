@@ -1,0 +1,2 @@
+class MemberResource < ApplicationRecord
+end

@@ -3,5 +3,7 @@
 class StaticPageController < ApplicationController
   def about; end
 
-  def resources; end
+  def resources
+    @resources = MemberResource.all
+  end
 end

@@ -35,4 +35,25 @@ class AdminsController < ApplicationController
     @job = Job.find(params[:id])
     @questions = @job.job_questions
   end
+
+  def member_resources_panel
+    @stuff = MemberResource.all
+
+    @resource = MemberResource.new
+
+  end
+
+  def update_member_resource
+    @resource = MemberResource.find(params[:id])
+
+    @resource.update(resource_params)
+
+    redirect_to member_resources_panel_path
+  end
+
+  private 
+  
+  def resource_params
+    params.require(:member_resource).permit(:title, :video_url)
+  end
 end

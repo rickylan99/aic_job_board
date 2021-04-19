@@ -16,8 +16,8 @@
           <div class="card">
             <div class="card-body">
                 <h5><%= index + 1%></h5>
-                <h5 class="card-title">First Name:<%= job_app.user.first_name %> </h5>
-                <h5 class="card-title">Last Name:<%= job_app.user.last_name %> </h5>
+                <h5 class="card-title">First Name: <%= job_app.user.first_name %> </h5>
+                <h5 class="card-title">Last Name: <%= job_app.user.last_name %> </h5>
                 <h6 class="card-title">Answers:</h6>
                 <% job_app.job_application_answers.each do |answer| %>
                   <p class="card-text"> <%= answer.job_question.question%>: <%= answer.answer%></p>

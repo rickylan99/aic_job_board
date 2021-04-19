@@ -2,10 +2,10 @@
 <br/>
 <br/>
 <div class="col d-flex justify-content-center">
-	<div class="card">
+	<div class="card col-sm-6">
 		<div class="card-body">
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-3">
           <% if AccessSubmission.all.length() > 0 %>
           <div><sup><span class="badge badge-pill count"><%=AccessSubmission.all.length()%></sup></div>
               <a href=<%= users_panel_path %> class="btn btn-outline-dark"> Users </a>
@@ -13,11 +13,14 @@
 					    <a href=<%= users_panel_path %> class="btn btn-outline-dark">Users</a>
           <% end %>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-3">
 					<a href=<%= firms_panel_path %> class="btn btn-outline-dark">Firms</a>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-3">
 					<a href=<%= jobs_panel_path %> class="btn btn-outline-dark">Jobs</a>
+				</div>
+				<div class="col-sm-3">
+					<a href=<%= member_resources_panel_path %> class="btn btn-outline-dark">Member Resouces</a>
 				</div>
 			</div>
 		</div>
