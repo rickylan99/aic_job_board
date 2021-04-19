@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       # If user fails model validation - probably a bad password or duplicate email:
       flash[:alert] = 'Failed to create User'
     end
-    redirect_to admins_index_path
+    redirect_to users_panel_path
   end
 
   def show
