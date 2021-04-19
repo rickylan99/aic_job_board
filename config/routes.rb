@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'static_page/help_user'
   get 'static_page/help_firm'
   get 'static_page/help_job'
+  get 'static_page/download_template' => 'static_page#download', as: :download_template
+
   resources :jobs do 
     resources :job_applications
   end
