@@ -17,14 +17,14 @@ if Role.count == 0
 end
 
 if User.count == 0
-    admin = User.create(email: "admin@gmail.com", first_name: "AdminFirst", last_name: "AdminLast", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
+    admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
 end
 
 if MemberResource.count == 0 
-    MemberResource.create(title: "Title 1", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
-    MemberResource.create(title: "Title 2", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
-    MemberResource.create(title: "Title 3", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
-    MemberResource.create(title: "Title 4", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
+    MemberResource.create(title: "How to Use AIC Access", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
+    MemberResource.create(title: "Networking for an Internship", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
+    MemberResource.create(title: "Cold Emailing & Calling", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
+    MemberResource.create(title: "Building Your Resume", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
 end
 
 

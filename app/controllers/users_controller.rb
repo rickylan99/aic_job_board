@@ -28,7 +28,10 @@ class UsersController < ApplicationController
     real_estate = access_submission.real_estate
     role_id = Role.find_by(roletype: 'Student').id
 
-    @user = User.create(password: 'password', password_confirmation: 'password', email: email,
+    charset = Array('A'..'Z') + Array('a'..'z')
+    passwd = Array.new(15) { charset.sample }.join
+
+    @user = User.create(password: passwd, password_confirmation: passwd, email: email,
                         first_name: first_name, last_name: last_name,
                         classification: classification, major: major,
                         phone_number: phone_number, investment_banking: investment_banking,

@@ -34,6 +34,10 @@ $("#file_upload_button").change(function () {
     alert("Resume must be a PDF and less than 5MB");
     $(this).val('');
   }
+  else{
+    $("#resume_upload_submit").show();
+  }
+  
  });
 
  $(document).ready(function() {
@@ -75,6 +79,10 @@ $("#file_upload_button").change(function () {
   $('#major_edit_pencil').click(function() {
     $('#major_edit_submit').show();
     $( "#major_edit_box" ).prop( "disabled", false );
+  });
+
+  $("#pref_edit").on('change', function() {
+    $('#pref_edit_submit').show();
   });
 
   $("#pref_edit").on('change', function() {
