@@ -25,8 +25,6 @@ if MemberResource.count == 0
     MemberResource.create(title: "Title 2", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
     MemberResource.create(title: "Title 3", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
     MemberResource.create(title: "Title 4", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
-    MemberResource.create(title: "Paragraph title", video_url: "")
-    MemberResource.create(title: "Paragraph content", video_url: "")
 end
 
 
