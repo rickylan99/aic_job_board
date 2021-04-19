@@ -81,5 +81,27 @@ $("#file_upload_button").change(function () {
     $('#pref_edit_submit').show();
   });
 
+
 });
+
+$(document).ready(function() {
+  if ($(".progress").length > 0){
+    var total_time = parseInt($("#total-time").text());
+
+    var i = 0;
+
+    var counterBack = setInterval(function(){
+      i++;
+      if (i <= total_time){
+        $('.progress-bar').css('width', Math.ceil((i / total_time)*100) + '%');
+      } else {
+        $('#download-export-btn').show();
+        clearInterval(counterBack);
+      }
+      
+    }, 1750);
+
+  }
+});
+    
 

@@ -60,6 +60,8 @@ Rails.application.routes.draw do
 	get 'export/job/:id' => 'export#export_job', as: :export_job
 
   get 'export/users' => 'export#export_users', as: :export_users
+  
+  get 'export/download' => 'export#download_export', as: :download_export
   	
   # Sign up page with form:
 	get 'users/new' => 'users#new', as: :new_user

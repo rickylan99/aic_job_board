@@ -20,7 +20,7 @@ AllCops:
     - 'Gemfile.lock'
     - 'app/helpers/*'
     - 'spec/rails_helper.rb'
-  TargetRubyVersion: 2.7.2
+  TargetRubyVersion: 2.7.3
 
 Metrics/LineLength:
   Max: 100
