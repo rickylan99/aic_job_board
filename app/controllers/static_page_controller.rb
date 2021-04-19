@@ -6,4 +6,9 @@ class StaticPageController < ApplicationController
   def resources
     @resources = MemberResource.all
   end
+
+  def download
+    send_file(Rails.root.join('app' , 'assets', 'images', 'AIC_Resume_Template.docx'))
+  end
+
 end

@@ -16,26 +16,27 @@
 
       <% if @jobs.count == 0 %>
       <center>
-        <h1><b> NONE </b></h1>
+        <h1><b> No jobs listed. Check back later. </b></h1>
       </center> 
       <% end %>
 
       <% @jobs.each do |job| %>
         <div class="row justify-content-center">
-          <div class="col-md-10">
+        <div class="col-md-10">
             <div class="filter-result">
-              <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
-                <div class="img" style="background-image: url('<%= serve_logo_path(job.firm.logo) %>')"></div>
-                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+              <div class="row job-box d-md-flex align-items-center justify-content-between mb-30">
+                <div class="col-4 img" style="background-image: url('<%= serve_logo_path(job.firm.logo) %>')"></div>
+                <div class="col-5 job-left my-4 d-md-flex align-items-center flex-wrap">
                       <div class="job-content">
                           <h1 class="text-center text-md-left"> <%= job.firm.name %></h1>
                           <h5 class="text-center text-md-left"> <%= job.title %>  </h5>
-                          <h5 class="text-center text-md-left"> <%= job.location %> - <b><%= job.classifications %></b></h5>  
+                          <h5 class="text-center text-md-left"> <%= job.location %></h5>
+                          <h5 class="text-center text-md-left"> Classifications: <%= job.classifications %> </h5>   
                           <h5 class="text-center text-md-left"> Deadline: <%= job.deadline %> 11:59 PM</h5>
                       </div>
                 </div>
 
-                <div class="job-right my-4 flex-shrink-0">
+                <div class="col-3 job-right my-4 flex-shrink-0">
                     <a href="<%= job_path(job) %>"  class="btn d-block w-100 d-sm-inline-block btn-light">Info</a>
                     <% if current_user.applied?(job.id) %>
                       <a href="<%= new_job_job_application_path(job)%>"  class="btn d-block w-100 d-sm-inline-block btn-light disabled">Already Applied</a>
@@ -45,8 +46,8 @@
                 </div>
               </div>
             </div>   
-          </div>
         </div>
+      </div>
       <% end %>
     </div>
   </section>
