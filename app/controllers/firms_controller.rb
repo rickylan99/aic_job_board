@@ -47,6 +47,16 @@ class FirmsController < ApplicationController
   def update
     @firm = Firm.find(params[:id])
 
+    if params[:logos][0]
+      file = params[:logos][0].read
+      filename  = params[:logos][0].original_filename
+      mime_type = params[:logos][0].content_type
+
+      @firm.logo ||= @firm.logo
+      @firm.logo.update(file: file, filename: filename, mime_type: mime_type)
+      @firm.save
+    end
+
     @firm.update(firm_params)
 
     redirect_to firm_view_path(@firm)

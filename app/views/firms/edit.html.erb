@@ -19,6 +19,14 @@
             <label for="firm_description">Description:</label>
             <%= form.text_area :description, placeholder: "Enter a description of the firm", class: "form-control" %>
           </div>
+          
+          <%= form.fields_for :logo do |ff| %>
+          <div class="form-group">
+            <label for="firm_logo">Firm Logo: </label>
+            <%= ff.file_field :logo, multiple: false, name: "logos[]",id: "logo_upload_button", accept: ".png,.jpg,.jpeg", required: true %>
+          </div>
+          <% end %>
+          
           <div class="form-group">
             <label for="firm_location">Location:</label>
             <%= form.text_field :location, placeholder: "Enter the location of the firm", class: "form-control" %>
