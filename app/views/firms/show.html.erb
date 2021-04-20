@@ -23,10 +23,10 @@
 					<p class="card-text"> <%= @firm.description %> </p>
 					<div class="row">
 						<div class="col-sm-2">
-							<a href=<%= @firm.website %> class="btn btn-outline-dark">Website</a>
+							<a href=<%= @firm.website %> class="btn btn-outline-dark" target="_blank">Website</a>
 						</div>
 						<div class="col-sm-2">
-							<a href=<%= @firm.linkedin %> class="btn btn-outline-dark">LinkedIn</a>
+							<a href=<%= @firm.linkedin %> class="btn btn-outline-dark" target="_blank">LinkedIn</a>
 						</div>
 					</div>
 
@@ -41,7 +41,7 @@
 					<% end%>
 
 					<% if not @firm.contact_linkedin == "" %>
-						<a href=<%= @firm.contact_linkedin %> class="btn btn-outline-dark">Contact LinkedIn</a>
+						<a href=<%= @firm.contact_linkedin %> class="btn btn-outline-dark" target="_blank">Contact LinkedIn</a>
 					<% end %>
 
             			<br/>

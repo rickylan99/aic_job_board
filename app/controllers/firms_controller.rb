@@ -47,7 +47,7 @@ class FirmsController < ApplicationController
   def update
     @firm = Firm.find(params[:id])
 
-    if params[:logos][0]
+    if params[:logos]
       file = params[:logos][0].read
       filename  = params[:logos][0].original_filename
       mime_type = params[:logos][0].content_type
