@@ -23,26 +23,35 @@
     <h1 style="font-size:40px"> Videos </h1>
     <div class="row text-center">
         <div class="col">
+          <% if @resources.find(1).video_url.length > 5 %>
           <h3> <%= @resources.find(1).title %> </h3> 
           <iframe width="400" height="300" src="<%= @resources.find(1).video_url %>"
           allowfullscreen></iframe> 
+          <% end %>
+          
         </div>      
         <div class="col">
+        <% if @resources.find(2).video_url.length > 5 %>
           <h3> <%= @resources.find(2).title %> </h3> 
           <iframe width="400" height="300" src="<%= @resources.find(2).video_url %>"
           allowfullscreen></iframe>
+        <% end %>
         </div>
     </div>
     <div class = "row text-center">
         <div class="col"> 
+          <% if @resources.find(3).video_url.length > 5 %>
           <h3> <%= @resources.find(3).title %> </h3> 
           <iframe width="400" height="300" src="<%= @resources.find(3).video_url %>"
           allowfullscreen></iframe>
+          <% end %>
         </div>
         <div class="col">
+          <% if @resources.find(4).video_url.length > 5 %>
           <h3> <%= @resources.find(4).title %> </h3> 
           <iframe width="400" height="300" src="<%= @resources.find(4).video_url %>"
           allowfullscreen></iframe>
+          <% end %>
         </div>
     </div>
 </div>

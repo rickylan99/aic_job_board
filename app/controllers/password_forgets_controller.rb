@@ -5,10 +5,15 @@ class PasswordForgetsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    user&.send_password_forget
-    flash[:notice] =
-      'E-mail sent with password reset instructions. Please check your Spam folder as well'
-    redirect_to root_path
+    if user.present?
+      user&.send_password_forget
+      flash[:notice] = 'Email sent with password reset instructions. Please check your Spam folder as well'
+      redirect_to root_path
+    else
+      flash[:alert] = 'Check Email is valid and try again.'
+      redirect_to new_password_forget_path
+    end
+    
   end
 
   def edit
