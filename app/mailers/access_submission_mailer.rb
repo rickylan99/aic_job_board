@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccessSubmissionMailer < ApplicationMailer
-  default from: 'zaalb599@gmail.com'
+  default from: ENV['GMAIL_ADDRESS']
   default 'Message-ID' => lambda {
                             "<#{SecureRandom.uuid}@{ActionMailer::Base.smtp_settings[:domain]}>"
                           }

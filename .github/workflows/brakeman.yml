@@ -31,10 +31,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Set up Ruby 2.7.2
+    - name: Set up Ruby 2.7.3
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.7.2
+        ruby-version: 2.7.3
       
     - name: Set up Node
       uses: actions/setup-node@v1
@@ -92,4 +92,4 @@ jobs:
         PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
         RAILS_ENV: test
         CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
-      run: bundle exec brakeman
+      run: bundle exec brakeman --except SendFile,FileAccess

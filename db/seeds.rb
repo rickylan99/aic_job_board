@@ -17,11 +17,15 @@ if Role.count == 0
 end
 
 if User.count == 0
-    user = User.create(email: "test@gmail.com", first_name: "First", last_name: "Last", password: "test", role_id: Role.find_by_roletype("Student").id)
-    user = User.create(email: "test1@gmail.com", first_name: "First1", last_name: "Last1", password: "test", role_id: Role.find_by_roletype("Student").id)
-    user = User.create(email: "test2@gmail.com", first_name: "First2", last_name: "Last2", password: "test", role_id: Role.find_by_roletype("Student").id)
-    user = User.create(email: "test3@gmail.com", first_name: "First3", last_name: "Last3", password: "test", role_id: Role.find_by_roletype("Student").id)
-    admin = User.create(email: "admin@gmail.com", first_name: "AdminFirst", last_name: "AdminLast", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
+    admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
+    user = User.create(email: "test@gmail.com", first_name: "Test", last_name: "User", password: "test", role_id: Role.find_by_roletype("Student").id)
+end
+
+if MemberResource.count == 0 
+    MemberResource.create(title: "How to Use AIC Access", video_url: "https://www.youtube.com/embed/l9N4xtQg2t4" )
+    MemberResource.create(title: "Networking for an Internship", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
+    MemberResource.create(title: "Cold Emailing & Calling", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
+    MemberResource.create(title: "Building Your Resume", video_url: "https://www.youtube.com/embed/adCtqkzE_LI")
 end
 
 

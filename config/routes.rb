@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'static_page/help_user'
   get 'static_page/help_firm'
   get 'static_page/help_job'
+  get 'static_page/download_template' => 'static_page#download', as: :download_template
+
   resources :jobs do 
     resources :job_applications
   end
@@ -44,6 +46,8 @@ Rails.application.routes.draw do
   get 'admins/users_panel', as: :users_panel
   get 'admins/jobs_panel', as: :jobs_panel
   get 'admins/firms_panel', as: :firms_panel
+  get 'admins/member_resources_panel', as: :member_resources_panel
+  post 'admins/update_resource/:id' => 'admins#update_member_resource', as: :update_resources
   get 'admins/firm_view/:id' => 'admins#firm_view', as: :firm_view
   get 'admins/job_view/:id' => 'admins#job_view', as: :job_view
 
@@ -60,6 +64,8 @@ Rails.application.routes.draw do
 	get 'export/job/:id' => 'export#export_job', as: :export_job
 
   get 'export/users' => 'export#export_users', as: :export_users
+  
+  get 'export/download' => 'export#download_export', as: :download_export
   	
   # Sign up page with form:
 	get 'users/new' => 'users#new', as: :new_user

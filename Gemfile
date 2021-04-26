@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # Load CLOUDINARY_URL
-gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'dotenv-rails'
 # Cloudinary for document and image storage
 gem 'carrierwave'
 gem 'cloudinary'
@@ -35,6 +35,8 @@ gem 'rubyzip'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'combine_pdf'
+
+gem 'sucker_punch'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

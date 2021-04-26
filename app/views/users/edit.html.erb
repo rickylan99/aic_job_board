@@ -32,21 +32,33 @@
       <div class="card-body">
         <div class="row">
           <div class="col" style= "width: 30%">
+
+            <div class="form-group">
+              <%= form_for @user, url: edit_user_path do |f| %>
+              <%= f.label :first_name, "First Name" %>
+              <img src=<%=image_path("edit_pencil.png")%> id="first_name_edit_pencil" style="cursor:pointer;">
+              <%= f.text_field :first_name, autofocus: true, class: "form-control", type: "given-name", autocomplete: "given-name", id: "first_name_edit_box", disabled: true %>
+              <%= f.submit "Update First Name", id: "first_name_edit_submit", style:"display:none; margin-top: 10px;"%>
+              <% end %>      
+            </div>
+
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :email %>
-              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png")  %>
-              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email" %>
+              <img src=<%=image_path("edit_pencil.png")%> id="email_edit_pencil" style="cursor:pointer;">
+              <%= f.text_field :email, autofocus: true, class: "form-control", type: "email", autocomplete: "email", id: "email_edit_box", disabled: true %>
+              <%= f.submit "Update Email", id: "email_edit_submit", style:"display:none; margin-top: 10px;"%>
               <% end %>      
             </div>
 
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :password %> 
-              <%= f.password_field :password, class: "form-control", id: "password", type: "password", autocomplete: "new-password", placeholder: "••••••••"  %>
-              <%= f.label :password_confirmation %> 
-              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
-              <%= f.password_field :password_confirmation, class: "form-control", id: "password-confirmation", type: "password", autocomplete: "new-password", placeholder: "••••••••" %>
+              <img src=<%=image_path("edit_pencil.png")%> id="password_edit_pencil" style="cursor:pointer;">
+              <%= f.password_field :password, class: "form-control", id: "edit_password_box", type: "password", autocomplete: "new-password", placeholder: "••••••••", disabled: true%>
+              <%= f.label :password_confirmation, id:"password_confirmation_label", style:"display:none;"%> 
+              <%= f.password_field :password_confirmation, class: "form-control", id: "edit_password_confirmation_box", type: "password", autocomplete: "new-password", placeholder: "••••••••", style: "display:none;"%>
+              <%= f.submit "Update Password", id: "password_edit_submit", style:"display:none; margin-top: 10px;"%>
               <% end %>   
             </div>
 
@@ -70,7 +82,7 @@
                 <% end %>
 
                 <div class="form-buttons">
-                <%= f.submit("Upload Resume") %>
+                <%= f.submit "Upload Resume", style: "margin-top: 5px; display:none;", id: "resume_upload_submit" %>
                 </div>
               <% end %>
               <% end %>   
@@ -81,43 +93,61 @@
             </div>
             
           </div>
+
           <div class="col" style= "width: 30%">
+
+
+            <div class="form-group">
+              <%= form_for @user, url: edit_user_path do |f| %>
+              <%= f.label :last_name, "Last Name" %>
+              <img src=<%=image_path("edit_pencil.png")%> id="last_name_edit_pencil" style="cursor:pointer;">
+              <%= f.text_field :last_name, autofocus: true, class: "form-control", type: "family-name", autocomplete: "family-name", id: "last_name_edit_box", disabled: true %>
+              <%= f.submit "Update Last Name", id: "last_name_edit_submit", style:"display:none; margin-top: 10px;"%>
+              <% end %>      
+            </div>
+
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
               <%= f.label :classification %>
-              <%= f.select :classification, ["Freshman","Sophmore","Junior","Sophomore UG - MSF","Junior UG - MSF","Senior UG - MSF"], class: "form-control", autocomplete: "classification" %>   
+              <div id="classification_edit">
+                <%= f.select :classification, options_for_select(["Freshman","Sophmore","Junior","Sophomore UG - MSF","Junior UG - MSF","Senior UG - MSF"], @user.classification), class: "form-control"%>
+              </div>
+              <%= f.submit "Update Classification", id: "classification_edit_submit", style: "display:none; margin-top: 10px;"%>   
               <% end %>  
             </div>
 
             <div class="form-group">
               <%= form_for @user, url: edit_user_path do |f| %>
-              <%= f.label :major %>
-              <%= f.submit "Update User", :type => :image, :src => image_path("edit_pencil.png") %>
-              <%= f.text_field :major, autofocus: true, class: "form-control", autocomplete: "major" %>
+              <%= f.label :major, style: "margin-top: 10px;" %>
+              <img src=<%=image_path("edit_pencil.png")%> id="major_edit_pencil" style="cursor:pointer;">
+              <%= f.text_field :major, autofocus: true, class: "form-control", autocomplete: "major", style: "margin-top: 1px;",id: "major_edit_box", disabled: true %>
+              <%= f.submit "Update Major", id: "major_edit_submit", style:"display:none; margin-top: 10px;"%>
               <% end %>      
             </div>
 
             <div>
-              Select your industry preference
+              Update your industry preference
             </div>
             <%= form_for @user, url: edit_user_path do |f| %>
+              <div id="pref_edit">
               <div>
-                <%= f.check_box :investment_banking %>
+                <%= f.check_box :investment_banking, checked: @user.investment_banking %>
                 Investment Banking
               </div>
               <div>
-                <%= f.check_box :private_equity %>
+                <%= f.check_box :private_equity, checked: @user.private_equity %>
                 Private Equity
               </div>
               <div>
-                <%= f.check_box :venture_capital %>
+                <%= f.check_box :venture_capital, checked: @user.venture_capital %>
                 Venture Capital
               </div>
               <div>
-                <%= f.check_box :real_estate %>
+                <%= f.check_box :real_estate, checked: @user.real_estate %>
                 Real Estate
               </div>
-              <%= f.submit "Update Industry Preference" %>
+              </div>
+              <%= f.submit "Update Industry Preference", id: "pref_edit_submit", style:"display:none; margin-top: 10px;" %>
             <% end %>
           </div>
         </div>

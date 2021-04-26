@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'job_list', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'job_list', media: 'all'%>
 
 <div class="col-md-1">
   <a href=<%= admins_index_path %> class="btn btn-outline-primary btn-block">Back</a>
@@ -35,9 +35,9 @@
     </div>
   </div>
 </div>
-<div class ="container pb-5 ">
+<div class ="container pb-5 pt-5">
   <div class="row h-100 justify-content-md-center align-items-center">
-    <h1>Current Student Information</h1>
+    <h1>Current User Information</h1>
   </div>
 </div>
 <div class="col d-flex justify-content-center">
@@ -79,7 +79,29 @@
 
 <center>
   <div class="col-md-3 bottom-buffer">
-    <a href=<%= export_users_path %> class="btn btn-aggie btn-block">Export All Student Resumes</a>
+    <a href=<%= export_users_path %> class="btn btn-aggie btn-block" target="_blank">Export All Student Resumes</a>
   </div>
   <br/>
 </center>
+
+<div class="col d-flex justify-content-center pt-2">
+  <div class="col-md-2">
+    <div class="card">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Industry Preferences</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @prefs.each do |pref| %>
+            <tr>
+              <td><%= pref[0] %></td>
+              <td><%= pref[1] %></td>       
+            </tr>
+		<% end %>
+      </table>
+    </div>
+  </div>
+</div>
