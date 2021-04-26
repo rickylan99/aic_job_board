@@ -72,7 +72,7 @@ class FirmsController < ApplicationController
   def jobs
     @firm = Firm.find(params[:id])
 
-    @jobs = @firm.jobs
+    @jobs = @firm.jobs.where(expired: false)
   end
 
   def new_job
