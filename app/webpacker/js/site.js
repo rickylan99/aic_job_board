@@ -107,7 +107,7 @@ $(document).ready(function() {
         clearInterval(counterBack);
       }
       
-    }, 1750);
+    }, 1500);
 
   }
 });
