@@ -37,7 +37,7 @@ class FirmsController < ApplicationController
   def show
     @firm = Firm.find(params[:id])
 
-    @jobs = @firm.jobs
+    @jobs = @firm.jobs.where(expired: false)
   end
 
   def edit
