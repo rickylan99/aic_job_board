@@ -27,7 +27,7 @@ RSpec.describe User do
       expect(page).to have_text('Forgot Your Password?')
       fill_in 'email', with: 'test@gmail.com'
       click_on 'Submit'
-      expect(page).to have_text('E-mail sent with password reset instructions. Please check your Spam folder as well')
+      expect(page).to have_text('Email sent with password reset instructions. Please check your Spam folder as well')
     end
   end
 

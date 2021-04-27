@@ -42,7 +42,6 @@ RSpec.describe Job do
       expect(page).to have_text('New Job') # test creating a new job
       click_on 'New Job'
       fill_in 'Job Title', with: 'Apple Engineer'
-      fill_in 'Job Position', with: 'be smart'
       fill_in 'Job Location', with: 'Seattle'
       # fill_in 'Company Name' , with: 'Apple'
       fill_in 'Description', with: 'Apples are great'

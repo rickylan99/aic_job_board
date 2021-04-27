@@ -92,5 +92,6 @@ jobs:
         PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
         RAILS_ENV: test
         CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
-        ADMIN_ADDRESS: test@gmail.com
+        GMAIL_ADDRESS: test@gmail.com
+        ADMIN_ADDRESS: admin@gmail.com
       run: bundle exec rspec
