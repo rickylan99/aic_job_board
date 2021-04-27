@@ -3,8 +3,7 @@
 class AdminsController < ApplicationController
   before_action :authorize, :admin_only
 
-  def index
-  end
+  def index; end
 
   def users_panel
     @user = User.all
@@ -40,7 +39,6 @@ class AdminsController < ApplicationController
     @stuff = MemberResource.all
 
     @resource = MemberResource.new
-
   end
 
   def update_member_resource
@@ -51,8 +49,8 @@ class AdminsController < ApplicationController
     redirect_to member_resources_panel_path
   end
 
-  private 
-  
+  private
+
   def resource_params
     params.require(:member_resource).permit(:title, :video_url)
   end

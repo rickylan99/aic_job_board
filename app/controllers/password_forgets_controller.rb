@@ -13,7 +13,6 @@ class PasswordForgetsController < ApplicationController
       flash[:alert] = 'Check Email is valid and try again.'
       redirect_to new_password_forget_path
     end
-    
   end
 
   def edit

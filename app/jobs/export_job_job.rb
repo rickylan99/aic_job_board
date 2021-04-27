@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExportJobJob
   include SuckerPunch::Job
 
@@ -54,7 +56,6 @@ class ExportJobJob
 
       export = Export.find_by(user_id: user_id)
       export.update(file_location: @zipfile_name)
-
     end
   end
 
@@ -75,5 +76,4 @@ class ExportJobJob
 
     heading + body
   end
-
 end

@@ -29,7 +29,7 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('Current Student Information')
+      expect(page).to have_text('Current User Information')
       within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[2]') do
         click_on 'View Student'
       end
@@ -49,7 +49,7 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('Current Student Information')
+      expect(page).to have_text('Current User Information')
       within(:xpath, '/html/body/div[5]/div/div/table/tbody/tr[2]') do
         click_on 'View Student'
       end
@@ -67,9 +67,9 @@ RSpec.describe User do
       click_on 'Admin Panel'
       expect(page).to have_text('Admin Panel')
       click_on 'Users'
-      expect(page).to have_text('Current Student Information')
+      expect(page).to have_text('Current User Information')
       click_on 'Export All Student Resumes'
-      expect(page).to have_text('Current Student Information')
+      expect(page).to have_text('Current User Information')
     end
   end
 
