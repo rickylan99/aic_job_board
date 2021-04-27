@@ -1,0 +1,9 @@
+Heroku:
+ADMIN_ADDRESS - Address that recieves admin emails
+GMAIL_ADDRESS - Sending gmail address
+GMAIL_PASSWORD - Sending gmail password
+
+CLOUDINARY_URL - Cloudinary API key, found on cloundinary.com
+
+HEROKU_URL - url of heroku app for sending emails (aicaccess.herokuapp.com)
+

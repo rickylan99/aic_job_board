@@ -17,8 +17,7 @@ if Role.count == 0
 end
 
 if User.count == 0
-    admin = User.create(email: "admin@gmail.com", first_name: "Admin", last_name: "Last", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
-    user = User.create(email: "test@gmail.com", first_name: "Test", last_name: "User", password: "test", role_id: Role.find_by_roletype("Student").id)
+    admin = User.create(email: "tamuaic@gmail.com", first_name: "Head", last_name: "Admin", password: "admin", role_id: Role.find_by_roletype("Head Admin").id)
 end
 
 if MemberResource.count == 0 
